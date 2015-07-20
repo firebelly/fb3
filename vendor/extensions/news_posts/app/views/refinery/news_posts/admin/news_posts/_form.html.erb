@@ -24,7 +24,7 @@
 
   <div class="field">
     <%= f.label :user_id, 'Author' -%>
-    <%= f.select :user_id, options_for_select(Refinery::User.order(:username).map { |u| [u.username, u.id] }, @news_post.user_id) %>
+    <%= f.collection_select :user_id, Refinery::User.all, :id, :username %>
   </div>
 
   <div class="field" style="margin-top: 20px">

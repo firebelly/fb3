@@ -1,6 +1,9 @@
 <li class='clearfix record <%= cycle("on", "on-hover") %>' id="<%= dom_id(project) -%>">
   <span class='title'>
     <%= project.title %>
+    <% unless project.subtitle.blank? %>
+      <span class="preview"><%= project.subtitle %></span>
+    <% end %>
 
   </span>
   <span class='actions'>

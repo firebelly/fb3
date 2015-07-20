@@ -14,7 +14,7 @@
 
   <div class='field'>
     <%= f.label :subtitle -%>
-    <%= f.text_field :subtitle -%>
+    <%= f.text_field :subtitle, :class => 'widest' -%>
   </div>
 
   <div class="field" style="margin-top: 20px">
@@ -22,7 +22,7 @@
     <%= f.label :published, 'Published?', :style => 'display: inline' %>
   </div>
 
-  <div class='field'>
+  <div class='field' style="margin-top: 20px">
     <%= render '/refinery/admin/wysiwyg',
                 :f => f,
                 :fields => [:summary, :content],
@@ -36,6 +36,11 @@
                :field => :image_id,
                :image => @project.image,
                :toggle_image_display => false -%>
+  </div>
+
+  <div class="field">
+    <%= f.label :industry, 'Industry' -%>
+    <%= f.collection_select :industry_id, Refinery::Projects::ProjectIndustry.all, :id, :name %>
   </div>
 
   <label>Services:</label>

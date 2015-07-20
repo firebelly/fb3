@@ -1,0 +1,27 @@
+<% content_for :body_content_title do %>
+  <%= @project_industry.name %>
+<% end %>
+
+<% content_for :body do %>
+  <section>
+    <h1>Name</h1>
+    <p>
+      <%=raw @project_industry.name %>
+    </p>
+  </section>
+<% end %>
+
+<% content_for :side_body do %>
+  <aside>
+    <h2><%= t('.other') %></h2>
+    <ul id="project_industries">
+      <% @project_industries.each do |project_industry| %>
+        <li>
+          <%= link_to project_industry.name, refinery.projects_project_industry_path(project_industry) %>
+        </li>
+      <% end %>
+    </ul>
+  </aside>
+<% end %>
+
+<%= render '/refinery/content_page' %>

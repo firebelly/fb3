@@ -1,29 +1,52 @@
 cs:
   refinery:
     plugins:
+      project_industries:
+        title: Project Industries
       projects:
         title: Projects
     projects:
       admin:
+        project_industries:
+          actions:
+            create_new: Přidat Project Industry
+            reorder: "Řadit Project Industries"
+            reorder_done: Konec řazení Project Industries
+          records:
+            title: Project Industries
+            sorry_no_results: Litujeme, ale nebyly nalezny žádné výsledky.
+            no_items_yet: Zatím nebyly vytvořeny žádné Project Industries. Zvolte
+              "Přidat Project Industry" pro přidání prvního project industry.
+          project_industry:
+            view_live_html: Zobrazit náhled project industry<br/><em>(otevře se v
+              novém okně)</em>
+            edit: Upravit project industry
+            delete: Smazat project industry
         projects:
           actions:
             create_new: Přidat Project
-            reorder: Řadit Projects
+            reorder: "Řadit Projects"
             reorder_done: Konec řazení Projects
           records:
             title: Projects
             sorry_no_results: Litujeme, ale nebyly nalezny žádné výsledky.
-            no_items_yet: Zatím nebyly vytvořeny žádné Projects. Zvolte "Přidat Project" pro přidání prvního project.
+            no_items_yet: Zatím nebyly vytvořeny žádné Projects. Zvolte "Přidat Project"
+              pro přidání prvního project.
           project:
             view_live_html: Zobrazit náhled project<br/><em>(otevře se v novém okně)</em>
             edit: Upravit project
             delete: Smazat project
+      project_industries:
+        show:
+          other: Další Project Industries
       projects:
         show:
           other: Další Projects
   activerecord:
     attributes:
-      'refinery/projects/project':
+      refinery/projects/project_industry:
+        name: Name
+      refinery/projects/project:
         title: Title
         subtitle: Subtitle
         summary: Summary

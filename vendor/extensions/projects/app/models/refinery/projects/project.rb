@@ -6,10 +6,10 @@ module Refinery
 
       friendly_id :title, :use => [:slugged]
 
-      validates :title, :presence => true, :uniqueness => true
+      validates :title, :presence => true
 
       belongs_to :image, :class_name => '::Refinery::Image'
-      belongs_to :industry, :class_name => '::Refinery::Projects::Industry'
+      belongs_to :industry, :class_name => '::Refinery::Projects::ProjectIndustry'
 
       acts_as_indexed :fields => [:title, :subtitle, :summary, :content]
       acts_as_taggable_on :services

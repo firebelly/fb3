@@ -1,0 +1,15 @@
+<%= form_for [refinery, :projects_admin, @project_industry] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => @project_industry,
+              :include_object_name => true %>
+
+  <div class='field'>
+    <%= f.label :name -%>
+    <%= f.text_field :name, :class => 'larger widest' -%>
+  </div>
+
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.project_industries.admin.project_industries.project_industry'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @project_industry.name) -%>
+<% end -%>

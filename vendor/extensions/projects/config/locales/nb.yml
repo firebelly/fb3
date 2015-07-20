@@ -1,10 +1,27 @@
 nb:
   refinery:
     plugins:
+      project_industries:
+        title: Project Industries
       projects:
         title: Projects
     projects:
       admin:
+        project_industries:
+          actions:
+            create_new: Lag en ny Project Industry
+            reorder: Endre rekkefølgen på Project Industries
+            reorder_done: Ferdig å endre rekkefølgen Project Industries
+          records:
+            title: Project Industries
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen Project Industries enda. Klikk på "Lag en ny
+              Project Industry" for å legge til din første project industry.
+          project_industry:
+            view_live_html: Vis hvordan denne project industry ser ut offentlig <br/><em>(åpner
+              i et nytt vindu)</em>
+            edit: Rediger denne project industry
+            delete: Fjern denne project industry permanent
         projects:
           actions:
             create_new: Lag en ny Project
@@ -13,17 +30,24 @@ nb:
           records:
             title: Projects
             sorry_no_results: Beklager! Vi fant ikke noen resultater.
-            no_items_yet: Det er ingen Projects enda. Klikk på "Lag en ny Project" for å legge til din første project.
+            no_items_yet: Det er ingen Projects enda. Klikk på "Lag en ny Project"
+              for å legge til din første project.
           project:
-            view_live_html: Vis hvordan denne project ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+            view_live_html: Vis hvordan denne project ser ut offentlig <br/><em>(åpner
+              i et nytt vindu)</em>
             edit: Rediger denne project
             delete: Fjern denne project permanent
+      project_industries:
+        show:
+          other: Andre Project Industries
       projects:
         show:
           other: Andre Projects
   activerecord:
     attributes:
-      'refinery/projects/project':
+      refinery/projects/project_industry:
+        name: Name
+      refinery/projects/project:
         title: Title
         subtitle: Subtitle
         summary: Summary

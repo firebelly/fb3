@@ -1,10 +1,27 @@
 tr:
   refinery:
     plugins:
+      project_industries:
+        title: Project Industries
       projects:
         title: Projects
     projects:
       admin:
+        project_industries:
+          actions:
+            create_new: Yeni Ekle Project Industry
+            reorder: Tekrar sirala Project Industries
+            reorder_done: Tekrar siralama tamamlandiProject Industries
+          records:
+            title: Project Industries
+            sorry_no_results: Uzgunum! Herhangi bir sonuc bulunamadi.
+            no_items_yet: Herhangi bir Project Industries yok henuz.  Tikla "Yeni
+              Ekle Project Industry" eklemek senin ilk project industry.
+          project_industry:
+            view_live_html: Bunu canlu project industry goruntule <br/><em>(yeni bir
+              pencerede acar)</em>
+            edit: Bunu Duzenle project industry
+            delete: Bunu Sil project industry sonsuza dek
         projects:
           actions:
             create_new: Yeni Ekle Project
@@ -13,17 +30,24 @@ tr:
           records:
             title: Projects
             sorry_no_results: Uzgunum! Herhangi bir sonuc bulunamadi.
-            no_items_yet: Herhangi bir Projects yok henuz.  Tikla "Yeni Ekle Project" eklemek senin ilk project.
+            no_items_yet: Herhangi bir Projects yok henuz.  Tikla "Yeni Ekle Project"
+              eklemek senin ilk project.
           project:
-            view_live_html: Bunu canlu project goruntule <br/><em>(yeni bir pencerede acar)</em>
+            view_live_html: Bunu canlu project goruntule <br/><em>(yeni bir pencerede
+              acar)</em>
             edit: Bunu Duzenle project
             delete: Bunu Sil project sonsuza dek
+      project_industries:
+        show:
+          other: Diger Project Industries
       projects:
         show:
           other: Diger Projects
   activerecord:
     attributes:
-      'refinery/projects/project':
+      refinery/projects/project_industry:
+        name: Name
+      refinery/projects/project:
         title: Title
         subtitle: Subtitle
         summary: Summary

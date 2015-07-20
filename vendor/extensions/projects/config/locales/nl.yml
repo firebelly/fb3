@@ -1,10 +1,27 @@
 nl:
   refinery:
     plugins:
+      project_industries:
+        title: Project Industries
       projects:
         title: Projects
     projects:
       admin:
+        project_industries:
+          actions:
+            create_new: Nieuwe Project Industry toevoegen
+            reorder: De volgorde van de Project Industries wijzigen
+            reorder_done: Klaar met het wijzingen van de van de Project Industry-volgorde
+          records:
+            title: Project Industries
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Project Industries. Druk op 'Nieuwe Project
+              Industry toevoegen' om de eerste toe te voegen.
+          project_industry:
+            view_live_html: Deze project industry op de website bekijken <br/><em>(opent
+              in een nieuw venster)</em>
+            edit: Bewerk deze project industry
+            delete: Deze project industry definitief verwijderen
         projects:
           actions:
             create_new: Nieuwe Project toevoegen
@@ -13,17 +30,24 @@ nl:
           records:
             title: Projects
             sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
-            no_items_yet: Er zijn nog geen Projects. Druk op 'Nieuwe Project toevoegen' om de eerste toe te voegen.
+            no_items_yet: Er zijn nog geen Projects. Druk op 'Nieuwe Project toevoegen'
+              om de eerste toe te voegen.
           project:
-            view_live_html: Deze project op de website bekijken <br/><em>(opent in een nieuw venster)</em>
+            view_live_html: Deze project op de website bekijken <br/><em>(opent in
+              een nieuw venster)</em>
             edit: Bewerk deze project
             delete: Deze project definitief verwijderen
+      project_industries:
+        show:
+          other: Andere Project Industries
       projects:
         show:
           other: Andere Projects
   activerecord:
     attributes:
-      'refinery/projects/project':
+      refinery/projects/project_industry:
+        name: Name
+      refinery/projects/project:
         title: Title
         subtitle: Subtitle
         summary: Summary

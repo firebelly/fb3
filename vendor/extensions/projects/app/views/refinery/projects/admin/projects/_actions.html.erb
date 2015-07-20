@@ -17,4 +17,8 @@
                       t('.reorder_done', what: "Projects"), id: 'reorder_action_done', class: 'hidden'%>
   </li>
 <% end %>
+<li>
+  <%= link_to 'Manage Industries', refinery.projects_admin_project_industries_path, :class => "edit_icon" %>
+</li>
+
 </ul>

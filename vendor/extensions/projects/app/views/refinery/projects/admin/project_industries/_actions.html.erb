@@ -1,0 +1,23 @@
+<ul>
+  <% if ::Refinery::Projects::Admin::ProjectIndustriesController.searchable? %>
+    <li>
+      <%= render '/refinery/admin/search', :url => refinery.projects_admin_project_industries_path %>
+    </li>
+  <% end %>
+  <li>
+    <%= action_label :add, refinery.new_projects_admin_project_industry_path, t('.create_new') %>
+  </li>
+<% if !searching? && ::Refinery::Projects::Admin::ProjectIndustriesController.sortable? && ::Refinery::Projects::ProjectIndustry.many? %>
+  <li>
+    <%= action_label :reorder,
+                     refinery.projects_admin_project_industries_path,
+                     t('.reorder', what:  "Project Industries"), id: 'reorder_action'%>
+    <%= action_label :reorder_done,
+                     refinery.projects_admin_project_industries_path,
+                      t('.reorder_done', what: "Project Industries"), id: 'reorder_action_done', class: 'hidden'%>
+  </li>
+<% end %>
+<li>
+  <%= link_to 'Manage Projects', refinery.projects_admin_projects_path, :class => "edit_icon" %>
+</li>
+</ul>

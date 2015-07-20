@@ -54,8 +54,11 @@ gem 'refinerycms-acts-as-indexed', ['~> 2.0', '>= 2.0.0']
 # Add support for Refinery's custom fork of the visual editor WYMeditor.
 gem 'refinerycms-wymeditor', ['~> 1.0', '>= 1.0.6']
 
-gem 'refinerycms-news_posts', path: 'vendor/extensions'
+# Add page images
 gem "refinerycms-page-images", github: "refinery/refinerycms-page-images", branch: "master"
 
-gem 'acts-as-taggable-on', '~> 3.4'
+# Custom extensions
+gem 'refinerycms-news_posts', path: 'vendor/extensions'
 gem 'refinerycms-projects', path: 'vendor/extensions'
+
+gem 'acts-as-taggable-on', '~> 3.4'

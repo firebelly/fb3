@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150720203413) do
+ActiveRecord::Schema.define(version: 20150720211457) do
 
   create_table "refinery_image_page_translations", force: :cascade do |t|
     t.integer  "refinery_image_page_id", limit: 4,     null: false
@@ -47,14 +47,6 @@ ActiveRecord::Schema.define(version: 20150720203413) do
     t.string   "image_title",     limit: 255
     t.string   "image_alt",       limit: 255
   end
-
-  create_table "refinery_industries", force: :cascade do |t|
-    t.string  "title",    limit: 255
-    t.string  "slug",     limit: 255
-    t.integer "position", limit: 4
-  end
-
-  add_index "refinery_industries", ["slug"], name: "index_refinery_industries_on_slug", unique: true, using: :btree
 
   create_table "refinery_news_posts", force: :cascade do |t|
     t.string   "title",         limit: 255
@@ -147,7 +139,20 @@ ActiveRecord::Schema.define(version: 20150720203413) do
     t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug",        limit: 255
   end
+
+  add_index "refinery_projects", ["slug"], name: "slug", unique: true, using: :btree
+
+  create_table "refinery_projects_project_industries", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "slug",       limit: 255
+    t.integer  "position",   limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "refinery_projects_project_industries", ["slug"], name: "index_refinery_projects_project_industries_on_slug", unique: true, using: :btree
 
   create_table "refinery_resources", force: :cascade do |t|
     t.string   "file_mime_type", limit: 255
