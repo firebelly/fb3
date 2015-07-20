@@ -1,0 +1,36 @@
+es:
+  refinery:
+    plugins:
+      news_posts:
+        title: News Posts
+#        article: masculino/femenino
+    news_posts:
+      admin:
+        news_posts:
+          actions:
+            create_new: Crear nuevo news post
+            reorder: Reordenar news posts
+            reorder_done: Reordenación de news posts completada
+          records:
+            title: News Posts
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay news posts todavía. Pulsa en "Crear nuevo News Post" para crear tu primer news post.
+          news_post:
+            view_live_html: Ver este news post como abierto al público <br/><em>(abre en ventana nueva)</em>
+            edit: Editar este news post
+            delete: Borrar este news post para siempre
+      news_posts:
+        show:
+          other: Otros news posts
+  activerecord:
+    attributes:
+      'refinery/news_posts/news_post':
+        title: Title
+        date: Date
+        content: Content
+        image: Image
+        user_id: User
+        position: Position
+        image_caption: Image Caption
+        sidebar: Sidebar
+        published: Published

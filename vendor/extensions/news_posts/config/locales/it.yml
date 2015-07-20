@@ -1,0 +1,35 @@
+it:
+  refinery:
+    plugins:
+      news_posts:
+        title: News Posts
+    news_posts:
+      admin:
+        news_posts:
+          actions:
+            create_new: Aggiungi Nuovo News Post
+            reorder: Riordina News Posts
+            reorder_done: Termina il Riordino di News Posts
+          records:
+            title: News Posts
+            sorry_no_results: "Spiacenti! Nessun risultato trovato"
+            no_items_yet: Non ci sono ancora News Posts. Clicca "Aggiungi Nuovo News Post" per aggiungere il tuo primo news post.
+          news_post:
+            view_live_html: Guarda live questo news post <br/><em>(apre una nuova finestra)</em>
+            edit: Modifica questo news post
+            delete: Rimuovi per sempre questo news post
+      news_posts:
+        show:
+          other: Altri News Posts
+  activerecord:
+    attributes:
+      'refinery/news_posts/news_post':
+        title: Title
+        date: Date
+        content: Content
+        image: Image
+        user_id: User
+        position: Position
+        image_caption: Image Caption
+        sidebar: Sidebar
+        published: Published

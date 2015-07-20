@@ -1,0 +1,35 @@
+nb:
+  refinery:
+    plugins:
+      news_posts:
+        title: News Posts
+    news_posts:
+      admin:
+        news_posts:
+          actions:
+            create_new: Lag en ny News Post
+            reorder: Endre rekkefølgen på News Posts
+            reorder_done: Ferdig å endre rekkefølgen News Posts
+          records:
+            title: News Posts
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen News Posts enda. Klikk på "Lag en ny News Post" for å legge til din første news post.
+          news_post:
+            view_live_html: Vis hvordan denne news post ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+            edit: Rediger denne news post
+            delete: Fjern denne news post permanent
+      news_posts:
+        show:
+          other: Andre News Posts
+  activerecord:
+    attributes:
+      'refinery/news_posts/news_post':
+        title: Title
+        date: Date
+        content: Content
+        image: Image
+        user_id: User
+        position: Position
+        image_caption: Image Caption
+        sidebar: Sidebar
+        published: Published

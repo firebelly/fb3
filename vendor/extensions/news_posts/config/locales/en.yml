@@ -1,0 +1,35 @@
+en:
+  refinery:
+    plugins:
+      news_posts:
+        title: News Posts
+    news_posts:
+      admin:
+        news_posts:
+          actions:
+            create_new: Add New News Post
+            reorder: Reorder News Posts
+            reorder_done: Done Reordering News Posts
+          records:
+            title: News Posts
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no News Posts yet. Click "Add New News Post" to add your first news post.
+          news_post:
+            view_live_html: View this news post live <br/><em>(opens in a new window)</em>
+            edit: Edit this news post
+            delete: Remove this news post forever
+      news_posts:
+        show:
+          other: Other News Posts
+  activerecord:
+    attributes:
+      'refinery/news_posts/news_post':
+        title: Title
+        date: Date
+        content: Content
+        image: Image
+        user_id: User
+        position: Position
+        image_caption: Image Caption
+        sidebar: Sidebar
+        published: Published

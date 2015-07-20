@@ -1,0 +1,35 @@
+cs:
+  refinery:
+    plugins:
+      news_posts:
+        title: News Posts
+    news_posts:
+      admin:
+        news_posts:
+          actions:
+            create_new: Přidat News Post
+            reorder: Řadit News Posts
+            reorder_done: Konec řazení News Posts
+          records:
+            title: News Posts
+            sorry_no_results: Litujeme, ale nebyly nalezny žádné výsledky.
+            no_items_yet: Zatím nebyly vytvořeny žádné News Posts. Zvolte "Přidat News Post" pro přidání prvního news post.
+          news_post:
+            view_live_html: Zobrazit náhled news post<br/><em>(otevře se v novém okně)</em>
+            edit: Upravit news post
+            delete: Smazat news post
+      news_posts:
+        show:
+          other: Další News Posts
+  activerecord:
+    attributes:
+      'refinery/news_posts/news_post':
+        title: Title
+        date: Date
+        content: Content
+        image: Image
+        user_id: User
+        position: Position
+        image_caption: Image Caption
+        sidebar: Sidebar
+        published: Published

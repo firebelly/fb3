@@ -1,0 +1,28 @@
+.tags-field textarea {
+	float: left;
+	height: 50px;
+	width: 450px;
+	margin-right: 20px;
+}
+
+.tags-list {
+	float: left;
+	width: 450px;
+}
+
+.tag-item {
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	padding: 3px 10px;
+	background: #BCBCBC;
+	color: #fff !important;
+	border: none !important;
+	line-height: 26px;
+	white-space: nowrap;
+}
+.tag-item.active,
+.tag-item:hover {
+	background: #666;
+	color: #fff;
+}

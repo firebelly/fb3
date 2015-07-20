@@ -1,0 +1,35 @@
+tr:
+  refinery:
+    plugins:
+      news_posts:
+        title: News Posts
+    news_posts:
+      admin:
+        news_posts:
+          actions:
+            create_new: Yeni Ekle News Post
+            reorder: Tekrar sirala News Posts
+            reorder_done: Tekrar siralama tamamlandiNews Posts
+          records:
+            title: News Posts
+            sorry_no_results: Uzgunum! Herhangi bir sonuc bulunamadi.
+            no_items_yet: Herhangi bir News Posts yok henuz.  Tikla "Yeni Ekle News Post" eklemek senin ilk news post.
+          news_post:
+            view_live_html: Bunu canlu news post goruntule <br/><em>(yeni bir pencerede acar)</em>
+            edit: Bunu Duzenle news post
+            delete: Bunu Sil news post sonsuza dek
+      news_posts:
+        show:
+          other: Diger News Posts
+  activerecord:
+    attributes:
+      'refinery/news_posts/news_post':
+        title: Title
+        date: Date
+        content: Content
+        image: Image
+        user_id: User
+        position: Position
+        image_caption: Image Caption
+        sidebar: Sidebar
+        published: Published

@@ -1,0 +1,35 @@
+nl:
+  refinery:
+    plugins:
+      news_posts:
+        title: News Posts
+    news_posts:
+      admin:
+        news_posts:
+          actions:
+            create_new: Nieuwe News Post toevoegen
+            reorder: De volgorde van de News Posts wijzigen
+            reorder_done: Klaar met het wijzingen van de van de News Post-volgorde
+          records:
+            title: News Posts
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen News Posts. Druk op 'Nieuwe News Post toevoegen' om de eerste toe te voegen.
+          news_post:
+            view_live_html: Deze news post op de website bekijken <br/><em>(opent in een nieuw venster)</em>
+            edit: Bewerk deze news post
+            delete: Deze news post definitief verwijderen
+      news_posts:
+        show:
+          other: Andere News Posts
+  activerecord:
+    attributes:
+      'refinery/news_posts/news_post':
+        title: Title
+        date: Date
+        content: Content
+        image: Image
+        user_id: User
+        position: Position
+        image_caption: Image Caption
+        sidebar: Sidebar
+        published: Published

@@ -1,0 +1,35 @@
+fr:
+  refinery:
+    plugins:
+      news_posts:
+        title: News Posts
+    news_posts:
+      admin:
+        news_posts:
+          actions:
+            create_new: Créer un(e) nouve(au/l/lle) News Post
+            reorder: Réordonner les News Posts
+            reorder_done: Fin de réordonnancement des News Posts
+          records:
+            title: News Posts
+            sorry_no_results: "Désolé ! Aucun résultat."
+            no_items_yet: 'Il n''y a actuellement aucun(e) News Post. Cliquer sur "Créer un(e) nouve(au/l/lle) News Post" pour créer votre premi(er/ère) news post.'
+          news_post:
+            view_live_html: Voir ce(t/tte) news post <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            edit: Modifier ce(t/tte) news post
+            delete: Supprimer définitivement ce(t/tte) news post
+      news_posts:
+        show:
+          other: Autres News Posts
+  activerecord:
+    attributes:
+      'refinery/news_posts/news_post':
+        title: Title
+        date: Date
+        content: Content
+        image: Image
+        user_id: User
+        position: Position
+        image_caption: Image Caption
+        sidebar: Sidebar
+        published: Published
