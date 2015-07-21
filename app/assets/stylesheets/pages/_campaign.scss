@@ -1,0 +1,125 @@
+// Campaign
+
+#work.single {
+  .campaign-banner {
+    height: 400px; // Fallback for viewport units
+    height: 50vh;
+    max-height: 400px;
+    background-size: cover;
+    background-position: center center;
+
+    @include min-screen($breakpoint-medium) {
+      height: 800px; // Fallback for viewport units
+      height: 70vh;
+      max-height: 800px;
+    }
+  }
+
+  .section-title {
+    padding-top: 0;
+    padding-bottom: ($padding * 6);
+    h1 {
+      font-size: 36px;
+      margin-bottom: $padding;
+    }
+    h4 {
+      color: $black-fade;
+      @include small-caps();
+    }
+
+    @include min-screen($breakpoint-small) {
+      h1 {
+        font-size: 48px;
+      }
+    }
+  }
+
+  .campaign-meta {
+    max-width: 800px;
+    text-align: center;
+    margin: ($padding * 5) auto 0;
+    > div {
+      text-align: center;
+      @include clearfix();
+      > div {
+        display: inline-block;
+      }
+    }
+    h3 {
+      float: left;
+      color: $black;
+      @include small-caps();
+    }
+    ul {
+      float: left;
+      text-align: left;
+      li {
+        color: $black-fade;
+        display: inline-block;
+        @include small-caps();
+      }
+    }
+  }
+
+  .summary, .project-summary {
+    &.user-content {
+      padding-left: 25px;
+      padding-right: 25px;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0 auto;
+      max-width: 600px;
+      text-align: center;
+    }
+    > p {
+      font-size: 16px;
+      max-width: 600px;
+      line-height: 1.375em;
+      margin: ($padding * 2) auto 0;
+      &:first-of-type {
+        margin-top: 0;
+      }
+    }
+  }
+
+  // The campaign summary
+  .intro{
+    padding: ($padding * 6) 0;
+
+    @include min-screen($breakpoint-medium) {
+      padding-bottom: ($padding * 12) 0;
+    }
+  }
+
+  .summary {
+    blockquote {
+      margin: ($padding * 6) auto;
+    }
+  }
+
+  .project-summary {
+    padding: 25px;
+
+    h2 {
+      margin-bottom: ($padding * 6);
+    }
+
+    @include min-screen($breakpoint-small) {
+      padding: ($padding * 6) 100px;
+    }
+
+    @include min-screen($breakpoint-medium) {
+      padding: ($padding * 12);
+    }
+  }
+
+  .project-images {
+    margin: 0;
+    img {
+      width: 100%;
+      max-width: none;
+      vertical-align: top;
+    }
+  }
+}

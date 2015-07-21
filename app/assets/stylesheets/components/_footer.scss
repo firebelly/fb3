@@ -1,0 +1,81 @@
+// Footer
+
+.site-footer {
+  @include clearfix();
+  padding: ($padding * 6) 25px;
+
+  @include min-screen($breakpoint-small) {
+    padding: ($padding * 12) 25px;
+  }
+  @include min-screen($breakpoint-medium) {
+    padding: ($padding * 24) 25px ($padding * 24) 25;
+
+    .-left {
+      padding-right: 25px;
+    }
+  }
+
+  a {
+    &:hover, &:focus {
+      text-decoration: underline;
+    }
+  }
+
+  h3 {
+    color: $black;
+    margin: 0 0 .6em;
+    @include title();
+    position: relative;
+    padding-bottom: .5em;
+    &:after {
+      left: 0;
+      bottom: 0;
+      content: '';
+      height: 1px;
+      width: .25em;
+      background: $black;
+      position: absolute;
+    }
+  }
+
+  p, a, li, span {
+    color: $black-fade;
+    @include small-caps();
+  }
+
+  #contact {
+    @include min-screen($breakpoint-medium) {
+      padding-left: (($padding * 12) - 25);
+    }
+  }
+
+  .address {
+    span {
+      display: inline-block;
+    }
+  }
+
+  .contact-info {
+    @include max-screen($breakpoint-large) {
+      .one-half {
+        width: 100%;
+        float: none;
+      }
+    }
+  }
+  
+  .contact-item {
+    margin-top: ($padding * 6);
+
+    @include min-screen($breakpoint-medium) {
+      &.-first {
+        margin-top: 0;
+      }
+    }
+    @include min-screen($breakpoint-large) {
+      &:first-of-type {
+        margin-top: 0;
+      }
+    }
+  }
+}

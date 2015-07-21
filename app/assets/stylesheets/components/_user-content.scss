@@ -1,0 +1,33 @@
+// User Content
+.user-content {
+  h1 {
+    color: $black;
+    font: 48px/1.145833333em $font-display;
+  }
+  h2 {
+    color: $black-fade;
+    @include small-caps();
+  }
+
+  p {
+    font-size: 1em;
+    line-height: 1.375em;
+  }
+
+  blockquote {
+    margin: ($padding * 3) auto;
+    max-width: 800px;
+    text-align: center;
+    p {
+      font-size: 24px;
+      color: $black-fade;
+      line-height: 1.375em;
+      letter-spacing: .035em;
+      font-family: $font-display;
+    }
+
+    @include min-screen($breakpoint-medium) {
+      font-size: 32px;
+    }
+  }
+}

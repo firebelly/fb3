@@ -1,0 +1,21 @@
+// Typographer
+
+/* fonts */
+@font-face {
+  font-family: 'RomanaBT-Bold';
+  src: asset-url('2E86D1_0_0.eot');
+  src: asset-url('2E86D1_0_0.eot?#iefix') format('embedded-opentype'),asset-url('2E86D1_0_0.woff2') format('woff2'),asset-url('2E86D1_0_0.woff') format('woff'),asset-url('2E86D1_0_0.ttf') format('truetype');
+}
+
+$font-display: 'RomanaBT-Bold', serif;
+$font-body: 'Karla', Helvetica, Arial, sans-serif;
+
+@mixin small-caps {
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  font: 12px/1.833333333em $font-body;
+}
+
+@mixin title {
+  font: 24px/1.375em $font-display;
+}
