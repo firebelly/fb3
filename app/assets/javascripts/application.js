@@ -12,5 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+//# require turbolinks
+//= require jquery.validate.1.10.0
+//= require imagesloaded.pkgd
+//= require jquery.fitvids
+//= require jquery.cookie
+//= require velocity
+//= require main
+//= require projects

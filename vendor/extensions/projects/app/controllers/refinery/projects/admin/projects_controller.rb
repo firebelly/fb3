@@ -3,7 +3,9 @@ module Refinery
     module Admin
       class ProjectsController < ::Refinery::AdminController
 
-        crudify :'refinery/projects/project'
+        crudify :'refinery/projects/project', 
+                :paging => false, 
+                :order  => 'position ASC'
 
         private
 
