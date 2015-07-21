@@ -1,7 +1,7 @@
 Refinery::Core::Engine.routes.draw do
 
   # Frontend routes
-  namespace :projects do
+  namespace :projects, :path => 'work' do
     resources :projects, :path => '', :only => [:index, :show]
   end
 

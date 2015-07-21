@@ -4,6 +4,9 @@
     <% unless project.subtitle.blank? %>
       <span class="preview"><%= project.subtitle %></span>
     <% end %>
+    <% unless project.published? %>
+      <span class="unpublished">(not published)</span>
+    <% end %>
 
   </span>
   <span class='actions'>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<%= render "/refinery/html_tag" %>
+  <%# site_bar = render('/refinery/site_bar', :head => true) -%>
+  <%= render "/refinery/head" %>
+  <body class="<%= @body_class || '' -%>" id="<%= @body_id || '' -%>">
+    <%# site_bar -%>
+    <header class="site-header clearfix" aria-role="banner">
+      <%= render "/refinery/header" -%>
+    </header>
+    <div id="wrapper" aria-role="main">
+      <div id="side">
+        <button type="button" class="menu-toggle tcon tcon-no-animate tcon-menu--xcross xcross-open" aria-label="toggle menu">
+          <span class="tcon-menu__lines" aria-hidden="true"></span>
+          <span class="tcon-visuallyhidden">toggle menu</span>
+        </button>
+        <nav id="nav-main" class="site-nav" aria-role="navigation">
+          <ul class="primary">
+            <li id="nav-work"><a href="/work" data-color="gray">Work</a></li>
+            <li id="nav-contact"><a href="#contact" data-color="gray">Contact</a></li>
+            <li id="nav-about"><a href="/about" data-color="purple">About</a></li>
+            <li id="nav-expertise"><a href="/expertise" data-color="peach">Expertise</a></li>
+            <li id="nav-people"><a href="/people" data-color="yellow">People</a></li>
+            <li id="nav-endeavors"><a href="/endeavors" data-color="blue">Endeavors</a></li>
+            <li id="nav-news"><a href="/news" data-color="gray">News</a></li>
+            <li id="nav-store"><a href="/store" data-color="green">Store</a></li>
+          </ul>
+        </nav>
+        <aside class="main">
+          <%= yield :aside %>
+        </aside>
+      </div><!-- END #side -->
+      <section id='page'>
+        <%= yield %>
+        <%= yield :page %>
+      </section><!-- END #page -->
+        <%= yield :grid_page %>
+      <footer class="site-footer" aria-role="contentinfo">
+        <%= render "/refinery/footer" -%>
+      </footer>
+    </div> <!-- /#wrapper -->
+    <%= render "/refinery/javascripts" %>
+  </body>
+</html>

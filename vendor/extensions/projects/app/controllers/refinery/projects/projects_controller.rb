@@ -6,16 +6,16 @@ module Refinery
       before_action :find_page
 
       def index
-        # you can use meta fields from your model instead (e.g. browser_title)
-        # by swapping @page for @project in the line below:
+        @body_class = 'index'
+        @industries = ProjectIndustry.all
+        @projects = Project.published
+        @current_section = 'work'
         present(@page)
       end
 
       def show
         @project = Project.friendly.find(params[:id])
-
-        # you can use meta fields from your model instead (e.g. browser_title)
-        # by swapping @page for @project in the line below:
+        @body_class = 'single'
         present(@page)
       end
 
@@ -26,7 +26,7 @@ module Refinery
       end
 
       def find_page
-        @page = ::Refinery::Page.where(:link_url => "/projects").first
+        @page = Refinery::Page.where(:link_url => "/projects").first
       end
 
     end

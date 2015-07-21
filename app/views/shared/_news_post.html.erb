@@ -1,0 +1,48 @@
+<article class="news-article <%= 'listing' unless is_single -%> clearfix">
+  <%- if news_post.image.nil? %>
+    <hr class="article-divider">
+  <% else %>
+    <div class="featured-image" style="background-image:url(<%= news_post.image.url %>);"></div>
+    <%- unless news_post.image_caption.nil? %>
+      <div class="featured-image-caption"><p><%= news_post.image_caption %></p></div>
+    <% end -%>
+  <%- end %>
+
+  <header class="section-title">
+    <% unless is_single %>
+      <h1><%= link_to news_post.title, news_post_path(news_post) %></h1>
+    <% else %>
+      <h1><%= news_post.title %></h1>
+    <% end -%>
+    <h3 class="date"><%= news_post.date.strftime('%B %-d, %Y') %></h3>
+
+    <!--<%=raw news_post.sidebar unless news_post.sidebar.blank? %>-->
+    
+    <%= render '/shared/edit_bug', :locals => { :obj => news_post, :edit_path => edit_admin_news_post_path(news_post) }%>
+  </header>
+  <section class="summary user-content">
+    <%=raw news_post.content %>
+  </section>
+
+  <% unless news_post.related_services.blank? %>
+    <div class="post-meta">
+      <div>
+        <h3>Filed Under: </h3>
+        <ul class="related tags">
+          <% for tag in news_post.related_services %>
+            <li><span class="comma">, </span><%= link_to tag.name, news_by_tag_path(tag.id) %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <!-- Not sure what this is <% unless news_post.projects.blank? %>
+  <h3>Related Work:</h3>
+    <ul class="related projects">
+      <% for project in news_post.projects %>
+        <li><%= link_to project.title_with_client, campaign_path(project.campaign.client, project.campaign, :anchor => project.title.parameterize) %></li>
+      <% end %>
+    </ul>
+  <% end %> -->
+</article>

@@ -5,6 +5,14 @@ module Refinery
       self.table_name = 'refinery_projects'
 
       friendly_id :title, :use => [:slugged]
+      friendly_id :slug_candidates, use: :slugged
+
+      def slug_candidates
+        [
+          :title,
+          [:title, :subtitle]
+        ]
+      end
 
       validates :title, :presence => true
 
@@ -16,6 +24,9 @@ module Refinery
 
       scope :published, -> { where(:published => true).order('position ASC') }
 
+      def service_classes
+        service_counts.map { |t| t.name.parameterize }.join(' ')
+      end
     end
   end
 end

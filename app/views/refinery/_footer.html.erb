@@ -1,0 +1,44 @@
+<div id="contact" class="vcard one-half">
+  <h3 class="org">
+    Firebelly Design
+  </h3>
+  <div class="address">
+    <span class="street-address">2701 W Thomas St.</span>
+    <span class="city">Chicago</span>
+    <span class="region">IL</span>
+    <span class="postal-code">60622</span>
+  </div>
+  <div class="email">
+    <%= mail_to "info@firebellydesign.com", "info@firebellydesign.com", :encode => "hex", :class => 'email' %>
+  </div>
+  <div class="tel">
+    <span class="telephone">773.489.3200</span>
+  </div>
+</div>
+
+<div class="grid contact-info one-half">
+  <div class="one-half -left">
+    <div class="contact-item -first">
+      <h3>Employment</h3>
+      <p><%= mail_to 'info@firebellydesign.com' %></p>
+      <p>Ready to collaborate</p>
+    </div>
+    <div class="contact-item">
+      <h3>GoodNews</h3>
+      <%= render '/shared/newsletter_form' %>
+    </div>
+  </div>
+  <div class="one-half">
+    <div class="contact-item">
+      <h3>Internships</h3>
+      <p><%= mail_to 'intern@firebellydesign.com' %></p>
+      <p>Eager to learn</p>
+    </div>
+    <div class="contact-item">
+      <h3>Social</h3>
+      <%= link_to 'Facebook', 'http://www.facebook.com/firebellydesign' -%><br>
+      <%= link_to 'Twitter', 'http://twitter.com/#!/firebellydesign' -%><br>
+      <%= link_to 'Flickr', 'http://www.flickr.com/photos/firebellydesign/' -%>
+    </div>
+  </div>
+</div>

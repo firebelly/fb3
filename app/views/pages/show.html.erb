@@ -1,0 +1,61 @@
+<%= content_for :page do %>
+<section class="content interior grid">
+  <% unless (@page.content_for :body).empty? %>
+  <div class="intro one-half -left clearfix">
+    <div class="-inner">
+      <header class="section-title">
+        <h1><%=raw @body_id =~ /^about$/ ? 'Good Design for Good Reason<sup>&trade;</sup>' : @page.title %>.</h1>
+      </header>
+      <div class="summary">
+      <%= raw @page.content_for :body -%>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  
+  <%# section-specific page elements %>
+  <% if @body_id =~ /^about$/ %>
+    <%= render :partial => 'about_details' -%>
+  <% end %>
+  
+  <%# render child page list if present %>
+  <% if @child_pages %>
+    <!-- list child pages -->
+    <ul class="child-pages">
+      <%= render :partial => 'child_page', :collection => @child_pages -%>
+    </ul>
+  <% end %>
+  
+  <% if @body_id =~ /^endeavors/ %>
+    <%= content_for :javascripts do %>
+      <%= javascript_include_tag 'endeavors.js' -%>
+    <% end -%>
+  <% end %>
+  
+  <% if @body_id =~ /^expertise/ %>
+    <%= render :partial => 'capabilities' -%>
+  <% end -%>
+
+</section>
+<% end -%>
+
+<%= content_for :aside do %>
+  <% if @child_pages and not @body_id =~ /^endeavors/ %>
+  <section id="filters" class="divider section-nav">
+    <h1><%= @page.title -%></h1>
+    <ul class="option-set clearfix smoothscroll">
+      <% @child_pages.each do |page| %>
+        <li>
+          <%= link_to page.title, "#" << page.friendly_id, { 'data-page' => page.friendly_id } -%>
+        </li>
+      <% end -%>
+    </ul>
+  </section>
+  <% end %>
+<% end %>
+
+<% if @body_id =~ /^people/ %>
+  <%= content_for :javascripts do %>
+    <%= javascript_include_tag 'waypoints.min', 'people.js' -%>
+  <% end -%>
+<% end -%>

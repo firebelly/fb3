@@ -1,0 +1,56 @@
+<%= content_for :page do %>
+<section class="content interior clearfix">
+  <div class="intro">
+    <h2 class="section-header starred">Information</h2>
+    <hgroup class="section-title divider">
+      <h1>Contact</h1>
+    </hgroup>
+    <div class="summary">
+      <p>2701 West Thomas Street, Floor 1st<br>
+      Chicago, Il 60622<br>
+      773.489.3200</p>
+      <p>
+        <%= link_to 'Facebook', 'http://www.facebook.com/firebellydesign' -%><br>
+        <%= link_to 'Twitter', 'http://twitter.com/#!/firebellydesign' -%><br>
+        <%= link_to 'Flickr', 'http://www.flickr.com/photos/firebellydesign/' -%>
+      </p>
+    </div>
+  </div>
+
+  <div class="intro">
+    <h2 class="section-header">Get in Touch</h2>
+    <hgroup class="section-title divider">
+      <h1>General Inquiries</h1>
+    </hgroup>
+    <div class="summary">
+      <p>Drop us a line with any questions regarding how we might be able to help, collaborate or participate.</p>
+      <p><%= mail_to 'info@firebellydesign.com' %></p>
+    </div>
+  </div>
+
+  <div class="intro">
+    <h2 class="section-header">Employment</h2>
+    <hgroup class="section-title divider">
+      <h1>Get Hired</h1>
+    </hgroup>
+    <div class="summary">
+      <p>Want to be part of the team? Think you have what it takes? Let us know.</p>
+      <p><%= mail_to 'work@firebellydesign.com' %></p>
+    </div>
+  </div>
+
+  <div class="intro">
+    <h2 class="section-header">Education</h2>
+    <hgroup class="section-title divider">
+      <h1>Become an Intern</h1>
+    </hgroup>
+    <div class="summary">
+      <p>We’re always talking to great candidates and passionate people. If you’re excited to learn, get in touch.</p>
+      <p><%= mail_to 'intern@firebellydesign.com' %></p>
+    </div>
+  </div>
+
+  <%= render :partial => '/shared/newsletter_form' %>
+
+</section>
+<% end %>
