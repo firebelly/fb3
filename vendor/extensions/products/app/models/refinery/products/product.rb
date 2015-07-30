@@ -1,9 +1,15 @@
 module Refinery
   module Products
     class Product < Refinery::Core::BaseModel
+    	extend FriendlyId
       self.table_name = 'refinery_products'
 
-      validates :title, :presence => true, :uniqueness => true
+    	friendly_id :title, :use => [:slugged]
+
+      validates :title, :presence => true
+      validates :product_category_id, :presence => true
+      validates :description, :presence => true
+      validates :price, :presence => true
 
       acts_as_indexed :fields => [:title, :description, :details]
 

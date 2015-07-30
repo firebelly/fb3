@@ -2,32 +2,25 @@ module Refinery
   module Products
     class ProductsController < ::ApplicationController
 
-      before_action :find_all_products
-      before_action :find_page
+      before_action :get_defaults
 
       def index
-        # you can use meta fields from your model instead (e.g. browser_title)
-        # by swapping @page for @product in the line below:
+        @products = Product.order('position ASC')
         present(@page)
       end
 
       def show
-        @product = Product.find(params[:id])
-
-        # you can use meta fields from your model instead (e.g. browser_title)
-        # by swapping @page for @product in the line below:
+        @product = Product.friendly.find(params[:id])
         present(@page)
       end
 
     protected
 
-      def find_all_products
-        @products = Product.order('position ASC')
+      def get_defaults
+        @page = ::Refinery::Page.where(:link_url => "/products").first
+        @cart = Cart.find_or_create_by(session_id: session.id)
       end
 
-      def find_page
-        @page = ::Refinery::Page.where(:link_url => "/products").first
-      end
 
     end
   end

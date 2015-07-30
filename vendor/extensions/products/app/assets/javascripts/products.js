@@ -45,16 +45,16 @@ $.gdgr.products = (function() {
     }
 
     // ajax cart actions
-    $('#product-form, #cart-form').on("ajax:before ajax:success", function(){
+    $('#wrapper').on('ajax:before ajax:success', '#product-form, #cart-form', function(){
       $('#cart, #product-form .submit').toggleClass('loading');
-    });
-    $('#product-form, #cart-form, #cart a.delete').on("ajax:success", function(evt, data, status, xhr){
+    })
+    .on('ajax:success', '#product-form, #cart-form, #cart a.delete', function(evt, data, status, xhr){
       $('#cart').html(xhr.responseText);
-    });
-    $('#cart a.delete').on('click', function() {
+    })
+    .on('click', '#cart a.delete', function() {
       $(this).parents('tr:first').fadeOut();
-    });
-    $('#product-form, #cart-form, a.delete').on("ajax:failure", function(evt, data, status, xhr){
+    })
+    .on('ajax:failure', '#product-form, #cart-form, a.delete', function(evt, data, status, xhr){
       alert('There was an error: '+xhr.responseText);
     });
 
@@ -170,9 +170,6 @@ $.gdgr.products = (function() {
   return {
     init: function() {
       _init();
-    },
-    resize: function() {
-      // _resize();
     }
   };
 
@@ -180,8 +177,4 @@ $.gdgr.products = (function() {
 
 $(window).ready(function(){
   $.gdgr.products.init();
-});
-
-$(window).resize(function(){
-  // $.gdgr.products.resize();
 });

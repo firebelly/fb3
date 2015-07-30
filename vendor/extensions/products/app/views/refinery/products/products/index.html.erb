@@ -1,11 +1,25 @@
-<% content_for :body do %>
-  <ul id="products">
-    <% @products.each do |product| %>
-      <li>
-        <%= link_to product.title, refinery.products_product_path(product) %>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
+<%= content_for :aside do %>
+  <div id="cart">
+    <%= render :partial => "refinery/products/carts/cart" -%>
+  </div>
+<% end -%>
 
-<%= render '/refinery/content_page' %>
+<% content_for :page do %>
+  <header class="section-title">
+    <h1>Store</h1>
+    <h2>right now, it’s kind of<br> just typeforce books.</h2>
+  </header>
+  <section class="store">
+    <ul class="products clearfix filter-items">
+      <% @products.each do |product| %>
+        <li class="product">
+          <div class="product-image" style="background-image:url(<%= product.images.first.thumbnail().url if product.images %>);"></div>
+          <header>
+            <h1><a href="<%= refinery.products_product_path(product) %>"><%= product.title -%></a></h1>
+          </header>
+          <a class="view-product" href="<%= refinery.products_product_path(product) %>"><span>Details</span></a>
+        </li>
+      <% end -%>
+    </ul>
+  </section>
+<% end %>

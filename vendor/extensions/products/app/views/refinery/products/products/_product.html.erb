@@ -6,7 +6,7 @@
       <div class="-inner">
         <header class="section-title">
           <% unless is_single %>
-            <h1><%= link_to product.title, refinery_products_product_path(product) %></h1>
+            <h1><%= link_to product.title, refinery.products_product_path(product) %></h1>
           <% else %>
             <h1><%= product.title %></h1>
           <% end -%>
@@ -17,8 +17,9 @@
             <%=raw "<div class=\"description\">#{product.description}</div>" %>
           <% end -%>
         </div>
-        <%= form_tag '/cart', :remote => true, :'data-type' => 'html', :id => 'product-form' do %>
+        <%= form_tag refinery.products_carts_path, remote: true, data: { type: 'html' }, id: 'product-form' do %>
         <%= hidden_field_tag 'product_id', product.id  %>
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
         <div class="actions">
           <button type="submit" class="submit button">Add To Cart</button>
         </div>
@@ -40,7 +41,7 @@
         <ul class="product-images">
         <% product.images.each_with_index do |image, index| %>
           <li>
-          <%= image_tag image.thumbnail().url, :alt => [product.title, index].join(" "), 'data-uid' => image.image_uid -%>
+          <%= image_tag image.thumbnail().url, alt: [product.title, index].join(" "), data: { uid: image.image_uid } -%>
           </li>
         <% end %>
         </ul>

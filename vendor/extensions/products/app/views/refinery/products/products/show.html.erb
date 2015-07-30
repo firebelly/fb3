@@ -1,63 +1,13 @@
-<% content_for :body_content_title do %>
-  <%= @product.title %>
-<% end %>
+<% content_for :title, @product.title %>
 
-<% content_for :body do %>
-  <section>
-    <h1>Title</h1>
-    <p>
-      <%=raw @product.title %>
-    </p>
-  </section>
-  <section>
-    <h1>Price</h1>
-    <p>
-      <%=raw @product.price %>
-    </p>
-  </section>
-  <section>
-    <h1>Weight</h1>
-    <p>
-      <%=raw @product.weight %>
-    </p>
-  </section>
-  <section>
-    <h1>Content</h1>
-    <p>
-      <%=raw @product.content %>
-    </p>
-  </section>
-  <section>
-    <h1>Details</h1>
-    <p>
-      <%=raw @product.details %>
-    </p>
-  </section>
-  <section>
-    <h1>Position</h1>
-    <p>
-      <%=raw @product.position %>
-    </p>
-  </section>
-  <section>
-    <h1>Published</h1>
-    <p>
-      <%=raw @product.published %>
-    </p>
+<%= content_for :aside do %>
+  <div id="cart">
+    <%= render "refinery/products/carts/cart" -%>
+  </div>
+<% end -%>
+
+<% content_for :page do %>
+  <section class="store">
+    <%= render partial: "refinery/products/products/product", locals: { product: @product, is_single: true } %>
   </section>
 <% end %>
-
-<% content_for :side_body do %>
-  <aside>
-    <h2><%= t('.other') %></h2>
-    <ul id="products">
-      <% @products.each do |product| %>
-        <li>
-          <%= link_to product.title, refinery.products_product_path(product) %>
-        </li>
-      <% end %>
-    </ul>
-  </aside>
-<% end %>
-
-<%= render '/refinery/content_page' %>

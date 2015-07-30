@@ -10,7 +10,7 @@ module Refinery
               @cart = Cart.find_or_create_by(session_id: session.id)
               render "carts/cart"
             else
-              redirect_to carts_path
+              redirect_to refinery.products_carts_path
             end
           end
         end

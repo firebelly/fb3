@@ -1,9 +1,12 @@
 <li class="line-item">
-  <div class="item"><%= link_to item, product_path(item.product) %></div>
-  <div class="price"><%= number_to_currency item.price, :precision => 0  %></div>
-  <div class="quantity"><span>Qty:</span> <%= text_field_tag "items[][quantity]", item.quantity, :size => 2, :tabindex => item_counter+1  %><%= hidden_field_tag "items[][id]", item.id  %>
+  <div class="item"><%= link_to cart_item, refinery.products_product_path(cart_item.product) %></div>
+  <div class="price"><%= number_to_currency cart_item.price, :precision => 0  %></div>
+  <div class="quantity"><span>Qty:</span> <%= cart_items_form.text_field :quantity, :size => 2, :tabindex => cart_item_counter+1  %>
+  <%= cart_items_form.hidden_field :id  %>
+  <%= cart_items_form.hidden_field :product_id  %>
+  <%= cart_items_form.hidden_field :price  %>
   </div>
   <div class="delete-link">
-    <%= link_to "Remove", cart_item_path(item.id), :method => :delete, :remote => true, :class => 'delete' %>
+    <%= link_to "Remove", refinery.products_cart_item_path(cart_item.id), :method => :delete, :remote => true, :class => 'delete' %>
   </div>
 </li>

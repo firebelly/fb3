@@ -1,8 +1,10 @@
 Refinery::Core::Engine.routes.draw do
 
   # Frontend routes
-  namespace :products do
+  namespace :products, :path => 'store' do
     resources :products, :path => '', :only => [:index, :show]
+    resources :carts, :path => 'cart', :only => [:index, :create, :update]
+    resources :cart_items, :path => 'cart_item', :only => [:destroy]
   end
 
   # Admin routes

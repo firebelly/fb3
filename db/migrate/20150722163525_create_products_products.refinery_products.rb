@@ -4,6 +4,7 @@ class CreateProductsProducts < ActiveRecord::Migration
   def up
     create_table :refinery_products do |t|
       t.string :title
+      t.string :slug
       t.decimal :price, :precision => 8, :scale => 2
       t.decimal :weight, :precision => 8, :scale => 2
       t.text :description
@@ -14,6 +15,7 @@ class CreateProductsProducts < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :refinery_products, :slug, unique: true
 
   end
 
