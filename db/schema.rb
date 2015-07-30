@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150720211457) do
+ActiveRecord::Schema.define(version: 20150730164716) do
 
   create_table "refinery_image_page_translations", force: :cascade do |t|
     t.integer  "refinery_image_page_id", limit: 4,     null: false
@@ -127,6 +127,44 @@ ActiveRecord::Schema.define(version: 20150720211457) do
   add_index "refinery_pages", ["lft"], name: "index_refinery_pages_on_lft", using: :btree
   add_index "refinery_pages", ["parent_id"], name: "index_refinery_pages_on_parent_id", using: :btree
   add_index "refinery_pages", ["rgt"], name: "index_refinery_pages_on_rgt", using: :btree
+
+  create_table "refinery_products", force: :cascade do |t|
+    t.string   "title",       limit: 255
+    t.string   "slug",        limit: 255
+    t.decimal  "price",                     precision: 8, scale: 2
+    t.decimal  "weight",                    precision: 8, scale: 2
+    t.text     "description", limit: 65535
+    t.text     "details",     limit: 65535
+    t.integer  "position",    limit: 4
+    t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "refinery_products", ["slug"], name: "slug", unique: true, using: :btree
+
+  create_table "refinery_products_cart_items", force: :cascade do |t|
+    t.integer  "product_id", limit: 4
+    t.integer  "quantity",   limit: 4
+    t.decimal  "price",                precision: 8, scale: 2
+    t.integer  "cart_id",    limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "refinery_products_carts", force: :cascade do |t|
+    t.string   "session_id", limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "refinery_products_carts", ["session_id"], name: "index_refinery_products_carts_on_session_id", using: :btree
+
+  create_table "refinery_products_paypal_records", force: :cascade do |t|
+    t.text     "params",     limit: 65535
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "refinery_projects", force: :cascade do |t|
     t.string   "title",       limit: 255

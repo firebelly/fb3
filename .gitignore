@@ -92,3 +92,4 @@ capybara-*html
 vendor/extensions/**/spec/dummy
 
 secrets.yml
+.env

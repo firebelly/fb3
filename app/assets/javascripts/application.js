@@ -20,3 +20,4 @@
 //= require velocity
 //= require main
 //= require projects
+//= require products

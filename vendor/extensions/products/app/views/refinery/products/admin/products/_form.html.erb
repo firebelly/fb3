@@ -1,0 +1,66 @@
+<%= form_for [refinery, :products_admin, @product] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => @product,
+              :include_object_name => true %>
+
+  <div class='field'>
+    <%= f.label :title -%>
+    <%= f.text_field :title, :class => 'larger widest' -%>
+  </div>
+
+  <div class="field" style="margin-top: 20px">
+    <%= f.check_box :published, :checked => @product[:published] -%>
+    <%= f.label :published, 'Published?', :style => 'display: inline' %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :price -%>
+    <%= f.text_field :price -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :weight -%>
+    <%= f.text_field :weight -%>
+  </div>
+
+  <div class='field' style="margin-top:20px;">
+      <div id='page-tabs' class='clearfix ui-tabs ui-widget ui-widget-content ui-corner-all'>
+        <ul id='page_parts'>
+          <li class='ui-state-default ui-state-active'>
+            <%= link_to t('description', :scope => 'activerecord.attributes.refinery/products/product'), "#page_part_description" %>
+          </li>
+          <li class='ui-state-default'>
+            <%= link_to t('details', :scope => 'activerecord.attributes.refinery/products/product'), "#page_part_details" %>
+          </li>
+          <% Refinery::Products.tabs.each_with_index do |tab, tab_index| %>
+            <li class='ui-state-default' id="custom_<%= tab.name %>_tab">
+              <%= link_to tab.name.titleize, "#custom_tab_#{tab_index}" %>
+            </li>
+          <% end %>
+        </ul>
+
+        <div id='page_part_editors'>
+          <%= render 'form_part', :f => f, field: 'description' -%>
+          <%= render 'form_part', :f => f, field: 'details' -%>
+          <% Refinery::Products.tabs.each_with_index do |tab, tab_index| %>
+            <div class='page_part' id='<%= "custom_tab_#{tab_index}" %>'>
+              <%= render tab.partial, :f => f %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.products.admin.products.product'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @product.title) -%>
+<% end -%>
+
+<% content_for :javascripts do -%>
+  <script>
+    $(document).ready(function(){
+      page_options.init(false, '', '');
+    });
+  </script>
+<% end -%>

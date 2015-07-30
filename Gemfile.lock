@@ -58,6 +58,9 @@ PATH
     refinerycms-news_posts (1.0)
       acts_as_indexed (~> 0.8.0)
       refinerycms-core (~> 3.0.0)
+    refinerycms-products (1.0)
+      acts_as_indexed (~> 0.8.0)
+      refinerycms-core (~> 3.0.0)
     refinerycms-projects (1.0)
       acts_as_indexed (~> 0.8.0)
       refinerycms-core (~> 3.0.0)
@@ -132,6 +135,10 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    dotenv (2.0.2)
+    dotenv-rails (2.0.2)
+      dotenv (= 2.0.2)
+      railties (~> 4.0)
     dragonfly (1.0.10)
       addressable (~> 2.3)
       multi_json (~> 1.0)
@@ -262,6 +269,7 @@ DEPENDENCIES
   acts-as-taggable-on (~> 3.4)
   byebug
   coffee-rails (~> 4.1.0)
+  dotenv-rails
   jbuilder (~> 2.0)
   jquery-rails
   mysql2
@@ -271,6 +279,7 @@ DEPENDENCIES
   refinerycms-acts-as-indexed (~> 2.0, >= 2.0.0)
   refinerycms-news_posts!
   refinerycms-page-images!
+  refinerycms-products!
   refinerycms-projects!
   refinerycms-wymeditor (~> 1.0, >= 1.0.6)
   sass-rails (~> 5.0)

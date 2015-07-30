@@ -1,0 +1,15 @@
+  <section class="cart">
+    <% unless @cart.items.blank? %>
+      <h3>Your Cart:</h3>
+      <% form_tag "/store/cart/#{@cart.id}", :remote => true, :method => 'put', :id => 'cart-form' do %>
+        <ul>
+          <%= render :partial => 'carts/cart_item', :collection => @cart.items, :as => :item %>
+          <li class="subtotal">Total: <%= number_to_currency(@cart.subtotal, :precision => 0) %></li>
+        </ul>
+      <% end -%>
+    <div class="actions">
+      <%= render :partial => "carts/paypal_form" -%>
+      <!-- <a class="edit-cart submit">Edit</a> -->
+    </div>
+    <% end -%>
+  </section>

@@ -1,0 +1,11 @@
+  <section id="filters" class="divider section-nav interior">
+  <h1>Filter:</h1>
+  <ul class="filter-set">
+    <li class="show-all"><a href="#filter" data-filter="" class="selected">all</a></li>
+    <% @product_categories.each do |category| %>
+      <li>
+        <%= link_to category.name.titleize, "#filter", { 'data-filter' => "#{category.friendly_id}", 'class' => category.friendly_id } -%>
+      </li>
+    <% end -%>
+  </ul>
+</section>

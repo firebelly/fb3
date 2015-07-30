@@ -1,0 +1,52 @@
+<article class="product single clearfix">
+
+  <div class="interior">
+
+    <div class="intro one-half -left clearfix">
+      <div class="-inner">
+        <header class="section-title">
+          <% unless is_single %>
+            <h1><%= link_to product.title, refinery_products_product_path(product) %></h1>
+          <% else %>
+            <h1><%= product.title %></h1>
+          <% end -%>
+          <h2 class="price"><%= number_to_currency(product.price) %></h2>
+        </header>
+        <div class="summary">
+          <% unless product.description.blank? %>
+            <%=raw "<div class=\"description\">#{product.description}</div>" %>
+          <% end -%>
+        </div>
+        <%= form_tag '/cart', :remote => true, :'data-type' => 'html', :id => 'product-form' do %>
+        <%= hidden_field_tag 'product_id', product.id  %>
+        <div class="actions">
+          <button type="submit" class="submit button">Add To Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <aside class="secondary one-half -right">
+      <% unless product.details.blank? %>
+        <%=raw "<div class=\"details\">#{product.details}</div>" %>
+      <% end -%>
+
+    </aside>
+
+  </div>
+
+  <section>
+    <%- unless product.images.blank? %>
+      <div class="slider"><div class="wrap">
+        <ul class="product-images">
+        <% product.images.each_with_index do |image, index| %>
+          <li>
+          <%= image_tag image.thumbnail().url, :alt => [product.title, index].join(" "), 'data-uid' => image.image_uid -%>
+          </li>
+        <% end %>
+        </ul>
+      </div></div>
+    <%- end %>
+  </section>
+</article>
+
+<% end %>

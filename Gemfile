@@ -60,5 +60,7 @@ gem "refinerycms-page-images", github: "refinery/refinerycms-page-images", branc
 # Custom extensions
 gem 'refinerycms-news_posts', path: 'vendor/extensions'
 gem 'refinerycms-projects', path: 'vendor/extensions'
+gem 'refinerycms-products', path: 'vendor/extensions'
 
 gem 'acts-as-taggable-on', '~> 3.4'
+gem 'dotenv-rails'

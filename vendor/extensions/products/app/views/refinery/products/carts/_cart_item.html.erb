@@ -1,0 +1,9 @@
+<li class="line-item">
+  <div class="item"><%= link_to item, product_path(item.product) %></div>
+  <div class="price"><%= number_to_currency item.price, :precision => 0  %></div>
+  <div class="quantity"><span>Qty:</span> <%= text_field_tag "items[][quantity]", item.quantity, :size => 2, :tabindex => item_counter+1  %><%= hidden_field_tag "items[][id]", item.id  %>
+  </div>
+  <div class="delete-link">
+    <%= link_to "Remove", cart_item_path(item.id), :method => :delete, :remote => true, :class => 'delete' %>
+  </div>
+</li>
