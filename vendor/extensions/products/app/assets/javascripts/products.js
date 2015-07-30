@@ -50,6 +50,7 @@ $.gdgr.products = (function() {
     })
     .on('ajax:success', '#product-form, #cart-form, #cart a.delete', function(evt, data, status, xhr){
       $('#cart').html(xhr.responseText);
+      $.gdgr.main.showSidebar();
     })
     .on('click', '#cart a.delete', function() {
       $(this).parents('tr:first').fadeOut();

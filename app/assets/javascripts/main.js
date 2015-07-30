@@ -1,5 +1,7 @@
+$.gdgr = $.gdgr || {};
+
 // good design for good reason for good namespace
-$.gdgr = (function() {
+$.gdgr.main = (function() {
 
   var screenWidth = 0,
       desktop = false,
@@ -53,7 +55,7 @@ $.gdgr = (function() {
     });
 
     _resize();
-    _delayed_resize();
+    _delayedResize();
     _transformicions();
     _sidebarToggle();
     _sidebarColors();
@@ -80,15 +82,21 @@ $.gdgr = (function() {
   }
 
   function _sidebarToggle() {
-    $('html').on('click', '.menu-toggle, #product-form .submit', function() {
+    $('html').on('click', '.menu-toggle', function() {
       $('#side').toggleClass('open');
       $('body, #page, .site-header, .site-footer').toggleClass('sidebar-open');
     });
 
     // Close sidebar when clicking away
     $('html').on('click', '#page.sidebar-open, .site-footer.sidebar-open', function(e) {
-      e.preventDefault();
-      _hideSidebar();
+      console.log($(e.target),$(e.target).is('a,button,input'));
+      if (!$(e.target).is('a,button,input')) {
+        console.log('baz');
+        e.preventDefault();
+        _hideSidebar();
+      } else {
+        return e;
+      }
     });
   }
 
@@ -96,6 +104,13 @@ $.gdgr = (function() {
     if ($('#side').is('.open')) {
       $('#side').removeClass('open');
       $('.sidebar-open').removeClass('sidebar-open');
+    }
+  }
+
+  function _showSidebar() {
+    if (!$('#side').is('.open')) {
+      $('#side').addClass('open');
+      $('body, #page, .site-header, .site-footer').addClass('sidebar-open');
     }
   }
 
@@ -185,7 +200,7 @@ $.gdgr = (function() {
           });
         }
         // if on mobile, scroll down to #filters
-        if ($.gdgr.is_handheld()) {
+        if ($.gdgr.main.is_handheld()) {
           $('html,body').animate({scrollTop:$('#filters').offset().top});
         }
         return false;
@@ -214,7 +229,7 @@ $.gdgr = (function() {
     tablet = !desktop && !handheld;
   };
 
-  function _delayed_resize() {
+  function _delayedResize() {
     // stretch---shrink images
     $('img.responsive').each(function() {
       var uid = $(this).attr('data-uid');
@@ -242,36 +257,28 @@ $.gdgr = (function() {
   };
 
   return {
-    init: function() {
-      _init();
-    },
-    resize: function() {
-      _resize();
-    },
-    delayed_resize: function() {
-      _delayed_resize();
-    },
-    is_handheld: function() {
-      return handheld;
-    }
+    init: _init,
+    resize: _resize,
+    showSidebar: _showSidebar,
+    delayedResize: _delayedResize
   };
 
 })();
 
 // fire up the mothership
 $(window).ready(function() {
-  $.gdgr.init();
+  $.gdgr.main.init();
 });
 
 $(window).resize(function(){
   // instant resize functions
-  $.gdgr.resize();
+  $.gdgr.main.resize();
 
   // delayed resize for more intensive tasks
-  if($.gdgr.delayed_resize_timer !== false) {
-    clearTimeout($.gdgr.delayed_resize_timer);
+  if($.gdgr.main.delayed_resize_timer !== false) {
+    clearTimeout($.gdgr.main.delayed_resize_timer);
   }
-  $.gdgr.delayed_resize_timer = setTimeout($.gdgr.delayed_resize, 200);
+  $.gdgr.main.delayed_resize_timer = setTimeout($.gdgr.main.delayedResize, 200);
 });
 
 // equalizes height (to max) of elements passed in
