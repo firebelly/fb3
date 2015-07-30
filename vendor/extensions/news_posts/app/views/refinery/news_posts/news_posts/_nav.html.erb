@@ -1,0 +1,11 @@
+  <section id="filters" class="divider section-nav interior">
+  <h1>Filter:</h1>
+  <ul>
+    <li class="show-all"><%= link_to 'all posts', refinery.news_posts_news_posts_path, :class => "#{'selected' if params['tag_id'].blank? and @news_post.nil?}" %></li>
+    <% @tags.each do |tag| %>
+      <li>
+        <%= link_to tag.name.titleize, refinery.news_tagged_path(tag.name), :class => "#{'selected' if params[:tag_id] == tag.name}" -%>
+      </li>
+    <% end -%>
+  </ul>
+</section>

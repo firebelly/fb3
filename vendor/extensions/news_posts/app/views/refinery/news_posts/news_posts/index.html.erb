@@ -1,11 +1,16 @@
-<% content_for :body do %>
-  <ul id="news_posts">
-    <% @news_posts.each do |news_post| %>
-      <li>
-        <%= link_to news_post.title, refinery.news_posts_news_post_path(news_post) %>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
+<% content_for :title, @page_title %>
 
-<%= render '/refinery/content_page' %>
+<% content_for :meta do %>
+  <link rel="alternate" type="application/atom+xml" title="Firebelly News" href="<%= refinery.news_feed_url() %>"> 
+<% end -%>
+
+<%= content_for :aside do %>
+  <%= render :partial => "refinery/news_posts/news_posts/nav" -%>
+<% end -%>
+
+<% content_for :page do %>
+  <div class="news-posts">
+  <%= render :partial => "shared/news_post", :collection => @news_posts, :locals => { :is_single => false } %>
+  <%# will_paginate @news_posts, :renderer => SearchPagination::LinkRenderer %>
+  </div>
+<% end %>

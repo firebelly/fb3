@@ -1,4 +1,4 @@
-<li class="page clearfix <%= 'person' if @body_id =~ /^people/ %> <%= child_page.friendly_id %> item" data-page="<%= child_page.friendly_id %>">
+<li class="page clearfix <%= 'person' if @body_id =~ /^people/ %> <%= child_page.slug %> item" data-page="<%= child_page.slug %>">
   <% image = (child_page.images.any?) ? child_page.images.first : nil %>
   <% if @body_id =~ /^people/ %>
     <div class="bio -left">
@@ -24,8 +24,8 @@
       <%= raw child_page.content_for :side_body -%>
     </aside>
   <% else %>
-  <div><a name="<%= child_page.friendly_id -%>"></a>
-    <h2 class="section-header"><%= child_page.subtitle -%></h2>
+
+  <div><a name="<%= child_page.slug -%>"></a>
     <header class="section-title divider">
       <h1><%= child_page.title %></h1>
       <%= raw child_page.content_for :side_body -%>

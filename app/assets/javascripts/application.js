@@ -18,6 +18,8 @@
 //= require jquery.fitvids
 //= require jquery.cookie
 //= require velocity
+//= require jquery.waypoints
 //= require main
 //= require projects
 //= require products
+//= require people

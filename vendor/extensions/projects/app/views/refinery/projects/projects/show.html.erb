@@ -1,69 +1,34 @@
-<% content_for :body_content_title do %>
-  <%= @project.title %>
-<% end %>
+<% content_for :title, @project.title %>
 
-<% content_for :body do %>
-  <section>
-    <h1>Title</h1>
-    <p>
-      <%=raw @project.title %>
-    </p>
-  </section>
-  <section>
-    <h1>Subtitle</h1>
-    <p>
-      <%=raw @project.subtitle %>
-    </p>
-  </section>
-  <section>
-    <h1>Summary</h1>
-    <p>
-      <%=raw @project.summary %>
-    </p>
-  </section>
-  <section>
-    <h1>Content</h1>
-    <p>
-      <%=raw @project.content %>
-    </p>
-  </section>
-  <section>
-    <h1>Image</h1>
-    <p>
-      <%= image_fu @project.image, nil %>
-    </p>
-  </section>
-  <section>
-    <h1>Industry</h1>
-    <p>
-      <%=raw @project.industry_id %>
-    </p>
-  </section>
-  <section>
-    <h1>Position</h1>
-    <p>
-      <%=raw @project.position %>
-    </p>
-  </section>
-  <section>
-    <h1>Published</h1>
-    <p>
-      <%=raw @project.published %>
-    </p>
-  </section>
+<% content_for :page do %>
+  <article class="content-block">
+    <section class="content interior">
+      <div class="campaign-banner" style="background-image:url(<%= @project.image.thumbnail().url if @project.image %>);"></div>
+      <div class="intro clearfix">
+        <header class="section-title">
+          <h1 class="campaign-client"><%= @project.title -%></h1>
+          <h4 class="campaign-name"><%= @project.subtitle %></h4>
+          <%= render :partial => '/shared/edit_bug', :locals => { :obj => @project, :edit_path => refinery.edit_projects_admin_project_path(@project) }%>
+        </header>
+        <div class="summary user-content"><%= raw @project.summary %></div>
+        <div class="campaign-meta grid">
+          <div class="industry one-half">
+            <div class="-inner">
+              <h3>Industry:</h3>
+              <ul><li><%= @project.industry.name -%></li></ul>
+            </div>
+          </div>
+          <div class="services one-half">
+            <div class="inner">
+              <h3>Services:</h3>
+              <ul><li><%= @project.service_counts.map { |t| t.name }.join(', ') -%></li></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="project-images clearfix">
+        <%= raw @project.content -%>
+      </div>
+    </section>
+  </article>
 <% end %>
-
-<% content_for :side_body do %>
-  <aside>
-    <h2><%= t('.other') %></h2>
-    <ul id="projects">
-      <% @projects.each do |project| %>
-        <li>
-          <%= link_to project.title, refinery.projects_project_path(project) %>
-        </li>
-      <% end %>
-    </ul>
-  </aside>
-<% end %>
-
-<%= render '/refinery/content_page' %>
