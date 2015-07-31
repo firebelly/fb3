@@ -45,7 +45,7 @@ Refinery::Core.configure do |config|
   # config.register_javascript "prototype-rails"
 
   # Register extra stylesheet for backend (optional options)
-  # config.register_stylesheet "custom", :media => 'screen'
+  config.register_stylesheet "custom-admin", :media => 'screen'
 
   # Specify a different backend path than the default of "refinery".
   # Make sure you clear the `tmp/cache` directory after changing this setting.

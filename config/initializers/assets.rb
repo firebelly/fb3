@@ -9,7 +9,7 @@ Rails.application.config.assets.version = '1.0'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-Rails.application.config.assets.precompile += %w( refinerycms.admin.tags.css refinerycms.admin.tags.js )
+Rails.application.config.assets.precompile += %w( refinerycms.admin.tags.css refinerycms.admin.tags.js custom-admin.css )
 
 # fonts
 Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf|woff2)\z/

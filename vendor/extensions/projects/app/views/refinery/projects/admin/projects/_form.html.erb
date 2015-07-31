@@ -17,12 +17,12 @@
     <%= f.text_field :subtitle, :class => 'widest' -%>
   </div>
 
-  <div class="field" style="margin-top: 20px">
+  <div class='field spaced'>
     <%= f.check_box :published, :checked => @project[:published] -%>
     <%= f.label :published, 'Published?', :style => 'display: inline' %>
   </div>
 
-  <div class='field' style="margin-top: 20px">
+  <div class='field'>
     <%= render '/refinery/admin/wysiwyg',
                 :f => f,
                 :fields => [:summary, :content],

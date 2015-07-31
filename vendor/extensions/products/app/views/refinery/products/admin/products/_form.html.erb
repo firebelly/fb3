@@ -8,7 +8,7 @@
     <%= f.text_field :title, :class => 'larger widest' -%>
   </div>
 
-  <div class="field" style="margin-top: 20px">
+  <div class="field spaced">
     <%= f.check_box :published, :checked => @product[:published] -%>
     <%= f.label :published, 'Published?', :style => 'display: inline' %>
   </div>
@@ -23,7 +23,7 @@
     <%= f.text_field :weight -%>
   </div>
 
-  <div class='field' style="margin-top:20px;">
+  <div class='field'>
       <div id='page-tabs' class='clearfix ui-tabs ui-widget ui-widget-content ui-corner-all'>
         <ul id='page_parts'>
           <li class='ui-state-default ui-state-active'>

@@ -1,0 +1,40 @@
+/* Make Refinery a little less butt ugly */
+
+header {
+	width: 117px;
+}
+#admin_container {
+	width: 1120px;
+	margin: 0 auto;
+}
+
+#page_container {
+	width: 1000px;
+	padding: 1.5em;
+}
+
+#menu a#menu_reorder, 
+#menu a#menu_reorder_done {
+	line-height: 1;
+	padding: 10px;
+}
+
+#page-tabs.ui-tabs {
+	margin-top: 20px;
+}
+
+.spaced {
+	margin-top: 20px;
+}
+
+#actions {
+	padding-top: .5em;
+}
+
+#content .pagination a {
+	border: none;
+}
+
+#actions li a:before {
+	width: 1.25em;
+}
