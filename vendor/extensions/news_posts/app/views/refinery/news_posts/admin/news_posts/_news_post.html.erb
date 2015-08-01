@@ -1,8 +1,12 @@
 <li class='clearfix record <%= cycle("on", "on-hover") %>' id="<%= dom_id(news_post) -%>">
   <span class='title'>
     <%= news_post.title %>
-
   </span>
+
+  <% unless news_post.published? %>
+    <span class="preview">(not published)</span>
+  <% end %>
+
   <span class='actions'>
     
       <%= action_icon(:preview, refinery.news_posts_news_post_path(news_post), t('.view_live_html')) %>

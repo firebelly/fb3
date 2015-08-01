@@ -9,7 +9,7 @@ header {
 }
 
 #page_container {
-	width: 1000px;
+	width: 1003px;
 	padding: 1.5em;
 }
 
@@ -30,11 +30,26 @@ header {
 #actions {
 	padding-top: .5em;
 }
-
+#actions li {
+	padding: 0;
+}
+#actions li form {
+	margin: 6px 10px;
+}
+#actions li a {
+	display: block;
+	padding: 6px 10px;
+}
+#actions li a:hover {
+	background: #DFEBFE;
+}
+#actions li a:before {
+	width: 1.25em;
+}
 #content .pagination a {
 	border: none;
 }
 
-#actions li a:before {
-	width: 1.25em;
+.wym_skin_refinery li.wym_containers_blockquote a {
+  background-image: url('/assets/text_blockquote.png');
 }

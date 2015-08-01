@@ -2,9 +2,9 @@
 
 // No-touch only
 .no-touch {
-  .campaign {
+  .project {
     &:hover {
-      .campaign-image {
+      .project-image {
         transform: scale(1.1);
         transform-origin: center center;
       }

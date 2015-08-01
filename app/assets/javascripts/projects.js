@@ -94,13 +94,13 @@ $.gdgr.projects = (function() {
       var pageWidth = ($(window).width() > 1382) ? $('#wrapper').width() : 730;
       
       // make each first work thumb in row clear left
-      $('.portfolio .campaign').removeClass('clear-left').removeClass('tail');
-      var perRow = Math.floor(pageWidth / $('.campaign').outerWidth(true));
-      $('.portfolio .campaign:nth-child(' + perRow + 'n+1)').addClass('clear-left');
-      $('.portfolio .campaign:nth-child(' + perRow + 'n)').addClass('tail');
+      $('.portfolio .project').removeClass('clear-left').removeClass('tail');
+      var perRow = Math.floor(pageWidth / $('.project').outerWidth(true));
+      $('.portfolio .project:nth-child(' + perRow + 'n+1)').addClass('clear-left');
+      $('.portfolio .project:nth-child(' + perRow + 'n)').addClass('tail');
       
       // set width of headers so mantra is right-flush with thumb edges
-      $('#page, footer').width((perRow * $('.portfolio .campaign').outerWidth(true)) - 6);
+      $('#page, footer').width((perRow * $('.portfolio .project').outerWidth(true)) - 6);
     } else {
       // remove width declaration for mobile
       $('#page, footer').width('');

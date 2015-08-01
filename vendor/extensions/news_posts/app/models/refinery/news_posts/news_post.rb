@@ -16,7 +16,7 @@ module Refinery
       belongs_to :image, :class_name => '::Refinery::Image'
       belongs_to :user, :class_name => '::Refinery::User'
 
-      scope :published, -> { where(:published => true).order('date desc') }
+      scope :published, -> { where(:published => true) }
 
     end
   end

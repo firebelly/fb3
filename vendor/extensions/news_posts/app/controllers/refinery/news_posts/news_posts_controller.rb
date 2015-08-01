@@ -6,7 +6,6 @@ module Refinery
       before_action :find_page
 
       def index
-
         present(@page)
       end
 
@@ -25,6 +24,9 @@ module Refinery
 
       def show
         @news_post = NewsPost.friendly.find(params[:id])
+        if !@news_post.published?
+          return redirect_to '/news'
+        end
         present(@page)
       end
 
@@ -32,7 +34,7 @@ module Refinery
 
       def get_defaults
         @tags = NewsPost.published.tag_counts_on(:tags)
-        @news_posts = NewsPost.order('position ASC')
+        @news_posts = NewsPost.published.order('position ASC')
       end
 
       def find_page

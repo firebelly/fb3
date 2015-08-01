@@ -3,15 +3,15 @@
 <% content_for :page do %>
   <article class="content-block">
     <section class="content interior">
-      <div class="campaign-banner" style="background-image:url(<%= @project.image.thumbnail().url if @project.image %>);"></div>
+      <div class="project-banner" style="background-image:url(<%= @project.image.thumbnail().url if @project.image %>);"></div>
       <div class="intro clearfix">
         <header class="section-title">
-          <h1 class="campaign-client"><%= @project.title -%></h1>
-          <h4 class="campaign-name"><%= @project.subtitle %></h4>
+          <h1 class="project-client"><%= @project.title -%></h1>
+          <h4 class="project-name"><%= @project.subtitle %></h4>
           <%= render :partial => '/shared/edit_bug', :locals => { :obj => @project, :edit_path => refinery.edit_projects_admin_project_path(@project) }%>
         </header>
         <div class="summary user-content"><%= raw @project.summary %></div>
-        <div class="campaign-meta grid">
+        <div class="project-meta grid">
           <div class="industry one-half">
             <div class="-inner">
               <h3>Industry:</h3>

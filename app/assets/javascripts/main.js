@@ -134,7 +134,7 @@ $.gdgr.main = (function() {
   function _scrollToFilters() {
     // When clicking on a filter, scroll to top of grid
     $('#filters a').on('click', function() {
-      _scrollBody($('.campaigns'), 250, 0); 
+      _scrollBody($('.projects'), 250, 0); 
     });
   }
 

@@ -44,9 +44,11 @@ img {
 
 // Utility classes
 
-// Hiding the campaign/project edit button for now
 .edit-bug {
   display: none;
+  &.active {
+    display: block;
+  }
 }
 
 // Clearfix

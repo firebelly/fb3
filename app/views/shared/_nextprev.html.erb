@@ -1,0 +1,9 @@
+<nav class="pagination">
+  <ul>
+    <li class="previous_page"><%= link_to raw("<em>Prev</em>"), obj.previous(:field => :position) || obj.class.order(:position).last %></li>
+    <% if local_assigns.has_key? :section_label %>
+      <li class="label"><%= link_to raw("<em>#{section_label}</em>"), section_url %></li>
+    <% end -%>
+    <li class="next_page"><%= link_to raw("<em>Next</em>"), obj.next(:field => :position) || obj.class.order(:position).first %></li>
+  </ul>
+</nav>

@@ -1,4 +1,11 @@
-img {
+.visual_editor_iframe_body img {
 	max-width: 100%;
 	height: auto;
+}
+
+.visual_editor_iframe_body .fb-centered-paragraph {
+	font-size: 16px;
+	max-width: 600px;
+	line-height: 1.375em;
+	margin: 3em auto;
 }

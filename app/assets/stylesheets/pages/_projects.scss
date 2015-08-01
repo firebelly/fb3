@@ -1,7 +1,7 @@
-// Campaign
+// Projects
 
 #work-page.single {
-  .campaign-banner {
+  .project-banner {
     height: 400px; // Fallback for viewport units
     height: 50vh;
     max-height: 400px;
@@ -34,7 +34,7 @@
     }
   }
 
-  .campaign-meta {
+  .project-meta {
     max-width: 800px;
     text-align: center;
     margin: ($padding * 5) auto 0;
@@ -83,7 +83,7 @@
     }
   }
 
-  // The campaign summary
+  // The project summary
   .intro{
     padding: ($padding * 6) 0;
 
@@ -95,6 +95,22 @@
   .summary {
     blockquote {
       margin: ($padding * 6) auto;
+    }
+  }
+
+  // centered paragraphs
+  .fb-centered-paragraph {
+    font-size: 16px;
+    max-width: 600px;
+    line-height: 1.375em;
+    margin: ($padding * 2);
+
+    @include min-screen($breakpoint-small) {
+      margin: ($padding * 6);
+    }
+
+    @include min-screen($breakpoint-medium) {
+      margin: ($padding * 12) auto;
     }
   }
 

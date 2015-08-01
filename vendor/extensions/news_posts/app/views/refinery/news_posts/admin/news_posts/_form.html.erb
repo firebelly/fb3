@@ -22,11 +22,6 @@
     <%= f.label :published, 'Published?', :style => 'display: inline' %>
   </div>
 
-  <div class="field">
-    <%= f.label :user_id, 'Author' -%>
-    <%= f.collection_select :user_id, Refinery::User.all, :id, :username %>
-  </div>
-
   <div class="field" style="margin-top: 20px">
     <%= render '/refinery/admin/wysiwyg',
                 :f => f,
