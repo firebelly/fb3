@@ -7,11 +7,14 @@ module Refinery
     	friendly_id :title, :use => [:slugged]
 
       validates :title, :presence => true
-      validates :product_category_id, :presence => true
       validates :description, :presence => true
       validates :price, :presence => true
 
       acts_as_indexed :fields => [:title, :description, :details]
+
+      def should_generate_new_friendly_id?
+        title_changed?
+      end
 
       has_many_page_images
 

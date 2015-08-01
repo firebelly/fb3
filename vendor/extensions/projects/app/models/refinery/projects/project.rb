@@ -24,6 +24,10 @@ module Refinery
 
       scope :published, -> { where(:published => true).order('position ASC') }
 
+      def should_generate_new_friendly_id?
+        title_changed?
+      end
+
       def service_classes
         service_counts.map { |t| t.name.parameterize }.join(' ')
       end
