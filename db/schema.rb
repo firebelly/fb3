@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150803212716) do
+ActiveRecord::Schema.define(version: 20150803221305) do
 
   create_table "refinery_authentication_devise_roles", force: :cascade do |t|
     t.string "title", limit: 255
@@ -130,11 +130,12 @@ ActiveRecord::Schema.define(version: 20150803212716) do
 
   create_table "refinery_page_parts", force: :cascade do |t|
     t.integer  "refinery_page_id", limit: 4
-    t.string   "title",            limit: 255
+    t.string   "slug",             limit: 255
     t.text     "body",             limit: 65535
     t.integer  "position",         limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title",            limit: 255
   end
 
   add_index "refinery_page_parts", ["id"], name: "index_refinery_page_parts_on_id", using: :btree
