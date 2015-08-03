@@ -17,13 +17,13 @@ test:
 staging:
   <<: *default
   socket: /var/run/mysqld/mysqld.sock
-  database: fb3_staging
+  username: <%= ENV['DB_NAME'] %>
   username: <%= ENV['DB_USER'] %>
   password: <%= ENV['DB_PASSWORD'] %>
 
 production:
   <<: *default
   socket: /var/run/mysqld/mysqld.sock
-  database: fb3_production
+  username: <%= ENV['DB_NAME'] %>
   username: <%= ENV['DB_USER'] %>
   password: <%= ENV['DB_PASSWORD'] %>
