@@ -11,7 +11,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150730164716) do
+ActiveRecord::Schema.define(version: 20150803212716) do
+
+  create_table "refinery_authentication_devise_roles", force: :cascade do |t|
+    t.string "title", limit: 255
+  end
+
+  create_table "refinery_authentication_devise_roles_users", id: false, force: :cascade do |t|
+    t.integer "user_id", limit: 4
+    t.integer "role_id", limit: 4
+  end
+
+  add_index "refinery_authentication_devise_roles_users", ["role_id", "user_id"], name: "refinery_roles_users_role_id_user_id", using: :btree
+  add_index "refinery_authentication_devise_roles_users", ["user_id", "role_id"], name: "refinery_roles_users_user_id_role_id", using: :btree
+
+  create_table "refinery_authentication_devise_user_plugins", force: :cascade do |t|
+    t.integer "user_id",  limit: 4
+    t.string  "name",     limit: 255
+    t.integer "position", limit: 4
+  end
+
+  add_index "refinery_authentication_devise_user_plugins", ["name"], name: "index_refinery_authentication_devise_user_plugins_on_name", using: :btree
+  add_index "refinery_authentication_devise_user_plugins", ["user_id", "name"], name: "refinery_user_plugins_user_id_name", unique: true, using: :btree
+
+  create_table "refinery_authentication_devise_users", force: :cascade do |t|
+    t.string   "username",               limit: 255, null: false
+    t.string   "email",                  limit: 255, null: false
+    t.string   "encrypted_password",     limit: 255, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
+    t.integer  "sign_in_count",          limit: 4
+    t.datetime "remember_created_at"
+    t.string   "reset_password_token",   limit: 255
+    t.datetime "reset_password_sent_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "slug",                   limit: 255
+    t.string   "full_name",              limit: 255
+  end
+
+  add_index "refinery_authentication_devise_users", ["id"], name: "index_refinery_authentication_devise_users_on_id", using: :btree
+  add_index "refinery_authentication_devise_users", ["slug"], name: "index_refinery_authentication_devise_users_on_slug", using: :btree
 
   create_table "refinery_image_page_translations", force: :cascade do |t|
     t.integer  "refinery_image_page_id", limit: 4,     null: false
@@ -34,6 +76,16 @@ ActiveRecord::Schema.define(version: 20150730164716) do
 
   add_index "refinery_image_pages", ["image_id"], name: "index_refinery_image_pages_on_image_id", using: :btree
   add_index "refinery_image_pages", ["page_id"], name: "index_refinery_image_pages_on_page_id", using: :btree
+
+  create_table "refinery_image_translations", force: :cascade do |t|
+    t.integer  "refinery_image_id", limit: 4
+    t.string   "locale",            limit: 255
+    t.text     "caption",           limit: 65535
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "refinery_image_translations", ["refinery_image_id"], name: "index_refinery_image_translations_on_refinery_image_id", using: :btree
 
   create_table "refinery_images", force: :cascade do |t|
     t.string   "image_mime_type", limit: 255
@@ -201,48 +253,6 @@ ActiveRecord::Schema.define(version: 20150730164716) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "refinery_roles", force: :cascade do |t|
-    t.string "title", limit: 255
-  end
-
-  create_table "refinery_roles_users", id: false, force: :cascade do |t|
-    t.integer "user_id", limit: 4
-    t.integer "role_id", limit: 4
-  end
-
-  add_index "refinery_roles_users", ["role_id", "user_id"], name: "index_refinery_roles_users_on_role_id_and_user_id", using: :btree
-  add_index "refinery_roles_users", ["user_id", "role_id"], name: "index_refinery_roles_users_on_user_id_and_role_id", using: :btree
-
-  create_table "refinery_user_plugins", force: :cascade do |t|
-    t.integer "user_id",  limit: 4
-    t.string  "name",     limit: 255
-    t.integer "position", limit: 4
-  end
-
-  add_index "refinery_user_plugins", ["name"], name: "index_refinery_user_plugins_on_name", using: :btree
-  add_index "refinery_user_plugins", ["user_id", "name"], name: "index_refinery_user_plugins_on_user_id_and_name", unique: true, using: :btree
-
-  create_table "refinery_users", force: :cascade do |t|
-    t.string   "username",               limit: 255, null: false
-    t.string   "email",                  limit: 255, null: false
-    t.string   "encrypted_password",     limit: 255, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
-    t.integer  "sign_in_count",          limit: 4
-    t.datetime "remember_created_at"
-    t.string   "reset_password_token",   limit: 255
-    t.datetime "reset_password_sent_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "slug",                   limit: 255
-    t.string   "full_name",              limit: 255
-  end
-
-  add_index "refinery_users", ["id"], name: "index_refinery_users_on_id", using: :btree
-  add_index "refinery_users", ["slug"], name: "index_refinery_users_on_slug", using: :btree
 
   create_table "seo_meta", force: :cascade do |t|
     t.integer  "seo_meta_id",      limit: 4

@@ -57,6 +57,9 @@ gem 'refinerycms-wymeditor', ['~> 1.0', '>= 1.0.6']
 # Add page images
 gem "refinerycms-page-images", github: "refinery/refinerycms-page-images", branch: "master"
 
+# Authentication
+gem 'refinerycms-authentication-devise', '~> 1.0'
+
 # Custom extensions
 gem 'refinerycms-news_posts', path: 'vendor/extensions'
 gem 'refinerycms-projects', path: 'vendor/extensions'

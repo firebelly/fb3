@@ -10,20 +10,14 @@ GIT
 
 GIT
   remote: https://github.com/refinery/refinerycms
-  revision: 0bbbc54f7910b8a5436ed7351bb4efb35f6f4c20
+  revision: 9a69a74a9f345aed663d85e7c2277172fe212e99
   branch: master
   specs:
     refinerycms (3.0.0)
-      refinerycms-authentication (= 3.0.0)
       refinerycms-core (= 3.0.0)
       refinerycms-images (= 3.0.0)
       refinerycms-pages (= 3.0.0)
       refinerycms-resources (= 3.0.0)
-    refinerycms-authentication (3.0.0)
-      actionmailer (>= 4.0.2, < 5.0)
-      devise (~> 3.0, >= 3.2.4)
-      friendly_id (~> 5.1.0)
-      refinerycms-core (= 3.0.0)
     refinerycms-core (3.0.0)
       actionpack (>= 4.1.5, < 5.0)
       activerecord (>= 4.1.5, < 5.0)
@@ -37,8 +31,10 @@ GIT
       sass-rails (>= 4.0, < 5.1)
       truncate_html (~> 0.9)
       will_paginate (~> 3.0.2)
+      zilch-authorisation
     refinerycms-images (3.0.0)
       dragonfly (~> 1.0.0)
+      globalize (>= 4.0.0, < 5.2)
       refinerycms-core (= 3.0.0)
     refinerycms-pages (3.0.0)
       awesome_nested_set (~> 3.0.0)
@@ -47,9 +43,11 @@ GIT
       globalize (>= 4.0.0, < 5.2)
       refinerycms-core (= 3.0.0)
       seo_meta (~> 2.0.0.rc.1)
+      speakingurl-rails (~> 1.1.2)
     refinerycms-resources (3.0.0)
       acts_as_indexed (~> 0.8.0)
       dragonfly (~> 1.0.0)
+      globalize (>= 4.0.0, < 5.2)
       refinerycms-core (= 3.0.0)
 
 PATH
@@ -107,7 +105,7 @@ GEM
       activerecord (>= 3.2, < 5)
     acts_as_indexed (0.8.3)
     addressable (2.3.8)
-    arel (6.0.0)
+    arel (6.0.2)
     awesome_nested_set (3.0.2)
       activerecord (>= 4.0.0, < 5)
     babosa (1.0.2)
@@ -171,7 +169,7 @@ GEM
     mini_portile (0.6.2)
     minitest (5.7.0)
     multi_json (1.11.2)
-    mysql2 (0.3.18)
+    mysql2 (0.3.19)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
@@ -209,10 +207,16 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     rdoc (4.2.0)
+      json (~> 1.4)
     refinerycms-acts-as-indexed (2.0.1)
       acts_as_indexed (~> 0.8.0)
       decorators (~> 2.0.0)
       refinerycms-core (~> 3.0.0)
+    refinerycms-authentication-devise (1.0.4)
+      actionmailer (~> 4.2, >= 4.2.0)
+      devise (~> 3.0, >= 3.2.4)
+      friendly_id (~> 5.1.0)
+      refinerycms-core (~> 3.0, >= 3.0.0)
     refinerycms-i18n (3.0.1)
       rails-i18n (~> 4.0.1)
       routing-filter (>= 0.4.0)
@@ -223,7 +227,7 @@ GEM
     routing-filter (0.5.0)
       actionpack (~> 4.2)
       activesupport (~> 4.2)
-    sass (3.4.15)
+    sass (3.4.16)
     sass-rails (5.0.3)
       railties (>= 4.0.0, < 5.0)
       sass (~> 3.1)
@@ -235,6 +239,8 @@ GEM
       rdoc (~> 4.0)
     seo_meta (2.0.0.rc.1)
       railties (>= 3.0.0)
+    speakingurl-rails (1.1.5)
+      railties (>= 3.1)
     spring (1.3.6)
     sprockets (3.2.0)
       rack (~> 1.0)
@@ -255,12 +261,13 @@ GEM
       json (>= 1.8.0)
     warden (1.2.3)
       rack (>= 1.0)
-    web-console (2.1.3)
+    web-console (2.2.1)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
     will_paginate (3.0.7)
+    zilch-authorisation (0.0.1)
 
 PLATFORMS
   ruby
@@ -277,6 +284,7 @@ DEPENDENCIES
   rails (= 4.2.3)
   refinerycms!
   refinerycms-acts-as-indexed (~> 2.0, >= 2.0.0)
+  refinerycms-authentication-devise (~> 1.0)
   refinerycms-news_posts!
   refinerycms-page-images!
   refinerycms-products!
@@ -288,3 +296,6 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+
+BUNDLED WITH
+   1.10.6
