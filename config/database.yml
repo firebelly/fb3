@@ -49,6 +49,7 @@ test:
 #
 production:
   <<: *default
+  socket: /var/run/mysqld/mysqld.sock
   database: fb3_production
-  username: fb3_sql
-  password: <%= ENV['FB3_DATABASE_PASSWORD'] %>
+  username: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
