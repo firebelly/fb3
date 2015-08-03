@@ -4,7 +4,7 @@
       <%= form_for @cart, url: "/store/cart/#{@cart.id}", remote: true, method: 'put', html: { id: 'cart-form' } do |f| %>
         <ul>
           <%= f.fields_for :cart_items do |cart_items_form| %>
-            <%= render partial: 'refinery/products/carts/cart_item', collection: @cart.cart_items, locals: { cart_items_form: cart_items_form } %>
+            <%= render partial: 'refinery/products/carts/cart_item', locals: { cart_item: cart_items_form.object, f: cart_items_form } %>
           <% end -%>
           <li class="subtotal">Total: <%= number_to_currency(@cart.subtotal, precision: 0) %></li>
         </ul>

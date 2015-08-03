@@ -1,10 +1,10 @@
 <li class="line-item">
   <div class="item"><%= link_to cart_item, refinery.products_product_path(cart_item.product) %></div>
   <div class="price"><%= number_to_currency cart_item.price, :precision => 0  %></div>
-  <div class="quantity"><span>Qty:</span> <%= cart_items_form.text_field :quantity, :size => 2, :tabindex => cart_item_counter+1  %>
-  <%= cart_items_form.hidden_field :id  %>
-  <%= cart_items_form.hidden_field :product_id  %>
-  <%= cart_items_form.hidden_field :price  %>
+  <div class="quantity"><span>Qty:</span> <%= f.text_field :quantity, :size => 2, :tabindex => f.index+1  %>
+  <%= f.hidden_field :id  %>
+  <%= f.hidden_field :product_id  %>
+  <%= f.hidden_field :price  %>
   </div>
   <div class="delete-link">
     <%= link_to "Remove", refinery.products_cart_item_path(cart_item.id), :method => :delete, :remote => true, :class => 'delete' %>
