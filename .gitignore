@@ -93,3 +93,4 @@ vendor/extensions/**/spec/dummy
 
 .env
 .gems
+*.pyc
