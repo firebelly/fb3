@@ -3,8 +3,8 @@
 /* fonts */
 @font-face {
   font-family: 'RomanaBT-Bold';
-  src: asset-url('2E86D1_0_0.eot');
-  src: asset-url('2E86D1_0_0.eot?#iefix') format('embedded-opentype'),asset-url('2E86D1_0_0.woff2') format('woff2'),asset-url('2E86D1_0_0.woff') format('woff'),asset-url('2E86D1_0_0.ttf') format('truetype');
+  src: font-url('2E86D1_0_0.eot');
+  src: font-url('2E86D1_0_0.eot?#iefix') format('embedded-opentype'),font-url('2E86D1_0_0.woff2') format('woff2'),font-url('2E86D1_0_0.woff') format('woff'),font-url('2E86D1_0_0.ttf') format('truetype');
 }
 
 $font-display: 'RomanaBT-Bold', serif;
