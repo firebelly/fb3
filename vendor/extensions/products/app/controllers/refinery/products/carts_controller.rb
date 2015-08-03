@@ -29,18 +29,11 @@ module Refinery
             end
           end
         end
+        Cart.clear_cruft # ghetto cronjob
       end
       
       def update
         @cart.update(cart_params)
-        # unless params[:items].empty?
-        #   params[:items].each do |item|
-        #     i = CartItem.find(item[:id])
-        #     unless i.nil?
-        #       i.update(quantity: item[:quantity])
-        #     end
-        #   end
-        # end
         respond_to do |format|
           format.html do
             if request.xhr?
@@ -50,10 +43,6 @@ module Refinery
             end
           end
         end
-      end
-
-      def get_cart
-        @cart = Cart.find_or_create_by(session_id: session.id)
       end
 
     private

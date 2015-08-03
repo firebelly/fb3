@@ -25,6 +25,11 @@ module Refinery
           return 0
         end
       end
+
+      # cronjobs
+      def self.clear_cruft
+        Cart.where("updated_at < ?", 14.days.ago).delete_all
+      end
   
     end
   end

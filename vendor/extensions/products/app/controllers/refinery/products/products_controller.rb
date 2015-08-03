@@ -3,6 +3,7 @@ module Refinery
     class ProductsController < ::ApplicationController
 
       before_action :get_defaults
+      before_filter :get_cart
 
       def index
         @products = Product.order('position ASC')
@@ -18,9 +19,7 @@ module Refinery
 
       def get_defaults
         @page = ::Refinery::Page.where(:link_url => "/products").first
-        @cart = Cart.find_or_create_by(session_id: session.id)
       end
-
 
     end
   end

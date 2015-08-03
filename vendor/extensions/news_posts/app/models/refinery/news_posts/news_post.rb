@@ -8,7 +8,6 @@ module Refinery
       acts_as_indexed :fields => [:title, :content]
 
       validates :title, :presence => true, :uniqueness => true
-      validates :user_id, :presence => true
       validates :content, :presence => true
 
       acts_as_taggable_on :tags

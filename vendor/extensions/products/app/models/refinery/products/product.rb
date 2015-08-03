@@ -7,7 +7,6 @@ module Refinery
     	friendly_id :title, :use => [:slugged]
 
       validates :title, :presence => true
-      validates :description, :presence => true
       validates :price, :presence => true
 
       acts_as_indexed :fields => [:title, :description, :details]
