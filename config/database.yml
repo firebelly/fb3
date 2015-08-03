@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: fb3_production
-  username: fb3
+  username: fb3_sql
   password: <%= ENV['FB3_DATABASE_PASSWORD'] %>
