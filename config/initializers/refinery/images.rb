@@ -8,7 +8,7 @@ Refinery::Images.configure do |config|
 
   # Configure how many images per page should be displayed when a dialog is presented that
   # contains images and image resize options
-  config.pages_per_dialog_that_have_size_options = 30
+  config.pages_per_dialog_that_have_size_options = 18
 
   # Configure how many images per page should be displayed in the list of images in the admin area
   config.pages_per_admin_index = 40

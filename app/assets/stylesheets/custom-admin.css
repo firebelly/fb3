@@ -53,3 +53,5 @@ header {
 .wym_skin_refinery li.wym_containers_blockquote a {
   background-image: url('/assets/text_blockquote.png');
 }
+
+.wym_skin_refinery .wym_iframe iframe { height: 600px; }
