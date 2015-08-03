@@ -63,4 +63,3 @@ gem 'refinerycms-projects', path: 'vendor/extensions'
 gem 'refinerycms-products', path: 'vendor/extensions'
 
 gem 'acts-as-taggable-on', '~> 3.4'
-gem 'dotenv-rails'
