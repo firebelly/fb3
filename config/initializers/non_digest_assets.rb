@@ -1,1 +1,1 @@
-NonStupidDigestAssets.whitelist += ['refinery/formatting.css','refinery/theme.css','wymeditor/lang/de.js','skins/refinery/wymiframe.css']
+NonStupidDigestAssets.whitelist += ['refinery/formatting.css','refinery/theme.css','wymeditor/lang/de.js','skins/refinery/wymiframe.css','wymeditor/skins/refinery/wymiframe.css','text_blockquote.png']
