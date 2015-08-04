@@ -69,3 +69,5 @@ gem 'acts-as-taggable-on', '~> 3.4'
 gem 'dotenv-rails'
 gem 'non-stupid-digest-assets'
 gem 'dalli'
+gem 'rack-cache'
+
