@@ -99,7 +99,7 @@ body#store-page #nav-store {
     a {
       color: $white;
       @include small-caps();
-      &:hover, &:focus, &:active {
+      &:hover, &:active {
         text-decoration: underline;
       }
       &.selected {
