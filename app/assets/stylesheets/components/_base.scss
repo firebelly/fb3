@@ -42,14 +42,6 @@ img {
   background: $black-fade;
 }
 
-// Utility classes
-.edit-bug {
-  display: none;
-  &.active {
-    display: block;
-  }
-}
-
 // Clearfix
 .clearfix {
   @include clearfix();
