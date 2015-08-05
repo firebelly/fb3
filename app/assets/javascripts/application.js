@@ -19,6 +19,8 @@
 //= require jquery.cookie
 //= require velocity
 //= require jquery.waypoints
+//= require dropzone
+//= require jquery-sortable
 //= require main
 //= require products
 //= require people

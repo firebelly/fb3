@@ -117,6 +117,10 @@
   .project-summary {
     padding: 25px;
 
+    h3.number-header {
+      margin-bottom: ($padding * 2);
+    }
+
     h2 {
       margin-bottom: ($padding * 6);
     }
@@ -137,5 +141,51 @@
       max-width: none;
       vertical-align: top;
     }
+  }
+}
+
+.batch-upload {
+  text-align: center;
+}
+.dropzone {
+  margin: 20px;
+  background: #E2E2E2;
+  border: none;
+  text-align: center;
+  h2 {
+    margin-bottom: 20px;
+  }
+  .dz-message {
+    padding: 4em 0;
+    margin: 0;
+    color: #aaa;
+  }
+  .dz-preview {
+    &.dragged {
+      position: absolute;
+      margin: 0;
+    }
+    &.dz-image-preview {
+      background: none;
+    }
+    .dz-remove {
+      margin: 8px 0 0;
+    }
+  }
+  input[type=text],
+  textarea {
+    text-transform: none;
+    font: 14px/1 sans-serif;
+    letter-spacing: 0;
+    color: #666;
+    padding: 10px;
+    width: 100%;
+    margin: 10px auto;
+    max-width: 600px;
+    background: #eee;
+    border: none;
+  }
+  #images_desc {
+    height: 100px; 
   }
 }

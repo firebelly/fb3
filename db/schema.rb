@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150803221305) do
+ActiveRecord::Schema.define(version: 20150804203322) do
 
   create_table "refinery_authentication_devise_roles", force: :cascade do |t|
     t.string "title", limit: 255
@@ -78,13 +78,15 @@ ActiveRecord::Schema.define(version: 20150803221305) do
   add_index "refinery_image_pages", ["page_id"], name: "index_refinery_image_pages_on_page_id", using: :btree
 
   create_table "refinery_image_translations", force: :cascade do |t|
-    t.integer  "refinery_image_id", limit: 4
-    t.string   "locale",            limit: 255
-    t.text     "caption",           limit: 65535
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "refinery_image_id", limit: 4,   null: false
+    t.string   "locale",            limit: 255, null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "image_alt",         limit: 255
+    t.string   "image_title",       limit: 255
   end
 
+  add_index "refinery_image_translations", ["locale"], name: "index_refinery_image_translations_on_locale", using: :btree
   add_index "refinery_image_translations", ["refinery_image_id"], name: "index_refinery_image_translations_on_refinery_image_id", using: :btree
 
   create_table "refinery_images", force: :cascade do |t|
@@ -130,11 +132,11 @@ ActiveRecord::Schema.define(version: 20150803221305) do
 
   create_table "refinery_page_parts", force: :cascade do |t|
     t.integer  "refinery_page_id", limit: 4
-    t.string   "slug",             limit: 255
     t.text     "body",             limit: 65535
     t.integer  "position",         limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug",             limit: 255
     t.string   "title",            limit: 255
   end
 
@@ -244,6 +246,17 @@ ActiveRecord::Schema.define(version: 20150803221305) do
   end
 
   add_index "refinery_projects_project_industries", ["slug"], name: "index_refinery_projects_project_industries_on_slug", unique: true, using: :btree
+
+  create_table "refinery_resource_translations", force: :cascade do |t|
+    t.integer  "refinery_resource_id", limit: 4,   null: false
+    t.string   "locale",               limit: 255, null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "resource_title",       limit: 255
+  end
+
+  add_index "refinery_resource_translations", ["locale"], name: "index_refinery_resource_translations_on_locale", using: :btree
+  add_index "refinery_resource_translations", ["refinery_resource_id"], name: "index_refinery_resource_translations_on_refinery_resource_id", using: :btree
 
   create_table "refinery_resources", force: :cascade do |t|
     t.string   "file_mime_type", limit: 255

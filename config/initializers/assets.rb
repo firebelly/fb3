@@ -9,7 +9,7 @@ Rails.application.config.assets.version = '1.0'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-Rails.application.config.assets.precompile += %w( refinerycms.admin.tags.css refinerycms.admin.tags.js custom-admin.css admin.js )
+Rails.application.config.assets.precompile += %w( refinerycms.admin.tags.css refinerycms.admin.tags.js custom-admin.css admin.js dropzone/spritemap.png dropzone/spritemap@2x.png )
 Rails.application.config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
 
 # fonts

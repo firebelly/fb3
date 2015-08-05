@@ -70,4 +70,4 @@ gem 'dotenv-rails'
 gem 'non-stupid-digest-assets'
 gem 'dalli'
 gem 'rack-cache'
-
+gem 'dropzonejs-rails'

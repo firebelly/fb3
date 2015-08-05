@@ -28,6 +28,24 @@
       </div>
       <div class="project-images clearfix">
         <%= raw @project.content -%>
+
+        <% if current_refinery_user.can_edit? @project %>
+          <div class="batch-upload">
+            <%= form_tag('/work/upload_images', multipart: true, method: :post, class: 'dropzone') do %>
+              <h2>Add Project Images</h2>
+              <fieldset class="clearfix">
+                <%= text_field_tag 'images_number', '', placeholder: 'Number header e.g. "1."' %>
+                <%= text_field_tag 'images_title', '', placeholder: 'Title header e.g. "Stationary System"' %>
+                <%= text_area_tag 'images_desc', '', placeholder: 'Paragraph(s) describing batch of images' %>
+                <%= hidden_field_tag 'project_id', @project.id %>
+                <%= hidden_field_tag 'file-order', '' %>
+                <div class="dz-message">Drop image files here.</div>
+              </fieldset>
+            <% end %>
+            <button class="submit">Upload Images</button>
+          </div>
+        <% end %>
+
       </div>
     </section>
   </article>

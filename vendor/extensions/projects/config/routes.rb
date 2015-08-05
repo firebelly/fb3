@@ -3,6 +3,7 @@ Refinery::Core::Engine.routes.draw do
   # Frontend routes
   namespace :projects, :path => 'work' do
     resources :projects, :path => '', :only => [:index, :show]
+    post 'upload_images' => 'projects#upload_images', as: 'upload_images'
   end
 
   # Admin routes
@@ -16,11 +17,6 @@ Refinery::Core::Engine.routes.draw do
     end
   end
 
-
-  # Frontend routes
-  namespace :projects do
-    resources :project_industries, :only => [:index, :show]
-  end
 
   # Admin routes
   namespace :projects, :path => '' do

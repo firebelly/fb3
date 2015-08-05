@@ -12,6 +12,7 @@
  *
  *= require refinery/formatting
  *= require refinery/theme
+ *= require dropzone/dropzone
  *= require_self
  *= require main
  */

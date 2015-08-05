@@ -17,19 +17,56 @@ $.gdgr.main = (function() {
     admin_status = $.cookie('admin_status');
     if (admin_status) {
       $('.edit-bug').addClass('active');
+
+      // "quick" project image upload on frontend for admins
+      Dropzone.autoDiscover = false;
+      var dropzone = new Dropzone (".dropzone", {
+        paramName: "images",
+        autoProcessQueue: false,
+        addRemoveLinks: true,
+        uploadMultiple: true,
+        parallelUploads: 20,
+        queuecomplete: function() {
+          location.reload();
+        }
+      }); 
+      // upload images button
+      $('.batch-upload button.submit').click(function(e) {
+        e.preventDefault();
+        dropzone.processQueue();
+      });
+      // allow user to sort the images to be uploaded
+      $('.dropzone').sortable({
+        itemSelector: '.dz-preview',
+        'containerSelector': '.dropzone',
+        'placeholder': '<div class="dz-preview placeholder"></div>',
+        onDrop: function ($item, container, _super, event) {
+          // default sortable behavior onDrop
+          $item.removeClass(container.group.options.draggedClass).removeAttr("style");
+          $("body").removeClass(container.group.options.bodyClass);
+
+          // get sorted array of filenames
+          var fileSort = [];
+          $('.dz-preview').each(function() {
+            fileSort.push($(this).find('.dz-filename span').text());
+          });
+
+          // grab the dropzone queued files and clear them out
+          var files = dropzone.getQueuedFiles();
+          dropzone.removeAllFiles();
+
+          // re-add each file based on the sorted order
+          $.each(fileSort, function(i, name) {
+            var file = $.grep(files, function(e){ return e.name == name; });
+            dropzone.addFile(file[0]);
+          });
+        }
+      });
+
     }
 
-    // search empty? focus it.
-    $('#search').submit(function(e) {
-      if ($('#query').val() == '') {
-        $('#query').focus();
-        return false;
-      }
-      return true;
-    });
-
     // responsive videos
-    $('article.news,li.project').fitVids();
+    $('.user-content').fitVids();
 
     $('#email-form').validate({
       submitHandler: function(f) {
@@ -89,9 +126,7 @@ $.gdgr.main = (function() {
 
     // Close sidebar when clicking away
     $('html').on('click', '#page.sidebar-open, .site-footer.sidebar-open', function(e) {
-      console.log($(e.target),$(e.target).is('a,button,input'));
       if (!$(e.target).is('a,button,input')) {
-        console.log('baz');
         e.preventDefault();
         _hideSidebar();
       } else {
