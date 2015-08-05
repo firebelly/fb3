@@ -13,20 +13,17 @@ $.gdgr.main = (function() {
   function _init() {
     $('#flash').hide().css('visibility','visible').fadeIn();
 
-    // "admin_status" cookie is set by Warden in devise.rb on login
-    admin_status = $.cookie('admin_status');
-    if (admin_status) {
-      $('.edit-bug').addClass('active');
-
-      // "quick" project image upload on frontend for admins
+    // "quick" project image upload on frontend for admins
+    if ($('.batch-upload').length) {
       Dropzone.autoDiscover = false;
-      var dropzone = new Dropzone (".dropzone", {
-        paramName: "images",
+      var dropzone = new Dropzone ('.dropzone', {
+        paramName: 'images',
         autoProcessQueue: false,
         addRemoveLinks: true,
         uploadMultiple: true,
         parallelUploads: 20,
         queuecomplete: function() {
+          // reload page after upload to show new images in project
           location.reload();
         }
       }); 
@@ -42,8 +39,8 @@ $.gdgr.main = (function() {
         'placeholder': '<div class="dz-preview placeholder"></div>',
         onDrop: function ($item, container, _super, event) {
           // default sortable behavior onDrop
-          $item.removeClass(container.group.options.draggedClass).removeAttr("style");
-          $("body").removeClass(container.group.options.bodyClass);
+          $item.removeClass(container.group.options.draggedClass).removeAttr('style');
+          $('body').removeClass(container.group.options.bodyClass);
 
           // get sorted array of filenames
           var fileSort = [];
@@ -62,12 +59,12 @@ $.gdgr.main = (function() {
           });
         }
       });
-
     }
 
     // responsive videos
     $('.user-content').fitVids();
 
+    // ajax newsletter form
     $('#email-form').validate({
       submitHandler: function(f) {
         $.getJSON(

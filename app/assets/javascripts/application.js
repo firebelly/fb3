@@ -16,7 +16,6 @@
 //= require jquery.validate.1.10.0
 //= require imagesloaded.pkgd
 //= require jquery.fitvids
-//= require jquery.cookie
 //= require velocity
 //= require jquery.waypoints
 //= require dropzone
