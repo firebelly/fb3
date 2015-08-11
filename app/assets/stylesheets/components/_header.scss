@@ -59,3 +59,53 @@
     padding: 132px 44px;
   }
 }
+
+// Just messing around with 404 stuff
+#fourohfour-page {
+  @keyframes noise-anim{
+    $steps:20;
+    @for $i from 0 through $steps{
+      #{percentage($i*(1/$steps))}{
+        clip:rect(random(100)+px,9999px,random(100)+px,0);
+      }
+    }
+  }
+  @keyframes noise-anim-2{
+    $steps:20;
+    @for $i from 0 through $steps{
+      #{percentage($i*(1/$steps))}{
+        clip:rect(random(100)+px,9999px,random(100)+px,0);
+      }
+    }
+  }
+
+  #logo {
+    a {
+      position: relative;
+      &:after{
+        content:'Firebelly';
+        position:absolute;
+        left:2px;
+        text-shadow:-1px 0 red;
+        top:0;
+        color:$black;
+        background:$white;
+        overflow:hidden;
+        clip:rect(0,900px,0,0); 
+        animation:noise-anim 2s infinite linear alternate-reverse;
+      }
+      &:before{
+        content:'Firebelly';
+        position:absolute;
+        left:-2px;
+        text-shadow:1px 0 blue; 
+        top:0;
+        color:$black;
+        background:$white;
+        overflow:hidden;
+        clip:rect(0,900px,0,0); 
+        animation:noise-anim-2 3s infinite linear alternate-reverse;
+      }
+    }
+  }
+}
