@@ -36,6 +36,11 @@
     .child-pages {
       .page {
         padding: ($padding * 6) 25px;
+        
+        a {
+          text-decoration: none;
+        }
+
         &:nth-of-type(odd) {
           background: rgba(255,255,255,.6);
         }

@@ -35,6 +35,7 @@
   }
 
   .project-meta {
+    padding: 0 25px;
     max-width: 800px;
     text-align: center;
     margin: ($padding * 5) auto 0;
@@ -46,17 +47,32 @@
       }
     }
     h3 {
-      float: left;
       color: $black;
       @include small-caps();
     }
     ul {
       float: left;
-      text-align: left;
+      text-align: center;
       li {
         color: $black-fade;
         display: inline-block;
         @include small-caps();
+      }
+    }
+
+    .services {
+      margin-top: ($padding * 2);
+    }
+
+    @include min-screen($breakpoint-medium) {
+      h3 {
+        float: left;
+      }
+      ul {
+        text-align: left;
+      }
+      .services {
+        margin-top: 0;
       }
     }
   }

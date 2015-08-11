@@ -15,6 +15,21 @@
     line-height: 1.375em;
   }
 
+  a {
+    text-decoration: underline;
+    transition: color .2s ease-out;
+    &:hover, &:focus {
+      color: $black-fade;
+    }
+    // If we put any breaks in an a on purpose
+    // cause it's super long, hide it at larger-screens
+    @include min-screen($breakpoint-huge) {
+      br {
+        display: none;
+      }
+    }
+  }
+
   blockquote {
     margin: ($padding * 3) auto;
     max-width: 800px;
@@ -25,6 +40,11 @@
       line-height: 1.375em;
       letter-spacing: .035em;
       font-family: $font-display;
+    }
+    a {
+      &:hover, &:focus {
+        color: $black;
+      }
     }
 
     @include min-screen($breakpoint-medium) {

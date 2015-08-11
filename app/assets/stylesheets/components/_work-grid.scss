@@ -21,7 +21,7 @@
       padding: 0;
     }
 
-    .project-image,
+    .project-image, 
     .product-image {
       top: 0;
       left: 0;
@@ -30,6 +30,7 @@
       width: 100%;
       position: absolute;
       background-size: cover;
+      background-position: center;
       background-color: $black-fade;
       transition: transform 8s ease-out;
     }
@@ -60,6 +61,9 @@
       font: 44px/1.145833333em $font-display;
       span {
         margin: auto;
+        display: inline-block;
+        transform: translateY(25%);
+        transition: transform .2s ease-out;
       }
     }
 
@@ -78,6 +82,9 @@
       .view-project,
       .view-product {
         opacity: 1;
+        > span {
+          transform: translateY(0);
+        }
       }
     }
   }
@@ -91,6 +98,7 @@
       opacity: .25;
       span {
         visibility: hidden;
+        transform: translateY(0);
       }
     }
   }

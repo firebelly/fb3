@@ -10,7 +10,7 @@
         position: absolute;
       }
     }
-    h2 {
+    h2 { 
       br {
         display: none;
         @include min-screen($breakpoint-small) {
