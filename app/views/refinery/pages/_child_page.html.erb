@@ -1,4 +1,4 @@
-<li class="page clearfix <%= 'person' if @body_id =~ /^people/ %> <%= child_page.slug %> item" data-page="<%= child_page.slug %>">
+<li class="page user-content clearfix <%= 'person' if @body_id =~ /^people/ %> <%= child_page.slug %> item" data-page="<%= child_page.slug %>">
   <% image = (child_page.images.any?) ? child_page.images.first : nil %>
   <% if @body_id =~ /^people/ %>
     <div class="bio -left">
