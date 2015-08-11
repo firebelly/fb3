@@ -21,6 +21,13 @@
     &:hover, &:focus {
       color: $black-fade;
     }
+    // If we put any breaks in an a on purpose
+    // cause it's super long, hide it at larger-screens
+    @include min-screen($breakpoint-medium) {
+      br {
+        display: none;
+      }
+    }
   }
 
   blockquote {
