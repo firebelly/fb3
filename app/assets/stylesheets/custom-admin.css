@@ -55,3 +55,11 @@ header {
 }
 
 .wym_skin_refinery .wym_iframe iframe { height: 600px; }
+
+.dialog #existing_image_size_area {
+	margin-bottom: 100px;
+}
+
+.dialog #dialog_main {
+	width: 930px;
+}

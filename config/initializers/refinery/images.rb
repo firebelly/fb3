@@ -4,11 +4,11 @@ Refinery::Images.configure do |config|
   # config.max_image_size = 5242880
 
   # Configure how many images per page should be displayed when a dialog is presented that contains images
-  # config.pages_per_dialog = 18
+  config.pages_per_dialog = 40
 
   # Configure how many images per page should be displayed when a dialog is presented that
   # contains images and image resize options
-  config.pages_per_dialog_that_have_size_options = 18
+  config.pages_per_dialog_that_have_size_options = 32
 
   # Configure how many images per page should be displayed in the list of images in the admin area
   config.pages_per_admin_index = 40
