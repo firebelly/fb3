@@ -29,8 +29,14 @@ $.gdgr.main = (function() {
       }); 
       // upload images button
       $('.batch-upload button.submit').click(function(e) {
-        e.preventDefault();
-        dropzone.processQueue();
+        if ($('.dz-preview').length) {
+          // any images? upload 'em
+          dropzone.processQueue();
+        } else if ($('#images_number').val() + $('#images_title').val() + $('#images_desc').val() != '') {
+          // just adding text?
+          dropzone.disable();
+          $('.batch-upload form')[0].submit();
+        }
       });
       // allow user to sort the images to be uploaded
       $('.dropzone').sortable({
