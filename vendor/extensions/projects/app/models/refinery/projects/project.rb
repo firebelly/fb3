@@ -29,7 +29,7 @@ module Refinery
       end
 
       def service_classes
-        service_counts.map { |t| t.name.parameterize }.join(' ')
+        service_counts.map { |t| t.slug }.join(' ')
       end
     end
   end

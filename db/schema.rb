@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150804203322) do
+ActiveRecord::Schema.define(version: 20150812160037) do
 
   create_table "refinery_authentication_devise_roles", force: :cascade do |t|
     t.string "title", limit: 255
@@ -296,6 +296,7 @@ ActiveRecord::Schema.define(version: 20150804203322) do
   create_table "tags", force: :cascade do |t|
     t.string  "name",           limit: 255
     t.integer "taggings_count", limit: 4,   default: 0
+    t.string  "slug",           limit: 255
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree

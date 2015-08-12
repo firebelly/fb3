@@ -225,15 +225,15 @@ $.gdgr.main = (function() {
           $(this).addClass('selected');
 
           var filter = $(this).attr('data-filter');
+          // var filter_type = $(this).attr('data-filter-type');
           $('.filter-items li').each(function() {
-            if (filter=='' || $(this).hasClass(filter)) $(this).removeClass('dim').addClass('selected');
-            else $(this).removeClass('selected').addClass('dim');
-            window.hash = '#' + filter;
+            if (filter=='' || $(this).attr('data-industry').match(filter) || $(this).attr('data-services').match(filter)) {
+              $(this).removeClass('dim').addClass('selected');
+            } else {
+              $(this).removeClass('selected').addClass('dim');
+            }
+            window.location.hash = '#' + filter;
           });
-        }
-        // if on mobile, scroll down to #filters
-        if ($.gdgr.main.is_handheld()) {
-          $('html,body').animate({scrollTop:$('#filters').offset().top});
         }
         return false;
       });

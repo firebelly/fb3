@@ -7,7 +7,13 @@
     <li class="show-all"><a href="#filter" data-filter="" class="selected">all</a></li>
     <% @industries.each do |industry| %>
       <li>
-        <%= link_to industry.name, "#filter", { 'data-filter' => "#{industry.slug}", 'class' => industry.slug } -%>
+        <%= link_to industry.name, "#filter", { 'data-filter' => "#{industry.slug}" } -%>
+      </li>
+    <% end -%>
+    <li class="spacer">—</li>
+    <% @services.each do |service| %>
+      <li>
+        <%= link_to service.name, "#filter", { 'data-filter' => "#{service.slug}" } -%>
       </li>
     <% end -%>
   </ul>
@@ -23,7 +29,7 @@
 <section class="portfolio">
   <ul class="projects filter-items clearfix">
     <% @projects.each do |project| %>
-      <li class="project <%= project.service_classes %> <%= project.industry.slug -%> interior">
+      <li class="project interior" data-services="<%= project.service_classes %>" data-industry="<%= project.industry.slug -%>">
         <div class="project-image" style="background-image:url(<%= project.image.thumbnail.url if project.image %>);"></div>
         <header>
           <h1><%= link_to project.title, refinery.projects_project_path(project) %></h1>
