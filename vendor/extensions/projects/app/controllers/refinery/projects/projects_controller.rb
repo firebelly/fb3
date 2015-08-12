@@ -32,9 +32,11 @@ module Refinery
           image_html += "#{simple_format params[:images_desc]}" unless params[:images_desc].blank?
           image_html += '</div>'
         end
-        params[:images].each do |image|
-          if saved_image = ::Refinery::Image.create(image: image[1])
-            image_html += "\n<p><img src=\"#{saved_image.thumbnail.url}\" data-id=\"#{saved_image.id}\"</p>";
+        unless params[:images].blank? 
+          params[:images].each do |image|
+            if saved_image = ::Refinery::Image.create(image: image[1])
+              image_html += "\n<p><img src=\"#{saved_image.thumbnail.url}\" data-id=\"#{saved_image.id}\"</p>";
+            end
           end
         end
         @project.content += image_html
