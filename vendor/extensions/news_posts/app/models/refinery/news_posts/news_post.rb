@@ -1,6 +1,8 @@
 module Refinery
   module NewsPosts
     class NewsPost < Refinery::Core::BaseModel
+      before_create :bump_positions
+
       extend FriendlyId
       self.table_name = 'refinery_news_posts'
 
@@ -20,6 +22,13 @@ module Refinery
       end
 
       scope :published, -> { where(:published => true) }
+
+    private
+
+      def bump_positions
+        self.position = 0
+        NewsPost.update_all('position = position + 1')
+      end
 
     end
   end

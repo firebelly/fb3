@@ -1,6 +1,8 @@
 module Refinery
   module Projects
     class Project < Refinery::Core::BaseModel
+      before_create :bump_positions
+
       extend FriendlyId
       self.table_name = 'refinery_projects'
 
@@ -30,6 +32,13 @@ module Refinery
 
       def service_classes
         service_counts.map { |t| t.slug }.join(' ')
+      end
+
+    private
+
+      def bump_positions
+        self.position = 0
+        Project.update_all('position = position + 1')
       end
     end
   end

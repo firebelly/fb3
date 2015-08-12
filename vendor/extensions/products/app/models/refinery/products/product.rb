@@ -1,6 +1,8 @@
 module Refinery
   module Products
     class Product < Refinery::Core::BaseModel
+      before_create :bump_positions
+
     	extend FriendlyId
       self.table_name = 'refinery_products'
 
@@ -17,6 +19,12 @@ module Refinery
 
       has_many_page_images
 
+    private
+
+      def bump_positions
+        self.position = 0
+        Product.update_all('position = position + 1')
+      end
     end
   end
 end
