@@ -8,6 +8,7 @@ $.gdgr.main = (function() {
       handheld = false,
       tablet = false,
       admin_status = false,
+      is_animating = false,
       delayed_resize_timer = false;
 
   function _init() {
@@ -65,6 +66,7 @@ $.gdgr.main = (function() {
           });
         }
       });
+
     }
 
     // responsive videos
@@ -94,6 +96,14 @@ $.gdgr.main = (function() {
       }
     });
 
+    // Scroll down to hash afer page load
+    $(window).load(function() {
+      if (window.location.hash) {
+        var el = $(window.location.hash);
+        if (el.length) _scrollBody(el); 
+      }
+    });
+
     _resize();
     _delayedResize();
     _transformicions();
@@ -106,11 +116,17 @@ $.gdgr.main = (function() {
   };
 
   function _scrollBody(element, duration, delay) {
-    var headerHeight = $('.site-header').outerHeight(); 
+    // var headerHeight = $('.site-header').outerHeight();
+    _hideHeader();
+    var headerHeight = 0;
+    is_animating = true;
     element.velocity("scroll", {
       duration: duration,
       delay: delay,
-      offset: -headerHeight
+      offset: -headerHeight,
+      complete: function(elements) { 
+        is_animating = false;
+      }
     }, "easeOutSine");
   }
 
@@ -188,7 +204,7 @@ $.gdgr.main = (function() {
     });
 
     setInterval(function() {
-        if (didScroll) {
+        if (!is_animating && didScroll) {
             hasScrolled();
             didScroll = false;
         }
