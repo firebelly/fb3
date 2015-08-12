@@ -2,14 +2,14 @@
 <%= content_for :page do %>
 <section class="content interior grid">
   <% unless (@page.content_for :body).empty? %>
-  <div class="intro one-half -left clearfix">
+  <div class="intro clearfix">
     <div class="-inner">
       <header class="section-title">
-        <h1><%=raw @body_id =~ /^about/ ? 'Good Design for Good Reason<sup>&trade;</sup>' : @page.title %>.</h1>
+        <h1 data-text="<%=raw @page.title %>"><%=raw @page.title %></h1>
+        <div class="summary user-content">
+        <%= raw @page.content_for :body -%>
+        </div>
       </header>
-      <div class="summary">
-      <%= raw @page.content_for :body -%>
-      </div>
     </div>
   </div>
   <% end %>
