@@ -129,7 +129,7 @@ $.gdgr.main = (function() {
 
     // Close sidebar when clicking away
     $('html').on('click', '#page.sidebar-open, .site-footer.sidebar-open', function(e) {
-      if (!$(e.target).is('a,button,input')) {
+      if (!$(e.target).is('a, a > *,button,input')) {
         e.preventDefault();
         _hideSidebar();
       } else {
