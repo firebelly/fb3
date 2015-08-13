@@ -1,3 +1,5 @@
-<div class="edit-bug">
-  <a class="submit" href="<%= edit_path -%>"><span>Edit this <%= obj.class.to_s.demodulize -%></span></a>
-</div>
+<% if current_refinery_user.can_edit? obj %>
+  <div class="edit-bug">
+    <a class="submit" href="<%= edit_path -%>"><span>Edit this <%= obj.class.to_s.demodulize -%></span></a>
+  </div>
+<% end %>
