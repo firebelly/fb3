@@ -2,7 +2,7 @@ module Refinery
   module Products
     class CartsController < ::ApplicationController
 
-      before_filter :get_cart
+      before_action :get_cart
 
       def index
         respond_to do |format|

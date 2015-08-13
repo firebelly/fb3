@@ -3,7 +3,7 @@ module Refinery
     class ProductsController < ::ApplicationController
 
       before_action :get_defaults
-      before_filter :get_cart
+      before_action :get_cart
 
       def index
         @products = Product.order('position ASC')

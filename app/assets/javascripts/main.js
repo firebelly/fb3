@@ -113,6 +113,7 @@ $.gdgr.main = (function() {
     _scrollToFilters();
     _hideHeader();
     _initFilterNav();
+    _initSmoothsSroll();
   };
 
   function _scrollBody(element, duration, delay) {
@@ -174,6 +175,16 @@ $.gdgr.main = (function() {
       $('#side').addClass('color-' + color);
     }, function() {
       $('#side').removeClass('color-' + color);
+    });
+  }
+
+  function _initSmoothsSroll() {
+    $('#wrapper').on('click', '.smoothscroll a', function(e){
+      e.preventDefault();
+      var href = $(this).attr('href');
+      var el = $(href);
+      console.log(href, el);
+      if (el.length) _scrollBody(el); 
     });
   }
 
