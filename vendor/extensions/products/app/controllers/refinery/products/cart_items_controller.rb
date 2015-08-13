@@ -2,7 +2,7 @@ module Refinery
   module Products
     class CartItemsController < ::ApplicationController
 
-      before_filter :get_cart
+      before_action :get_cart
       
       def destroy
         CartItem.delete(params[:id])

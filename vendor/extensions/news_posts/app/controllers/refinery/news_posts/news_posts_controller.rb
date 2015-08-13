@@ -2,6 +2,7 @@ module Refinery
   module NewsPosts
     class NewsPostsController < ::ApplicationController
 
+      before_action :get_news_posts
       before_action :get_defaults
       before_action :find_page
 
