@@ -1,12 +1,11 @@
 <% content_for :title, @page_title %>
 
 <% content_for :meta do %>
-  <link rel="alternate" type="application/atom+xml" title="Firebelly News" href="<%= refinery.news_feed_url() %>"> 
+  <link rel="alternate" type="application/rss+xml" title="Firebelly News" href="<%= refinery.news_posts_news_posts_url(format: 'rss') %>"> 
 <% end -%>
 
 <%= content_for :aside do %>
-  <%# render :partial => "news_posts/nav" -%>
-  <%# render :partial => "shared/nextprev", :locals => { :obj => @news_post, :section_label => 'News', :section_url => refinery.news_posts_news_posts_path } -%>
+  <%= render :partial => "refinery/news_posts/news_posts/nav" -%>
 <% end -%>
 
 <% content_for :page do %>

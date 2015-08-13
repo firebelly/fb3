@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/feed' => redirect('/news.rss')
   root to: 'application#redirect_to_work'
 
   # This line mounts Refinery's routes at the root of your application.
