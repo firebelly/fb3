@@ -22,4 +22,4 @@
 //= require jquery-sortable
 //= require main
 //= require products
-//= require people
+//# require people

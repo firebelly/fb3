@@ -30,14 +30,14 @@
 </section>
 <% end -%>
 
-<% if @body_id =~ /^people/ %>
+<% if @body_id =~ /^people|endeavors/ %>
   <%= content_for :aside do %>
     <section id="filters" class="divider section-nav">
       <h1><%= @page.title -%></h1>
       <ul class="option-set clearfix smoothscroll">
         <% @child_pages.each do |page| %>
           <li>
-            <%= link_to page.title, "#" << page.slug, { 'data-page' => page.slug } -%>
+            <%= link_to page.title, '#' << page.slug -%>
           </li>
         <% end -%>
       </ul>
