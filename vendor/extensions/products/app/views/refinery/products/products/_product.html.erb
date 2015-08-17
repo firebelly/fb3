@@ -24,6 +24,8 @@
             <button type="submit" class="submit button">Add To Cart</button>
           </div>
         <%- end %>
+
+        <%= render :partial => '/shared/edit_bug', :locals => { :obj => product, :edit_path => refinery.edit_products_admin_product_path(product) }%>
       </div>
     </div>
 
@@ -41,7 +43,7 @@
         <ul class="product-images">
         <% product.images.each_with_index do |image, index| %>
           <li>
-          <%= image_tag image.thumbnail().url, alt: [product.title, index].join(" "), data: { uid: image.image_uid } -%>
+          <%= image_tag image.thumbnail(geometry: :portfolio).convert('-quality 75').url, alt: [product.title, index].join(" "), data: { uid: image.image_uid } -%>
           </li>
         <% end %>
         </ul>

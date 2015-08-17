@@ -13,7 +13,7 @@
     <ul class="products clearfix filter-items">
       <% @products.each do |product| %>
         <li class="product">
-          <div class="product-image" style="background-image:url(<%= product.images.first.thumbnail().url unless product.images.blank? %>);"></div>
+          <div class="product-image" style="background-image:url(<%= product.images.first.thumbnail(geometry: '800x600#').convert('-quality 70').url unless product.images.blank? %>);"></div>
           <header>
             <h1><a href="<%= refinery.products_product_path(product) %>"><%= product.title -%></a></h1>
           </header>

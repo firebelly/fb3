@@ -2,7 +2,7 @@
   <%- if news_post.image.nil? %>
     <hr class="article-divider">
   <% else %>
-    <div class="featured-image" style="background-image:url(<%= news_post.image.url %>);"></div>
+    <div class="featured-image" style="background-image:url(<%= news_post.image.thumbnail(geometry: :portfolio).convert('-quality 75').url %>);"></div>
     <%- unless news_post.image_caption.nil? %>
       <div class="featured-image-caption"><p><%= news_post.image_caption %></p></div>
     <% end -%>
