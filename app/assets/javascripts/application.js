@@ -20,5 +20,6 @@
 //= require jquery.waypoints
 //= require dropzone
 //= require jquery-sortable
+//= require jquery.lazyload
 //= require main
 //= require products

@@ -70,7 +70,12 @@ $.gdgr.main = (function() {
     }
 
     // responsive videos
-    $('.user-content').fitVids();
+    $('.content').fitVids();
+
+    // lazyload images
+    $('img.lazy').lazyload({
+      effect : 'fadeIn'
+    });
 
     // ajax newsletter form
     $('#email-form').validate({
