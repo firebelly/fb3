@@ -3,7 +3,7 @@
 <% content_for :page do %>
   <article class="content-block">
     <section class="content interior">
-      <div class="project-banner" style="background-image:url(<%= @project.image.thumbnail().url if @project.image %>);"></div>
+      <div class="project-banner" style="background-image:url(<%= @project.image.thumbnail(geometry: :portfolio).convert('-quality 70').url if @project.image %>);"></div>
       <div class="intro clearfix">
         <header class="section-title">
           <h1 class="project-client"><%= @project.title -%></h1>
