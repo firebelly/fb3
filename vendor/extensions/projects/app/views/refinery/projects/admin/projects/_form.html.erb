@@ -38,6 +38,16 @@
                :toggle_image_display => false -%>
   </div>
 
+  <div class='field'>
+    <%= f.label :alt_image -%>
+    <p class="help">Used on homepage for thumbnail if set.</p>
+    <%= render '/refinery/admin/image_picker',
+               :f => f,
+               :field => :alt_image_id,
+               :image => @project.alt_image,
+               :toggle_image_display => false -%>
+  </div>
+
   <div class="field">
     <%= f.label :industry, 'Industry' -%>
     <%= f.collection_select :industry_id, Refinery::Projects::ProjectIndustry.all, :id, :name %>

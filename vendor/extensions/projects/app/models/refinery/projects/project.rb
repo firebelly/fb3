@@ -19,6 +19,7 @@ module Refinery
       validates :title, :presence => true
 
       belongs_to :image, :class_name => '::Refinery::Image'
+      belongs_to :alt_image, :class_name => '::Refinery::Image'
       belongs_to :industry, :class_name => '::Refinery::Projects::ProjectIndustry'
 
       acts_as_indexed :fields => [:title, :subtitle, :summary, :content]
@@ -32,6 +33,10 @@ module Refinery
 
       def service_classes
         service_counts.map { |t| t.slug }.join(' ')
+      end
+
+      def thumbnail_image
+        !alt_image.nil? ? alt_image : image
       end
 
     private

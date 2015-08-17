@@ -63,3 +63,9 @@ header {
 .dialog #dialog_main {
 	width: 930px;
 }
+
+p.help {
+	margin-top: -4px;
+	font-size: 12px;
+	color: #bcbcbc;
+}

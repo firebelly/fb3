@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150812160037) do
+ActiveRecord::Schema.define(version: 20150817195321) do
 
   create_table "refinery_authentication_devise_roles", force: :cascade do |t|
     t.string "title", limit: 255
@@ -222,19 +222,21 @@ ActiveRecord::Schema.define(version: 20150812160037) do
   end
 
   create_table "refinery_projects", force: :cascade do |t|
-    t.string   "title",       limit: 255
-    t.string   "subtitle",    limit: 255
-    t.text     "summary",     limit: 65535
-    t.text     "content",     limit: 65535
-    t.integer  "image_id",    limit: 4
-    t.integer  "industry_id", limit: 4
-    t.integer  "position",    limit: 4
+    t.string   "title",        limit: 255
+    t.string   "subtitle",     limit: 255
+    t.text     "summary",      limit: 65535
+    t.text     "content",      limit: 65535
+    t.integer  "image_id",     limit: 4
+    t.integer  "industry_id",  limit: 4
+    t.integer  "position",     limit: 4
     t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "slug",        limit: 255
+    t.string   "slug",         limit: 255
+    t.integer  "alt_image_id", limit: 4
   end
 
+  add_index "refinery_projects", ["alt_image_id"], name: "index_refinery_projects_on_alt_image_id", using: :btree
   add_index "refinery_projects", ["slug"], name: "slug", unique: true, using: :btree
 
   create_table "refinery_projects_project_industries", force: :cascade do |t|
