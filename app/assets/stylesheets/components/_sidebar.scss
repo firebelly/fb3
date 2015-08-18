@@ -68,14 +68,14 @@
 }
 
 // Active pages
-body#work-page #nav-work,
-body#contact-page #nav-contact,
-body#about-page #nav-about,
-body#expertise-page #nav-expertise,
-body#people-page #nav-people,
-body#endeavors-page #nav-endeavors,
-body#news-page #nav-news,
-body#store-page #nav-store {
+body#work-page .nav-work,
+body#contact-page .nav-contact,
+body#about-page .nav-about,
+body#expertise-page .nav-expertise,
+body#people-page .nav-people,
+body#endeavors-page .nav-endeavors,
+body#news-page .nav-news,
+body#store-page .nav-store {
   a {
     text-decoration: underline;
   }
