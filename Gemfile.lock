@@ -296,7 +296,7 @@ DEPENDENCIES
   non-stupid-digest-assets
   quiet_assets
   rack-cache
-  rails (= 4.2.3)
+  rails (~> 4.2)
   refinerycms!
   refinerycms-acts-as-indexed (~> 2.0, >= 2.0.0)
   refinerycms-authentication-devise (~> 1.0)
