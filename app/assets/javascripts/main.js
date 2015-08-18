@@ -195,7 +195,7 @@ $.gdgr.main = (function() {
   }
 
   function _scrollToContact() {
-    $('#nav-contact a').on('click', function(e) {
+    $('.nav-contact a').on('click', function(e) {
       e.preventDefault();
        _hideSidebar();
        _scrollBody($('#contact'), 250, 250); 
