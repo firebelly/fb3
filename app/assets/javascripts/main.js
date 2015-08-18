@@ -73,7 +73,7 @@ $.gdgr.main = (function() {
     $('.content').fitVids();
 
     // lazyload images
-    $('img.lazy').lazyload({
+    $('.lazy').lazyload({
       effect : 'fadeIn',
       threshold: 150
     });

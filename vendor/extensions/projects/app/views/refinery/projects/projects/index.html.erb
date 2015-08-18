@@ -1,42 +1,14 @@
 <% content_for :title_override, raw("Firebelly Design - Chicago Graphic Design - Good Design for Good Reason&trade;") %>
 
 <%= content_for :aside do %>
-<section id="filters" class="divider section-nav interior">
-  <h1>Filter:</h1>
-  <ul class="filter-set">
-    <li class="show-all"><a href="#filter" data-filter="" class="selected">all</a></li>
-    <% @industries.each do |industry| %>
-      <li>
-        <%= link_to industry.name, "#filter", { 'data-filter' => "#{industry.slug}" } -%>
-      </li>
-    <% end -%>
-    <li class="spacer">—</li>
-    <% @services.each do |service| %>
-      <li>
-        <%= link_to service.name, "#filter", { 'data-filter' => "#{service.slug}" } -%>
-      </li>
-    <% end -%>
-  </ul>
-</section>
+  <%= render "nav" -%>
 <% end -%>
 
 <%= content_for :page do %>
-<header class="section-title">
-  <h1>Good Design<br> for Good <span class="last-word">Reason.<sup>&trade;</sup></span></h1>
-  <h2>We create positive human experiences<br> through beautiful, sustainable design.</h2>
-</header>
+  <header class="section-title">
+    <h1>Good Design<br> for Good <span class="last-word">Reason.<sup>&trade;</sup></span></h1>
+    <h2>We create positive human experiences<br> through beautiful, sustainable design.</h2>
+  </header>
 
-<section class="portfolio">
-  <ul class="projects filter-items clearfix">
-    <% @projects.each do |project| %>
-      <li class="project interior" data-services="<%= project.service_classes %>" data-industry="<%= project.industry.slug -%>">
-        <div class="project-image" style="background-image:url(<%= project.thumbnail_image.thumbnail(geometry: '800x600#c').convert('-quality 70').url if project.thumbnail_image %>);"></div>
-        <header>
-          <h1><%= link_to project.title, refinery.projects_project_path(project) %></h1>
-        </header>
-        <%= link_to(raw("<span>View Project</span>"), refinery.projects_project_path(project), class: 'view-project') %>
-      </li>
-    <% end -%>
-  </ul>
-</section>
+  <%= render "portfolio" -%>
 <% end -%>

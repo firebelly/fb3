@@ -1,6 +1,13 @@
 // Projects
 
 #work-page.single {
+  .portfolio {
+    padding-top: 66px;
+    @include min-screen($breakpoint-small) {
+      padding-top: 132px;
+    }
+  }
+
   .project-banner {
     height: 400px; // Fallback for viewport units
     height: 50vh;

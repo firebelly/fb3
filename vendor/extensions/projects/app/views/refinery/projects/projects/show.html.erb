@@ -1,5 +1,9 @@
 <% content_for :title, @project.title %>
 
+<%= content_for :aside do %>
+  <%= render "nav" -%>
+<% end -%>
+
 <% content_for :page do %>
   <article class="content-block">
     <section class="content interior">
@@ -50,4 +54,7 @@
       </div>
     </section>
   </article>
+
+  <%= render "portfolio" -%>
+
 <% end %>

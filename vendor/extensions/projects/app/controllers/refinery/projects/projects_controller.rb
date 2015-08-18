@@ -5,12 +5,10 @@ module Refinery
 
       before_action :find_all_projects
       before_action :find_page
+      before_action :get_defaults, only: [:show, :index]
 
       def index
         @body_class = 'index'
-        @industries = ProjectIndustry.all
-        @services = Project.service_counts
-        @projects = Project.published
         @current_section = 'work'
         present(@page)
       end
@@ -48,6 +46,12 @@ module Refinery
       end
 
     protected
+
+      def get_defaults
+        @industries = ProjectIndustry.all
+        @services = Project.service_counts
+        @projects = Project.published
+      end
 
       def find_all_projects
         @projects = Project.order('position ASC')
