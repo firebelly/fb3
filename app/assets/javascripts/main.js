@@ -75,7 +75,7 @@ $.gdgr.main = (function() {
     // lazyload images
     $('.lazy').lazyload({
       effect : 'fadeIn',
-      threshold: 150
+      threshold: 1000
     });
 
     // ajax newsletter form
