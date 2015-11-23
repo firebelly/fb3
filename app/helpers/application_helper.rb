@@ -1,9 +1,10 @@
 module ApplicationHelper
-  def lazy_load_images(html)
+  def lazy_load_images(html, alt_title=nil)
     parsed = Nokogiri::HTML(html)
-    parsed.xpath("//img").each do |img| 
+    parsed.xpath("//img").each_with_index do |img, i| 
       img.set_attribute('data-original', img['src'])
       img.set_attribute('class', 'lazy')
+      img.set_attribute('alt', "#{alt_title}, image #{i}") unless alt_title.nil?
       img.set_attribute('src', '/assets/gray.gif')
     end
     parsed.to_html

@@ -31,7 +31,7 @@
         </div>
       </div>
       <div class="project-images clearfix">
-        <%=raw lazy_load_images( video_embeds(@project.content) ) -%>
+        <%=raw lazy_load_images( video_embeds(@project.content), @project.title ) -%>
 
         <% if current_refinery_user.can_edit? @project %>
           <div style="margin: 20px; text-align:center"><%= render :partial => '/shared/edit_bug', :locals => { :obj => @project, :edit_path => refinery.edit_projects_admin_project_path(@project) }%></div>
