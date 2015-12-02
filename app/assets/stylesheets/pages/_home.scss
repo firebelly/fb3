@@ -26,10 +26,16 @@
       &.sidebar-open {
         padding-right: 325px;
       }
+      &.project-nav-open {
+        padding-right: 50%;
+      }
     }
 
     #page {
       transition: margin .2s ease-out;
+      &.project-nav-open {
+        margin-right: 50%;
+      }
       &.sidebar-open {
         margin-right: 300px;
 

@@ -1,5 +1,6 @@
 // Sidebar
 
+#project-nav,
 #side {
   top: 0;
   bottom: 0;
@@ -36,6 +37,11 @@
       }
     }
   }
+}
+
+#project-nav {
+  display: none;
+  width: 50%;
 }
 
 // Main Nav

@@ -2,7 +2,7 @@
 
 #work-page.single {
   .portfolio {
-    padding-top: 66px;
+    padding-top: 46px;
     @include min-screen($breakpoint-small) {
       padding-top: 132px;
     }
@@ -211,4 +211,55 @@
   #images_desc {
     height: 100px; 
   }
+}
+
+.project-pagination {
+  @include clearfix();
+  padding: 0 25px;
+
+  ul {
+    @include clearfix();
+    margin: 130px 0 -30px 0;
+    padding-right: 25px;
+
+    &:after {
+      content: ' ';
+      display: block;
+      border-bottom: 1px solid #C2C3C5;
+      width: 80%;
+    }
+
+  }
+
+  li {
+    padding-bottom: 10px;
+    a {
+      font: 24px/1.375em "RomanaBT-Bold", serif;
+    }
+    &.prev a {
+      margin-left: -30px;
+    }
+  }
+
+  @include min-screen($breakpoint-medium) {
+    ul {
+      width: 50%;
+      float: right;
+    }
+    li {
+      width: 50%;
+      float: left;
+    }
+  }
+
+  @include max-screen($breakpoint-large) {
+    li.prev a {
+      margin-left: 0;
+    }
+    .one-half {
+      width: 100%;
+      float: none;
+    }
+  }
+
 }

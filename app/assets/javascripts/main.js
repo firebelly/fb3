@@ -14,6 +14,13 @@ $.gdgr.main = (function() {
   function _init() {
     $('#flash').hide().css('visibility','visible').fadeIn();
 
+    // remove useless alt tooltips
+    $('img').each(function () {
+      if (!$(this).attr('title')) {
+        $(this).attr('title', '');
+      }
+    });
+
     // "quick" project image upload on frontend for admins
     if ($('.batch-upload').length) {
       Dropzone.autoDiscover = false;
@@ -148,6 +155,11 @@ $.gdgr.main = (function() {
     $('html').on('click', '.menu-toggle', function() {
       $('#side').toggleClass('open');
       $('body, #page, .site-header, .site-footer').toggleClass('sidebar-open');
+    });
+
+    $('html').on('click', '.project-nav-toggle', function() {
+      $('#project-nav').toggleClass('open');
+      $('body, #page, .site-header, .site-footer').toggleClass('project-nav-open');
     });
 
     // Close sidebar when clicking away

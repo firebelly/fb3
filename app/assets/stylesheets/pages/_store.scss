@@ -42,6 +42,16 @@
         @include small-caps();
       }
     }
+
+    #product-form {
+      margin-top: ($padding * 4);
+      .submit {
+        background: #fff;
+        &:hover, &:focus, &:active {
+          background: $gray;
+        }
+      }
+    }
   
     .product-images {
       img {

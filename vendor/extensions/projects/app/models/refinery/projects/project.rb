@@ -39,6 +39,14 @@ module Refinery
         !alt_image.nil? ? alt_image : image
       end
 
+      def next
+        self.class.published.where(["position > ?", self.position]).first
+      end
+
+      def prev
+        self.class.published.where(["position < ?", self.position]).first
+      end
+
     private
 
       def bump_positions
