@@ -157,13 +157,13 @@ $.gdgr.main = (function() {
       $('body, #page, .site-header, .site-footer').toggleClass('sidebar-open');
     });
 
-    $('html').on('click', '.project-nav-toggle', function() {
-      $('#project-nav').toggleClass('open');
-      $('body, #page, .site-header, .site-footer').toggleClass('project-nav-open');
+    $('html').on('click', '.project-side-toggle', function() {
+      $('#project-side').toggleClass('open');
+      $('body, #page, .site-header, .site-footer').toggleClass('project-side-open');
     });
 
     // Close sidebar when clicking away
-    $('html').on('click', '#page.sidebar-open, .site-footer.sidebar-open', function(e) {
+    $('html').on('click', '#page.sidebar-open, .site-footer.sidebar-open, #page.project-side-open, .site-footer.project-side-open', function(e) {
       if (!$(e.target).is('a, a > *,button,input')) {
         e.preventDefault();
         _hideSidebar();
@@ -174,10 +174,9 @@ $.gdgr.main = (function() {
   }
 
   function _hideSidebar() {
-    if ($('#side').is('.open')) {
-      $('#side').removeClass('open');
-      $('.sidebar-open').removeClass('sidebar-open');
-    }
+    $('#side,#project-side').removeClass('open');
+    $('.sidebar-open').removeClass('sidebar-open');
+    $('.project-side-open').removeClass('project-side-open');
   }
 
   function _showSidebar() {

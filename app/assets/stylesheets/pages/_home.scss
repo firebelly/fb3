@@ -1,6 +1,6 @@
 // Homepage
 
-.index {
+#work-page.index {
   .section-title {
     .last-word {
       position: relative;
@@ -20,22 +20,26 @@
     }
   }
 
+  // Hide Project grid icon on homepage
+  .project-side-toggle {
+    display: none;
+  }
+  // ..and move standard menu-toggle button over
+  .menu-toggle {
+    right: 25px;
+  }
+
+
   // Sidebar opening
   @include min-screen($breakpoint-medium) {
     .site-header {
       &.sidebar-open {
         padding-right: 325px;
       }
-      &.project-nav-open {
-        padding-right: 50%;
-      }
     }
 
     #page {
       transition: margin .2s ease-out;
-      &.project-nav-open {
-        margin-right: 50%;
-      }
       &.sidebar-open {
         margin-right: 300px;
 
