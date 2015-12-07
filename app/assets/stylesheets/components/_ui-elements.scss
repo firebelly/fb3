@@ -83,7 +83,7 @@ $tcon-menu-arrow360left-transformation: (
   position: relative;
   box-shadow:0px 0px 0px 2px $tcon-menu-color inset;
   width: $tcon-size + 1px;
-  height: $tcon-size;
+  height: $tcon-size - 4px;
   background: transparent;
 
   &:before,
@@ -96,7 +96,7 @@ $tcon-menu-arrow360left-transformation: (
   }
 
   &:before {
-    top: ($tcon-size / 2) - 1px;
+    top: ($tcon-size / 2) - 3px;
     left: 0;
   }
 
@@ -104,7 +104,7 @@ $tcon-menu-arrow360left-transformation: (
     top: 0;
     left: ($tcon-size / 2) - 1px;
     width: 2px;
-    height: $tcon-size;
+    height: $tcon-size - 4px;
     background: $tcon-menu-color;
   }
 
