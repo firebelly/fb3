@@ -6,11 +6,11 @@ module Refinery
       extend FriendlyId
       self.table_name = 'refinery_projects'
 
-      friendly_id :title, :use => [:slugged]
       friendly_id :slug_candidates, use: :slugged
 
       def slug_candidates
         [
+          :custom_slug,
           :title,
           [:title, :subtitle]
         ]
@@ -28,7 +28,7 @@ module Refinery
       scope :published, -> { where(:published => true).order('position ASC') }
 
       def should_generate_new_friendly_id?
-        title_changed?
+        title_changed? || custom_slug_changed?
       end
 
       def service_classes

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150817195321) do
+ActiveRecord::Schema.define(version: 20151207155818) do
 
   create_table "refinery_authentication_devise_roles", force: :cascade do |t|
     t.string "title", limit: 255
@@ -234,6 +234,7 @@ ActiveRecord::Schema.define(version: 20150817195321) do
     t.datetime "updated_at"
     t.string   "slug",         limit: 255
     t.integer  "alt_image_id", limit: 4
+    t.text     "custom_slug",  limit: 255
   end
 
   add_index "refinery_projects", ["alt_image_id"], name: "index_refinery_projects_on_alt_image_id", using: :btree
