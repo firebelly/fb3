@@ -44,7 +44,7 @@ module Refinery
       end
 
       def prev
-        self.class.published.where(["position < ?", self.position]).first
+        self.class.published.where(["position < ?", self.position]).last
       end
 
     private
