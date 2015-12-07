@@ -8,7 +8,7 @@
     padding: ($padding * 12) 25px;
   }
   @include min-screen($breakpoint-medium) {
-    padding: ($padding * 24) 25px ($padding * 24) 25;
+    // padding: ($padding * 24) 25px ($padding * 24) 25;
 
     .-left {
       padding-right: 25px;
