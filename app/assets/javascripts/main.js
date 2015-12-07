@@ -84,6 +84,11 @@ $.gdgr.main = (function() {
       effect : 'fadeIn',
       threshold: 1000
     });
+    // project sidebar lazy
+    $('.lazy-side').lazyload({
+      container : $('#project-side .projects'),
+      effect : 'fadeIn',
+    });
 
     // ajax newsletter form
     $('#email-form').validate({

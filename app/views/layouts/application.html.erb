@@ -29,8 +29,9 @@
             <span class="tcon-visuallyhidden">toggle project nav</span>
           </button>
         </header>
-
-        <%= render "portfolio_side" -%>
+        <% unless @body_id == 'work-page' && @body_class == 'index' %>
+          <%= render "/refinery/projects/projects/portfolio_side" -%>
+        <% end %>
       </div><!-- END #project-side -->
 
       <section id='page'>

@@ -2,8 +2,7 @@ module Refinery
   module Products
     class ProductsController < ::ApplicationController
 
-      before_action :get_defaults
-      before_action :get_cart
+      before_action :get_defaults, :get_cart
 
       def index
         @products = Product.order('position ASC')
