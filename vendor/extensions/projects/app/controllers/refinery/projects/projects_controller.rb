@@ -54,7 +54,7 @@ module Refinery
       end
 
       def find_all_projects
-        @projects = Project.order('position ASC')
+        @projects = Project.published
       end
 
       def find_page

@@ -234,10 +234,7 @@
   li {
     padding-bottom: 10px;
     a {
-      font: 24px/1.375em "RomanaBT-Bold", serif;
-    }
-    &.prev a {
-      margin-left: -30px;
+      font: 24px/1.375em $font-display;
     }
   }
 
@@ -246,6 +243,13 @@
       width: 50%;
       float: right;
     }
+    li.prev a {
+      margin-left: -24px;
+    }
+
+  }
+
+  @include min-screen(1050px) {
     li {
       width: 50%;
       float: left;
@@ -253,9 +257,6 @@
   }
 
   @include max-screen($breakpoint-large) {
-    li.prev a {
-      margin-left: 0;
-    }
     .one-half {
       width: 100%;
       float: none;

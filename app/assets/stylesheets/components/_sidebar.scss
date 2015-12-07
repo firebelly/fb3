@@ -22,7 +22,7 @@
   // Color changes
   @each $page-color, $bgcolor in $page-colors {
     &.color-#{$page-color} {
-        background: $bgcolor;
+      background: $bgcolor;
     }
   }
 

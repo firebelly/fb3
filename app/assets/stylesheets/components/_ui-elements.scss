@@ -77,6 +77,41 @@ $tcon-menu-arrow360left-transformation: (
     transform: scale3d(.8, .8, .8);
   }
 }
+
+.tcon-menu__grid {
+  @include tcon-menu-lines;
+  position: relative;
+  box-shadow:0px 0px 0px 2px $tcon-menu-color inset;
+  width: $tcon-size + 1px;
+  height: $tcon-size;
+  background: transparent;
+
+  &:before,
+  &:after {
+    @include tcon-menu-lines;
+    content: '';
+    position: absolute;
+    transform-origin: ($tcon-size / 14) center;
+    width: 100%;
+  }
+
+  &:before {
+    top: ($tcon-size / 2) - 1px;
+    left: 0;
+  }
+
+  &:after {
+    top: 0;
+    left: ($tcon-size / 2) - 1px;
+    width: 2px;
+    height: $tcon-size;
+    background: $tcon-menu-color;
+  }
+
+  .#{$tcon-jstransform} & {
+    transform: scale3d(.8, .8, .8);
+  }
+}
 .tcon-menu--xcross {
   width: auto;
 

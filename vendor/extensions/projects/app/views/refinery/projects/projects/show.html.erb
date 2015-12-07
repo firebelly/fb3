@@ -58,18 +58,10 @@
   <nav class="project-pagination">
     <ul>
       <li class="prev">
-        <% if @project.prev %>
-          <%= link_to(raw('<span class="arrow">&larr;</span> Previous Project'), refinery.projects_project_path(@project.prev), rel: 'prev') %>
-        <% else %>
-          <%= link_to(raw('<span class="arrow">&larr;</span> Previous Project'), refinery.projects_project_path(::Refinery::Projects::Project.last), rel: 'last') %>
-        <% end %>
+        <%= link_to(raw('<span class="arrow">&larr;</span> Previous Project'), refinery.projects_project_path(@project.prev || ::Refinery::Projects::Project.published.last), rel: 'prev') %>
       </li>
       <li class="next">
-        <% if @project.next %>
-          <%= link_to(raw('Next Project <span class="arrow">&rarr;</span>'), refinery.projects_project_path(@project.next), rel: 'next') %>
-        <% else %>
-          <%= link_to(raw('Next Project <span class="arrow">&rarr;</span>'), refinery.projects_project_path(::Refinery::Projects::Project.first), rel: 'first') %>
-        <% end %>
+        <%= link_to(raw('Next Project <span class="arrow">&rarr;</span>'), refinery.projects_project_path(@project.next || ::Refinery::Projects::Project.published.first), rel: 'next') %>
       </li>
     </ul>
   </nav>
