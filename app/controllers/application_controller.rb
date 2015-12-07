@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
 
   before_action :set_body_id, :get_projects
 
-
   def redirect_to_work
     redirect_to '/work'
   end
