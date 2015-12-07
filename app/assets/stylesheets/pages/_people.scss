@@ -31,7 +31,11 @@
       }
       h1 {
         font-size: 36px;
+        margin-bottom: 11px;
+      }
+      h2 {
         margin-bottom: ($padding * 2);
+        color: $black;
       }
       .links {
         @include small-caps();
@@ -77,8 +81,11 @@
         }
         h1 {
           font-size: 48px;
+        }
+        h2 {
           margin-bottom: ($padding * 4);
         }
+
       }
     }
 

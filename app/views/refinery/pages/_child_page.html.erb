@@ -4,6 +4,7 @@
     <div class="bio -left">
       <header>
         <h1><%= child_page.title %></h1>
+        <h2><%= child_page.subtitle unless child_page.subtitle.blank? %></h2>
         <div class="links"><%= raw child_page.content_for :side_body -%></div>
       </header>
       <%= raw child_page.content_for :body -%>
