@@ -14,10 +14,12 @@
   }
   &.nav-up {
     @include max-screen($breakpoint-medium) {
-      padding: 8px 25px;
-      .project-side-toggle,
-      .menu-toggle {
-        top: 10px;
+      &:not(.project-side-open) {
+        padding: 8px 25px;
+        .project-side-toggle,
+        .menu-toggle {
+          top: 10px;
+        }
       }
     }
     @include min-screen($breakpoint-medium) {
@@ -58,6 +60,7 @@
     margin: 0 0 44px;
     display: inline-block;
     font: 48px/1.145833333em $font-display;
+    letter-spacing: -.01em;
     a {
       padding: 0;
       line-height: 1em;
@@ -71,6 +74,24 @@
     margin: 0 auto;
     color: $black-fade;
     @include small-caps();
+  }
+  
+  // move TM to more reasonable location
+  .last-word {
+    position: relative;
+    sup {
+      top: 14px;
+      left: 100%;
+      position: absolute;
+    }
+  }
+  
+  // This was originally just on the homepage
+  h2 br {
+    display: none;
+    @include min-screen($breakpoint-small) {
+      display: inline-block;
+    }
   }
 
   @include min-screen($breakpoint-medium) {

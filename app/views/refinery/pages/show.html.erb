@@ -4,7 +4,7 @@
   <div class="intro one-half -left clearfix">
     <div class="-inner">
       <header class="section-title">
-        <h1><%=raw @body_id =~ /^about/ ? 'Good Design for Good Reason<sup>&trade;</sup>' : @page.title %>.</h1>
+        <h1><%=raw @body_id =~ /^about/ ? 'Good Design for Good <span class="last-word">Reason.<sup>&trade;</sup></span>' : "#{@page.title}." %></h1>
       </header>
       <div class="summary">
       <%= raw @page.content_for :body -%>

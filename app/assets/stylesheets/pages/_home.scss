@@ -1,25 +1,6 @@
 // Homepage
 
 #work-page.index {
-  .section-title {
-    .last-word {
-      position: relative;
-      sup { 
-        top: 0;
-        left: 100%;
-        position: absolute;
-      }
-    }
-    h2 { 
-      br {
-        display: none;
-        @include min-screen($breakpoint-small) {
-          display: inline-block;
-        }
-      }
-    }
-  }
-
   // Hide Project grid icon on homepage
   .project-side-toggle {
     display: none;
@@ -29,8 +10,7 @@
     right: 25px;
   }
 
-
-  // Sidebar opening
+  // Sidebar pushes main content over on homepage
   @include min-screen($breakpoint-medium) {
     .site-header {
       &.sidebar-open {
@@ -42,13 +22,6 @@
       transition: margin .2s ease-out;
       &.sidebar-open {
         margin-right: 300px;
-
-        // Change project ratio when open
-        .projects {
-          .project {
-            // padding-bottom: 50%;
-          }
-        }
       }
     }
   }

@@ -45,8 +45,8 @@
 }
 
 #project-side {
-  width: 100%;
-  right: -100%;
+  width: 300px;
+  right: -300px;
   padding-top: 66px;
   overflow: hidden;
   header.main {
@@ -63,21 +63,13 @@
     }
   }
   .projects {
+    background: $black;
     height: 95vh;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
   }
   .view-project {
     font-size: 24px;
-  }
-  @include screen($breakpoint-small, $breakpoint-medium) {
-    .projects {
-      .project {
-        width: 50%;
-        float: left;
-        padding-bottom: 33.3333%;
-      }
-    }
   }
   @include min-screen($breakpoint-medium) {
     width: 40%;
@@ -127,7 +119,7 @@ body#store-page .nav-store {
     // text-decoration: underline;
     padding-bottom: 2px;
     margin-bottom: 4px;
-    border-bottom: 2px solid $white;
+    border-bottom: 1px solid $white;
   }
 }
 
