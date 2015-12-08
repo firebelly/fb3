@@ -13,10 +13,6 @@
     top: 0;
   }
   &.nav-up {
-    // top: -66px;
-    #logo {
-      opacity: 0;
-    }
     @include max-screen($breakpoint-medium) {
       padding: 8px 25px;
       .project-side-toggle,
@@ -25,6 +21,9 @@
       }
     }
     @include min-screen($breakpoint-medium) {
+      #logo {
+        opacity: 0;
+      }
       background: transparent;
     }
   }
