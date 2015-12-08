@@ -43,26 +43,20 @@
 
   .project-meta {
     padding: 0 25px;
-    max-width: 800px;
+    max-width: 600px;
     text-align: center;
     margin: ($padding * 5) auto 0;
     > div {
-      text-align: center;
       @include clearfix();
-      > div {
-        display: inline-block;
-      }
     }
     h3 {
       color: $black;
       @include small-caps();
     }
     ul {
-      float: left;
-      text-align: center;
       li {
         color: $black-fade;
-        display: inline-block;
+        display: inline;
         @include small-caps();
       }
     }
@@ -72,11 +66,14 @@
     }
 
     @include min-screen($breakpoint-medium) {
+      padding: 0;
+      text-align: left;
       h3 {
         float: left;
+        width: 90px;
       }
       ul {
-        text-align: left;
+        margin-left: 90px;
       }
       .services {
         margin-top: 0;
@@ -167,6 +164,7 @@
   }
 }
 
+// Impromptu front end batch image upload interface
 .batch-upload {
   text-align: center;
 }
@@ -213,6 +211,7 @@
   }
 }
 
+// Project next/prev buttons
 .project-pagination {
   @include clearfix();
   padding: 0 25px;
