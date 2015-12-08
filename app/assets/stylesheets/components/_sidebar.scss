@@ -12,6 +12,7 @@
   background: $black;
   padding-bottom: ($padding * 2);
   transition: right .2s ease-out, background .5s ease-out;
+  -webkit-overflow-scrolling: touch;
   &.open {
     right: 0;
     .menu-toggle {
@@ -123,7 +124,10 @@ body#endeavors-page .nav-endeavors,
 body#news-page .nav-news,
 body#store-page .nav-store {
   a {
-    text-decoration: underline;
+    // text-decoration: underline;
+    padding-bottom: 2px;
+    margin-bottom: 4px;
+    border-bottom: 2px solid $white;
   }
 }
 
