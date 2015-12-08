@@ -2,13 +2,13 @@
 
 #project-side,
 #side {
+  position: fixed;
   top: 0;
   bottom: 0;
   z-index: 3;
   width: 300px;
   right: -300px;
   overflow: auto;
-  position: fixed;
   background: $black;
   padding-bottom: ($padding * 2);
   transition: right .2s ease-out, background .5s ease-out;
@@ -24,7 +24,7 @@
     right: -20px;
     z-index: 1;
     opacity: 0;
-    position: fixed;
+    position: absolute;
     transition: opacity .2s ease-out;
   }
   .tcon-menu__lines {
@@ -64,6 +64,7 @@
   .projects {
     height: 95vh;
     overflow: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .view-project {
     font-size: 24px;
