@@ -44,8 +44,8 @@
 }
 
 #project-side {
-  width: 40%;
-  right: -40%;
+  width: 100%;
+  right: -100%;
   padding-top: 66px;
   overflow: hidden;
   header.main {
@@ -67,6 +67,19 @@
   }
   .view-project {
     font-size: 24px;
+  }
+  @include screen($breakpoint-small, $breakpoint-medium) {
+    .projects {
+      .project {
+        width: 50%;
+        float: left;
+        padding-bottom: 33.3333%;
+      }
+    }
+  }
+  @include min-screen($breakpoint-medium) {
+    width: 40%;
+    right: -40%;
   }
 }
 
