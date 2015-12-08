@@ -82,7 +82,7 @@ $.gdgr.main = (function() {
     // lazyload images
     $('.lazy').lazyload({
       effect : 'fadeIn',
-      threshold: 1000
+      threshold: 1500
     });
     // project sidebar lazy
     $('.lazy-side').lazyload({
