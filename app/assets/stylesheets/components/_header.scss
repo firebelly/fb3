@@ -9,12 +9,16 @@
   position: fixed;
   padding: 22px 25px;
   background: $white;
-  transition: padding .2s ease-out, top .3s ease-out;
+  transition: padding .2s ease-out, top .3s ease-out, background .2s ease-out;
   &.nav-down {
     top: 0;
   }
   &.nav-up {
-    top: -66px;
+    // top: -66px;
+    #logo {
+      opacity: 0;
+    }
+    background: transparent;
   }
 }
 
