@@ -170,6 +170,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    meta-tags (2.1.0)
+      actionpack (>= 3.0.0)
     mime-types (2.99)
     mini_portile2 (2.0.0)
     minitest (5.8.3)
@@ -292,6 +294,7 @@ DEPENDENCIES
   dropzonejs-rails
   jbuilder (~> 2.0)
   jquery-rails
+  meta-tags
   mysql2
   nokogiri
   non-stupid-digest-assets

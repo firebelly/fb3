@@ -9,7 +9,7 @@ module Refinery
 
         # Only allow a trusted parameter "white list" through.
         def product_params
-          params.require(:product).permit(:title, :price, :weight, :description, :details, :position, :published, images_attributes: [:id, :caption])
+          params.require(:product).permit(:title, :price, :weight, :description, :details, :position, :published, :meta_description, images_attributes: [:id, :caption])
         end
       end
     end

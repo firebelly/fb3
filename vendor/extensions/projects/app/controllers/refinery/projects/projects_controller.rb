@@ -16,7 +16,12 @@ module Refinery
       def show
         @project = Project.friendly.find(params[:id])
         @body_class = 'single'
-        present(@page)
+        # meta tags
+        @page_title = @project.title
+        @page_description = @project.summary
+        @page_image = @project.image.thumbnail(geometry: :large).convert('-quality 70').url
+
+        present(@project)
       end
 
       # quickly upload batch of images and append to project.content field

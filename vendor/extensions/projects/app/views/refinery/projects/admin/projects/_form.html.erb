@@ -54,6 +54,11 @@
     <p class="note">(Current slug is: <%= @project.slug %>)</p>
   </div>
 
+  <div class='field'>
+    <%= f.label :meta_description -%>
+    <%= f.text_area :meta_description, :class => 'wider' -%>
+  </div>
+
   <div class="field">
     <%= f.label :industry, 'Industry' -%>
     <%= f.collection_select :industry_id, Refinery::Projects::ProjectIndustry.all, :id, :name %>

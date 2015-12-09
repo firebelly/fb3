@@ -11,6 +11,13 @@ module Refinery
 
       def show
         @product = Product.friendly.find(params[:id])
+        @body_class = 'single'
+
+        # meta tags
+        @page_title = @product.title
+        @page_description = @product.description
+        @page_image = @product.images.first.thumbnail(geometry: :large).convert('-quality 70').url unless @product.images.blank?
+
         present(@page)
       end
 

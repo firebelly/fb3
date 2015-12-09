@@ -10,7 +10,7 @@ body.focus-contact {
   transition: opacity .5s;
 }
 
-body.single.page {
+body.single {
   .interior {
     padding: ($padding * 6) 25px;
     @include min-screen($breakpoint-medium) {

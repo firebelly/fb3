@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151207232952) do
+ActiveRecord::Schema.define(version: 20151209220312) do
 
   create_table "refinery_authentication_devise_roles", force: :cascade do |t|
     t.string "title", limit: 255
@@ -185,16 +185,17 @@ ActiveRecord::Schema.define(version: 20151207232952) do
   add_index "refinery_pages", ["rgt"], name: "index_refinery_pages_on_rgt", using: :btree
 
   create_table "refinery_products", force: :cascade do |t|
-    t.string   "title",       limit: 255
-    t.string   "slug",        limit: 255
-    t.decimal  "price",                     precision: 8, scale: 2
-    t.decimal  "weight",                    precision: 8, scale: 2
-    t.text     "description", limit: 65535
-    t.text     "details",     limit: 65535
-    t.integer  "position",    limit: 4
+    t.string   "title",            limit: 255
+    t.string   "slug",             limit: 255
+    t.decimal  "price",                          precision: 8, scale: 2
+    t.decimal  "weight",                         precision: 8, scale: 2
+    t.text     "description",      limit: 65535
+    t.text     "details",          limit: 65535
+    t.integer  "position",         limit: 4
     t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "meta_description", limit: 65535
   end
 
   add_index "refinery_products", ["slug"], name: "slug", unique: true, using: :btree
@@ -223,19 +224,20 @@ ActiveRecord::Schema.define(version: 20151207232952) do
   end
 
   create_table "refinery_projects", force: :cascade do |t|
-    t.string   "title",        limit: 255
-    t.string   "subtitle",     limit: 255
-    t.text     "summary",      limit: 65535
-    t.text     "content",      limit: 65535
-    t.integer  "image_id",     limit: 4
-    t.integer  "industry_id",  limit: 4
-    t.integer  "position",     limit: 4
+    t.string   "title",            limit: 255
+    t.string   "subtitle",         limit: 255
+    t.text     "summary",          limit: 65535
+    t.text     "content",          limit: 65535
+    t.integer  "image_id",         limit: 4
+    t.integer  "industry_id",      limit: 4
+    t.integer  "position",         limit: 4
     t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "slug",         limit: 255
-    t.integer  "alt_image_id", limit: 4
-    t.string   "custom_slug",  limit: 255,   default: ""
+    t.string   "slug",             limit: 255
+    t.integer  "alt_image_id",     limit: 4
+    t.string   "custom_slug",      limit: 255
+    t.text     "meta_description", limit: 65535
   end
 
   add_index "refinery_projects", ["alt_image_id"], name: "index_refinery_projects_on_alt_image_id", using: :btree

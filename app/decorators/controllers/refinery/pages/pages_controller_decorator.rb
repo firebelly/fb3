@@ -8,6 +8,11 @@ private
     @body_class = "single page"
     @body_class << " #{@current_section}"
     @child_pages = @page.children.where(:show_in_menu => true)
+
+    @page_title = @page.title,
+    @page_description = @page.content_for(:body)
+    @page_image = @page.images.any? ? @page.images.first.thumbnail(geometry: :large).convert('-quality 70').url : nil
+
   end
 
   def check_redirect
