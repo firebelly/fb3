@@ -24,3 +24,8 @@ $font-body: "Karla", Helvetica, Arial, sans-serif;
 @mixin title {
   font: 24px/1.375em $font-display;
 }
+
+@mixin smooth {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

@@ -1,10 +1,16 @@
 // Interior Pages
 
-.expertise,
-.endeavors,
-.about,
-.people,
-.store {
+// when clicking on Contact, focus that area
+body.focus-contact {
+  #page {
+    opacity: .1;
+  }
+}
+#page {
+  transition: opacity .5s;
+}
+
+body.single.page {
   .interior {
     padding: ($padding * 6) 25px;
     @include min-screen($breakpoint-medium) {
@@ -43,6 +49,7 @@
           color: $black;
           margin: 0 0 .6em;
           @include title();
+          @include smooth();
           position: relative;
           padding-bottom: .5em;
           &:after {

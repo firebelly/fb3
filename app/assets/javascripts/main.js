@@ -122,16 +122,20 @@ $.gdgr.main = (function() {
       }
     });
 
+    // Homepage
+    if ($('#work-page.index').length) {
+      _scrollToFilters();
+    }
+
     _resize();
     _delayedResize();
     _transformicions();
     _sidebarToggle();
     _sidebarColors();
     _scrollToContact();
-    _scrollToFilters();
     _hideHeader();
     _initFilterNav();
-    _initSmoothsSroll();
+    _initSmoothScroll();
   };
 
   function _scrollBody(element, duration, delay) {
@@ -200,13 +204,11 @@ $.gdgr.main = (function() {
     });
   }
 
-  function _initSmoothsSroll() {
+  function _initSmoothScroll() {
     $('#wrapper').on('click', '.smoothscroll a', function(e){
       e.preventDefault();
-      var href = $(this).attr('href');
-      var el = $(href);
-      console.log(href, el);
-      if (el.length) _scrollBody(el); 
+      var el = $( $(this).attr('href') );
+      if (el.length) _scrollBody(el);
     });
   }
 
@@ -214,14 +216,18 @@ $.gdgr.main = (function() {
     $('.nav-contact a').on('click', function(e) {
       e.preventDefault();
        _hideSidebar();
-       _scrollBody($('#contact'), 250, 250); 
+       _scrollBody($('#contact'), 250, 250);
+       $('body').addClass('focus-contact');
+       setTimeout(function() {
+         $('body').removeClass('focus-contact');
+       }, 1500);
     });
   }
 
   function _scrollToFilters() {
     // When clicking on a filter, scroll to top of grid
     $('#filters a').on('click', function() {
-      _scrollBody($('.projects'), 250, 0); 
+      _scrollBody($('#page .projects'), 250, 0); 
     });
   }
 

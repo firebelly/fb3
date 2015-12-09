@@ -37,6 +37,7 @@
     color: $black;
     margin: 0 0 .6em;
     @include title();
+    @include smooth();
     position: relative;
     padding-bottom: .5em;
     &:after {
