@@ -4,7 +4,7 @@
 // Transforming menu toggle
 //
 $tcon-size: 22px !default;
-$tcon-transition: .2s !default;
+$tcon-transition: .4s cubic-bezier(0.77, 0, 0.175, 1) !default;
 $tcon-jstransform: 'tcon-transform' !default;
 
 $tcon-menu-radius: 0 !default;
