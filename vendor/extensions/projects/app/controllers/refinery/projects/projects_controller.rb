@@ -50,6 +50,37 @@ module Refinery
         end
       end
 
+      def image_alt_update
+        has_changed = false
+        if !(params[:project_id].blank? || params[:image_url].blank?)
+          @project = Project.find(params[:project_id])
+          parsed = Nokogiri::HTML(@project.content)
+          parsed.xpath("//img").each_with_index do |img, i| 
+            if img['src'] == params[:image_url]
+              img.set_attribute('alt', params[:new_alt])
+              img.set_attribute('title', params[:new_alt])
+              has_changed = true
+              #todo: also find & update Image entry?
+            end
+          end
+          if has_changed
+            @project.content = parsed.to_html
+            @project.save
+          end
+        elsif !(params[:image_id].blank?)
+          #todo: add ability to update alt tags for header images on projects
+          @image = Refinery::Image.find(params[:image_id])
+          @image.image_title = params[:new_alt]
+          @image.image_alt = params[:new_alt]
+          @image.save
+        end
+
+        respond_to do |format|
+          format.json { render json: { status: 1, msg: 'updated ok'} }
+          format.html { redirect_to refinery.projects_project_path @project }
+        end
+      end
+
     protected
 
       def get_defaults

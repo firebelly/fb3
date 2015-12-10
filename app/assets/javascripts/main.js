@@ -23,6 +23,7 @@ $.gdgr.main = (function() {
 
     // "quick" project image upload on frontend for admins
     if ($('.batch-upload').length) {
+      
       // also allow editing alt tags on images
       _initImageAltEditor();
 
@@ -87,11 +88,6 @@ $.gdgr.main = (function() {
       effect : 'fadeIn',
       threshold: 1500
     });
-    // project sidebar lazy
-    $('.lazy-side').lazyload({
-      container : $('#project-side .projects'),
-      effect : 'fadeIn',
-    });
 
     // ajax newsletter form
     $('#email-form').validate({
@@ -145,13 +141,25 @@ $.gdgr.main = (function() {
     var project_id = $('.single-project').data('id');
     $('.project-images img').each(function() {
       var $img = $(this);
-      var id = $img.attr('data-id');
-      var original = $img.attr('data-original');
-      var alt = $img.prop('alt');
+      var old_alt = $img.prop('alt');
       var wrap = $img.wrap('<div class="alt-tag-edit" />').parent();
-      $('<input type="text" name="alt" placeholder="Enter Image Alt..." value="' + alt + '">').appendTo(wrap).on('change', function(e) {
-        var new_alt = $(this).val();
-        console.log(new_alt, project_id, original);
+      $('<input type="text" name="alt" placeholder="Enter Image Alt..." value="' + old_alt + '">').appendTo(wrap).on('change', function(e) {
+        var $input = $(this);
+        $.ajax({
+          type: 'POST',
+          url: '/work/image_alt_update',
+          cache: false,
+          dataType: 'json',
+          data: {
+            new_alt: $input.val(),
+            project_id: project_id,
+            image_url: $img.attr('data-original')
+          },
+          success: function(data) {
+            $input.addClass('done');
+            setTimeout(function() {$input.removeClass('done');}, 500);
+          }
+        });
       });
     });
   }
@@ -186,6 +194,16 @@ $.gdgr.main = (function() {
 
     $('html').on('click', '.project-side-toggle', function() {
       $('#project-side').toggleClass('open');
+      
+      // init lazyload images in sidebar if not already done
+      if (!$('#project-side').hasClass('lazy-loaded')) {
+        $('.lazy-side').lazyload({
+          container : $('#project-side .projects'),
+          effect : 'fadeIn',
+        });
+        $('#project-side').addClass('lazy-loaded')
+      }
+
       $('body, #page, .site-header, .site-footer').toggleClass('project-side-open');
     });
 
