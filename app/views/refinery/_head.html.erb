@@ -18,8 +18,10 @@
   <%= display_meta_tags image: @page_image, og: {
       title: :title,
       description: :description,
-      image: @page_image,
+      image: request.protocol + request.host_with_port + @page_image,
       url: request.url,
+    }, fb: {
+      app_id: '1675583716017779'
     }
   %>
 
