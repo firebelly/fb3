@@ -264,3 +264,26 @@
   }
 
 }
+
+// Impromptu alt tag edits
+.alt-tag-edit {
+  position: relative;
+  input {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    padding: 4px 6px;
+    font-size: 14px;
+    width: 300px;
+    background: $white;
+    text-transform: none;
+    letter-spacing: .02em;
+    color: $black;
+    display: none;
+  }
+  &:hover {
+    input {
+      display: block;
+    }
+  }
+}

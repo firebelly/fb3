@@ -23,6 +23,9 @@ $.gdgr.main = (function() {
 
     // "quick" project image upload on frontend for admins
     if ($('.batch-upload').length) {
+      // also allow editing alt tags on images
+      _initImageAltEditor();
+
       Dropzone.autoDiscover = false;
       var dropzone = new Dropzone ('.dropzone', {
         paramName: 'images',
@@ -137,6 +140,21 @@ $.gdgr.main = (function() {
     _initFilterNav();
     _initSmoothScroll();
   };
+
+  function _initImageAltEditor() {
+    var project_id = $('.single-project').data('id');
+    $('.project-images img').each(function() {
+      var $img = $(this);
+      var id = $img.attr('data-id');
+      var original = $img.attr('data-original');
+      var alt = $img.prop('alt');
+      var wrap = $img.wrap('<div class="alt-tag-edit" />').parent();
+      $('<input type="text" name="alt" placeholder="Enter Image Alt..." value="' + alt + '">').appendTo(wrap).on('change', function(e) {
+        var new_alt = $(this).val();
+        console.log(new_alt, project_id, original);
+      });
+    });
+  }
 
   function _scrollBody(element, duration, delay) {
     // var headerHeight = $('.site-header').outerHeight();
