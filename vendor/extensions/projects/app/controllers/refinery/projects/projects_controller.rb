@@ -9,14 +9,14 @@ module Refinery
 
       def index
         @body_class = 'index'
-        @current_section = 'work'
+        @page_title = @page.title
         present(@page)
       end
 
       def show
         @project = Project.friendly.find(params[:id])
         @body_class = 'single'
-        # meta tags
+
         @page_title = @project.title
         @page_description = @project.summary
         @page_image = @project.image.thumbnail(geometry: :large).convert('-quality 70').url
