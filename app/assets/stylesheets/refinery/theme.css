@@ -9,3 +9,8 @@
 	line-height: 1.375em;
 	margin: 3em auto;
 }
+
+.visual_editor_iframe_body .project-summary {
+	margin: 20px;
+	background: #eee;
+}

@@ -4,6 +4,7 @@ Refinery::Core::Engine.routes.draw do
   namespace :projects, :path => 'work' do
     resources :projects, :path => '', :only => [:index, :show]
     post 'upload_images' => 'projects#upload_images', as: 'upload_images'
+    post 'image_alt_update' => 'projects#image_alt_update', as: 'image_alt_update'
   end
 
   # Admin routes

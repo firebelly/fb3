@@ -265,7 +265,7 @@
 
 }
 
-// Impromptu alt tag edits
+// Impromptu alt tag editing UI
 .alt-tag-edit {
   position: relative;
   input {
@@ -273,17 +273,21 @@
     bottom: 20px;
     left: 20px;
     padding: 4px 6px;
-    font-size: 14px;
-    width: 300px;
-    background: $white;
+    font-size: 18px;
+    width: 50%;
+    background: rgba($black,.5);
+    color: $white;
     text-transform: none;
     letter-spacing: .02em;
-    color: $black;
-    display: none;
-  }
-  &:hover {
-    input {
-      display: block;
+    border: 1px solid $white;
+    transition: all .3s ease-out;
+    &.done {
+      border: 1px solid yellow;
     }
+  }
+  &:hover input,
+  input:focus {
+    background: $white;
+    color: $black;
   }
 }
