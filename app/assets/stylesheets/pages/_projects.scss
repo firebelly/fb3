@@ -275,20 +275,27 @@
     padding: 4px 6px;
     font-size: 18px;
     width: calc(100% - 40px);
-    background: rgba($black,.5);
+    background: rgba($black,.1);
     color: $white;
     text-transform: none;
     letter-spacing: .02em;
-    border: 1px solid $white;
-    transition: all .3s ease-out;
+    border: 1px solid rgba($black,.1);
+    transition: all .2s ease-out;
+    &::placeholder {
+      color: rgba($white,.5);
+    }
     &.done {
       border: 1px solid yellow;
     }
   }
   &:hover input,
   input:focus {
+    border: 1px solid $white;
     background: $white;
     color: $black;
+    &::placeholder {
+      color: lighten($black,50%);
+    }
   }
   @include min-screen($breakpoint-medium) {
     input {
