@@ -274,7 +274,7 @@
     left: 20px;
     padding: 4px 6px;
     font-size: 18px;
-    width: 50%;
+    width: calc(100% - 40px);
     background: rgba($black,.5);
     color: $white;
     text-transform: none;
@@ -289,5 +289,10 @@
   input:focus {
     background: $white;
     color: $black;
+  }
+  @include min-screen($breakpoint-medium) {
+    input {
+      width: 50%;
+    }
   }
 }
