@@ -330,9 +330,7 @@ $.gdgr.main = (function() {
         var filter = window.location.hash.replace('#','');
         _filterProjects(filter);
         // make sure images are shown after filtering
-        setTimeout(function() {
-          _initLazyload();
-        }, 150);
+        $('.lazy').trigger('appear');
       }
     }
   }
