@@ -28,8 +28,9 @@
   }
 
   a {
+    transition: color .2s ease-out;
     &:hover, &:focus {
-      text-decoration: underline;
+      color: $black;
     }
   }
 
