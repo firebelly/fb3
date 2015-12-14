@@ -52,7 +52,7 @@
     }
   }
 
-  p, a, li, span {
+  p, a, li {
     color: $black-fade;
     @include small-caps();
   }
@@ -60,12 +60,6 @@
   #contact {
     @include min-screen($breakpoint-medium) {
       padding-left: (($padding * 12) - 25);
-    }
-  }
-
-  .address {
-    span {
-      display: inline-block;
     }
   }
 
