@@ -7,7 +7,7 @@
         <h1><%=raw @body_id =~ /^about/ ? 'Good Design for Good <span class="last-word">Reason.<sup>&trade;</sup></span>' : "#{@page.title}." %></h1>
       </header>
       <div class="summary">
-      <%= raw @page.content_for :body -%>
+        <%= raw @page.content_for :body -%>
       </div>
     </div>
   </div>

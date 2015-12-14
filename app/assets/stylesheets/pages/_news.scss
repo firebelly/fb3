@@ -113,7 +113,7 @@
     padding: 0 25px;
     max-width: 850px;
     text-align: center;
-    @include clearfix();
+    @extend %clearfix;
     margin: ($padding * 5) auto 0;
     > div {
       text-align: left;

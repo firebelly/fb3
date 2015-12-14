@@ -37,10 +37,6 @@
     .page {
       padding: ($padding * 6) 25px;
       
-      a {
-        text-decoration: none;
-      }
-
       &:nth-of-type(odd) {
         background: rgba(255,255,255,.6);
       }
@@ -73,13 +69,6 @@
 
       strong {
         color: $black;
-      }
-
-      a {
-        transition: color .2s ease-out;
-        &:hover, &:focus {
-          color: $black;
-        }
       }
 
       @include min-screen($breakpoint-medium) {

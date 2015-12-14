@@ -120,6 +120,12 @@ $.gdgr.main = (function() {
     // Homepage
     if ($('#work-page.index').length) {
       _scrollToFilters();
+      // SEO useless filter header
+      var filterHeader = $('<div class="filter-header">Filter:<p><span class="filter">test</span> </p></div>').prependTo('#page .portfolio');
+      $('<a href="#">X</a>').appendTo(filterHeader.find('p')).on('click', function(e) {
+        e.preventDefault();
+        $('#filters .show-all a').trigger('click');
+      });
     }
 
     _resize();
@@ -341,7 +347,14 @@ $.gdgr.main = (function() {
   function _filterProjects(filter) {
     // highlight filter in nav
     $('#filters a').removeClass('selected');
-    $('#filters a[data-filter="'+filter+'"]').addClass('selected');
+
+    var activeFilter = $('#filters a[data-filter="'+filter+'"]');
+    activeFilter.addClass('selected');
+    if (filter != '') {
+      $('.filter-header').addClass('active').find('.filter').html(activeFilter.html());
+    } else {
+      $('.filter-header').removeClass('active');
+    }
 
     // dim all projects not matching filter
     $('.filter-items li').each(function() {

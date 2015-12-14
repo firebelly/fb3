@@ -14,7 +14,7 @@ input {
     outline: none;
     background: rgba($black, .05);
   }
-  @include placeholder {
+  &::placeholder {
     color: $black-fade;
   }
 }

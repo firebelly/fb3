@@ -44,7 +44,7 @@ img {
 
 // Clearfix
 .clearfix {
-  @include clearfix();
+  @extend %clearfix;
 }
 
 // Hide visually, but keep accessible by screen readers

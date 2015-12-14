@@ -1,7 +1,8 @@
 // Footer
 
 .site-footer {
-  @include clearfix();
+  @extend %clearfix;
+  @extend %fade-links;
   padding: ($padding * 6) 25px;
 
   @include min-screen($breakpoint-small) {
@@ -27,12 +28,6 @@
     }
   }
 
-  a {
-    transition: color .2s ease-out;
-    &:hover, &:focus {
-      color: $black;
-    }
-  }
 
   h3 {
     color: $black;

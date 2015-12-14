@@ -19,13 +19,13 @@
           <div class="industry one-half">
             <div class="-inner">
               <h3>Industry:</h3>
-              <ul><li><%= @project.industry.name -%></li></ul>
+              <ul><li><%= link_to @project.industry.name, "/work##{@project.industry.slug}" -%></li></ul>
             </div>
           </div>
           <div class="services one-half">
             <div class="inner">
               <h3>Services:</h3>
-              <ul><li><%= @project.service_counts.map { |t| t.name }.join(', ') -%></li></ul>
+              <ul><li><%= raw @project.service_counts.map { |t| link_to t.name, "/work##{t.slug}" }.join(', ') -%></li></ul>
             </div>
           </div>
         </div>

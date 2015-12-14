@@ -1,38 +1,5 @@
 // Mixins
 
-// Clearfix
-@mixin clearfix {
-  *zoom: 1;
-  &:before, &:after {
-    content: "\0020";
-    display: block;
-    height: 0;
-    overflow: hidden;
-  }
-  &:after {
-    clear: both;
-  }
-}
-
-// Support for styling input placeholder text
-@mixin placeholder {
-  &.placeholder {
-    @content;
-  }
-  &:-moz-placeholder {
-    @content;
-  }
-  &::-moz-placeholder {
-    @content;
-  }
-  &::-webkit-input-placeholder {
-    @content;
-  }
-  &:-ms-input-placeholder {
-    @content;
-  }
-}
-
 // ---------------------------------------------------------------------------------------------------------------------
 // --- screen ----------------------------------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------------------------------------------

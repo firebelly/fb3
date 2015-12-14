@@ -1,5 +1,20 @@
 // Projects
 
+#work-page.index {
+  .filter-header {
+    @include small-caps();
+    @extend %fade-links;
+    padding: $padding * 2;
+    display: none;
+    a {
+      cursor: pointer;
+    }
+    &.active {
+      display: block;
+    }
+  }
+}
+
 #work-page.single {
   .portfolio {
     padding-top: 46px;
@@ -48,7 +63,7 @@
     text-align: center;
     margin: ($padding * 5) auto 0;
     > div {
-      @include clearfix();
+      @extend %clearfix;
     }
     h3 {
       color: $black;
@@ -214,11 +229,11 @@
 
 // Project next/prev buttons
 .project-pagination {
-  @include clearfix();
+  @extend %clearfix;
   padding: 0 25px;
 
   ul {
-    @include clearfix();
+    @extend %clearfix;
     margin: 130px 0 -30px 0;
     padding-right: 25px;
 

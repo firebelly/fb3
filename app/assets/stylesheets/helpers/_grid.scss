@@ -1,7 +1,7 @@
 // Grid
 
 .grid {
-  @include clearfix();
+  @extend %clearfix;
 }
 
 @include min-screen($breakpoint-medium) {

@@ -7,7 +7,7 @@
 
   .interior {
     background: $green;
-    @include clearfix();
+    @extend %clearfix;
     @include max-screen(1000px) {
       .one-half {
         float: none;
