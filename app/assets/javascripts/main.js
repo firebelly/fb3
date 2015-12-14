@@ -8,8 +8,7 @@ $.gdgr.main = (function() {
       handheld = false,
       tablet = false,
       admin_status = false,
-      is_animating = false,
-      delayed_resize_timer = false;
+      is_animating = false;
 
   function _init() {
     $('#flash').hide().css('visibility','visible').fadeIn();
@@ -84,10 +83,7 @@ $.gdgr.main = (function() {
     $('.content').fitVids();
 
     // lazyload images
-    $('.lazy').lazyload({
-      effect : 'fadeIn',
-      threshold: 1500
-    });
+    _initLazyload();
 
     // ajax newsletter form
     $('#email-form').validate({
@@ -106,7 +102,7 @@ $.gdgr.main = (function() {
       }
     });
 
-    // Some general Esc handlers
+    // Keyboard nerds rejoice
     $(document).keyup(function(e) {
       if (e.keyCode == 27) {
         _hideSidebar();
@@ -127,7 +123,6 @@ $.gdgr.main = (function() {
     }
 
     _resize();
-    _delayedResize();
     _transformicions();
     _sidebarToggle();
     _sidebarColors();
@@ -318,37 +313,45 @@ $.gdgr.main = (function() {
         if ($(this).hasClass('selected')) {
           $('#filters .show-all a').trigger('click');
         } else {
-          $('#filters a').removeClass('selected');
-          $(this).addClass('selected');
-
           var filter = $(this).attr('data-filter');
-          // var filter_type = $(this).attr('data-filter-type');
-          $('.filter-items li').each(function() {
-            if (filter=='' || $(this).attr('data-industry').match(filter) || $(this).attr('data-services').match(filter)) {
-              $(this).removeClass('dim').addClass('selected');
-            } else {
-              $(this).removeClass('selected').addClass('dim');
-            }
-            window.location.hash = '#' + filter;
-          });
+          _filterProjects(filter);
+          window.location.hash = '#' + filter;
         }
         return false;
       });
-      
-       // build SEO-useless overlay links
-      $('.filter-items li').each(function() {
-        $(this).find('a:first').clone().empty().addClass('overlay').prependTo($(this).find('article'));
-      });
-
-      // clicking on dimmed item triggers all to open back up
-      $('.filter-items a').click(function(e) {
-        if ($(this).parents('li:first').hasClass('dim')) {
-          $('#filters .show-all a').trigger('click');
-          return false;
-        }
-      });
+      // initial filter?
+      if (window.location.hash) {
+        var filter = window.location.hash.replace('#','');
+        _filterProjects(filter);
+        // make sure images are shown after filtering
+        setTimeout(function() {
+          _initLazyload();
+        }, 150);
+      }
     }
- }
+  }
+
+  function _initLazyload() {
+    $('.lazy').lazyload({
+      effect : 'fadeIn',
+      threshold: 1500
+    });
+  }
+
+  function _filterProjects(filter) {
+    // highlight filter in nav
+    $('#filters a').removeClass('selected');
+    $('#filters a[data-filter="'+filter+'"]').addClass('selected');
+
+    // dim all projects not matching filter
+    $('.filter-items li').each(function() {
+      if (filter=='' || $(this).attr('data-industry').match(filter) || $(this).attr('data-services').match(filter)) {
+        $(this).removeClass('dim').addClass('selected');
+      } else {
+        $(this).removeClass('selected').addClass('dim');
+      }
+    });
+  }
 
   function _resize() {
     screenWidth = document.documentElement.clientWidth;
@@ -358,38 +361,10 @@ $.gdgr.main = (function() {
     tablet = !desktop && !handheld;
   };
 
-  function _delayedResize() {
-    // stretch---shrink images
-    $('img.responsive').each(function() {
-      var uid = $(this).attr('data-uid');
-      if (uid) {
-        if (giant_desktop) {
-          var _width = $(this).data('giant_desktop_width');
-          var endpoint = "/thumbs/" + _width + "x?uid=";
-        } else if (desktop) {
-          var _width = $(this).data('desktop_width');
-          var endpoint = "/thumbs/" + _width + "x?uid=";
-        } else {
-          var _width = 290;
-          var endpoint = "/thumbs/" + _width + "x?uid=";
-        }
-
-        // do we need to change the src to a different size?
-        if ($(this).attr('src') != endpoint + uid) {
-          var $this = $(this);
-          $this.addClass('loading').attr({ 'src': endpoint + uid }).imagesLoaded(function($images) {
-            $this.removeClass('loading');
-          });
-        }
-      }
-    });
-  };
-
   return {
     init: _init,
     resize: _resize,
-    showSidebar: _showSidebar,
-    delayedResize: _delayedResize
+    showSidebar: _showSidebar
   };
 
 })();
@@ -400,20 +375,5 @@ $(window).ready(function() {
 });
 
 $(window).resize(function(){
-  // instant resize functions
   $.gdgr.main.resize();
-
-  // delayed resize for more intensive tasks
-  if($.gdgr.main.delayed_resize_timer !== false) {
-    clearTimeout($.gdgr.main.delayed_resize_timer);
-  }
-  $.gdgr.main.delayed_resize_timer = setTimeout($.gdgr.main.delayedResize, 200);
 });
-
-// equalizes height (to max) of elements passed in
-$.fn.equalizeHeight = function(){
-  var maxHeight = Math.max.apply(null, $(this).map(function() {
-    return $(this).height();
-  }).get());
-  return $(this).height(maxHeight);
-};
