@@ -10,6 +10,12 @@
         color: $black;
         white-space: nowrap;
       }
+      a {
+        transition: color .2s ease-out;
+        &:hover, &:focus {
+          color: $black;
+        }
+      }
     }
   }
 }
