@@ -6,8 +6,9 @@
           <div class="project-image lazy-side" style="background-image:url('/assets/gray.gif');" data-original="<%= project.thumbnail_image.thumbnail(geometry: '400x300#c').convert('-quality 75').url if project.thumbnail_image %>"></div>
           <header>
             <h1><%= link_to project.title, refinery.projects_project_path(project) %></h1>
+            <h3><%= project.subtitle %></h3>
           </header>
-          <%= link_to(raw("<span>View Project</span>"), refinery.projects_project_path(project), class: 'view-project') %>
+          <%= link_to(raw(""), refinery.projects_project_path(project), class: 'view-project') %>
         </article>
       </li>
     <% end -%>
