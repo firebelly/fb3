@@ -258,8 +258,17 @@
       width: 50%;
       float: right;
     }
+    a {
+      transition: margin .2s $cubic-ease2;
+    }
     li.prev a {
       margin-left: -24px;
+      &:hover {
+        margin-left: -30px;
+      }
+    }
+    li.next a:hover {
+      margin-right: -6px;
     }
 
   }

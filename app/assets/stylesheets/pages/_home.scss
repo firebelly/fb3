@@ -19,7 +19,7 @@
     }
 
     #page {
-      transition: margin .4s cubic-bezier(0.77, 0, 0.175, 1);
+      transition: margin .4s $cubic-ease1;
       &.sidebar-open {
         margin-right: 300px;
       }

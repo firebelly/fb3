@@ -11,7 +11,7 @@
   overflow: auto;
   background: $black;
   padding-bottom: ($padding * 2);
-  transition: right .4s cubic-bezier(0.77, 0, 0.175, 1), background 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: right .4s $cubic-ease1, background 1s $cubic-ease2;
   -webkit-overflow-scrolling: touch;
   &.open {
     right: 0;
