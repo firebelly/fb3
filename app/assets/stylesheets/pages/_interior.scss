@@ -49,8 +49,8 @@ body.page.single {
         h1, h2, h3 {
           color: $black;
           margin: 0 0 .6em;
-          @include title();
-          @include smooth();
+          @extend %title;
+          @extend %smooth;
           position: relative;
           padding-bottom: .5em;
           &:after {
@@ -67,7 +67,7 @@ body.page.single {
         ul {
           li {
             color: $black-fade;
-            @include small-caps();
+            @extend %small-caps;
           }
         }
 
@@ -76,7 +76,7 @@ body.page.single {
           td {
             color: $black-fade;
             vertical-align: top;
-            @include small-caps();
+            @extend %small-caps;
             padding: 0 ($padding * 2) 0 0;
           }
         }

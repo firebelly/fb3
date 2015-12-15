@@ -15,17 +15,17 @@
 $font-display: "StanleyPoster", serif;
 $font-body: "Karla", Helvetica, Arial, sans-serif;
 
-@mixin small-caps {
+%small-caps {
   letter-spacing: .25em;
   text-transform: uppercase;
   font: 12px/1.833333333em $font-body;
 }
 
-@mixin title {
+%title {
   font: 24px/1.375em $font-display;
 }
 
-@mixin smooth {
+%smooth {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

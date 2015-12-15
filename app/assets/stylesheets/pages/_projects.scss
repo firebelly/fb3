@@ -2,7 +2,7 @@
 
 #work-page.index {
   .filter-header {
-    @include small-caps();
+    @extend %small-caps;
     @extend %fade-links;
     padding: $padding * 2;
     display: none;
@@ -47,7 +47,7 @@
     }
     h4 {
       color: $black-fade;
-      @include small-caps();
+      @extend %small-caps;
     }
 
     @include min-screen($breakpoint-small) {
@@ -67,13 +67,13 @@
     }
     h3 {
       color: $black;
-      @include small-caps();
+      @extend %small-caps;
     }
     ul {
       li {
         color: $black-fade;
         display: inline;
-        @include small-caps();
+        @extend %small-caps;
       }
     }
 

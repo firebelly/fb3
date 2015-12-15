@@ -39,7 +39,7 @@
   .secondary-item {
     p, li, table {
       color: $black-fade;
-      @include small-caps();
+      @extend %small-caps;
     }
   }
 

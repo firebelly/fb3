@@ -59,6 +59,7 @@
     padding: 21px 25px;
     h2 {
       color: $white;
+      @extend %smooth;
       font: 24px/1 $font-display;
     }
   }
@@ -86,7 +87,7 @@
     display: inline-block;
     font-family: $font-display;
     letter-spacing: -.01em;
-    @include smooth();
+    @extend %smooth;
     &:hover {
       color: $black;
     }
@@ -118,7 +119,6 @@ body#endeavors-page .nav-endeavors,
 body#news-page .nav-news,
 body#store-page .nav-store {
   a {
-    // text-decoration: underline;
     padding-bottom: 2px;
     margin-bottom: 4px;
     border-bottom: 1px solid $white;
@@ -131,7 +131,8 @@ body#store-page .nav-store {
   margin-top: ($padding * 4);
   h1 {
     color: $white;
-    font-size: 24px;
+    font: 24px/1 $font-display;
+    @extend %smooth;
     margin-bottom: 33px;
   }
   li {
@@ -142,7 +143,7 @@ body#store-page .nav-store {
     }
     a {
       color: $white;
-      @include small-caps();
+      @extend %small-caps;
       &:hover, &:active {
         text-decoration: underline;
       }
@@ -168,7 +169,7 @@ body#store-page .nav-store {
     margin-bottom: 33px;
   }
   ul {
-    @include small-caps();
+    @extend %small-caps;
   }
   .line-item {
     position: relative;

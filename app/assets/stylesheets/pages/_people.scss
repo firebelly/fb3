@@ -38,7 +38,7 @@
         color: $black;
       }
       .links {
-        @include small-caps();
+        @extend %small-caps;
         a {
           color: $black-fade;
           transition: color .2s ease-out;

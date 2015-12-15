@@ -20,7 +20,7 @@
       }
       .summary {
         color: $black-fade;
-        @include small-caps();
+        @extend %small-caps;
       }
 
       @include min-screen($breakpoint-medium) {
@@ -59,7 +59,7 @@
 
     aside {
       color: $black-fade;
-      @include small-caps();
+      @extend %small-caps;
 
       h1, h2, h3 {
         color: $black;

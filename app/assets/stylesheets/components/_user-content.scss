@@ -7,7 +7,7 @@
   }
   h2 {
     color: $black-fade;
-    @include small-caps();
+    @extend %small-caps;
   }
 
   p {

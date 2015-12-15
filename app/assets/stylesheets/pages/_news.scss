@@ -41,7 +41,7 @@
     margin: 0 auto;
     max-width: 650px;
     color: $black-fade;
-    @include small-caps();
+    @extend %small-caps;
     padding: $padding 25px;
   }
 
@@ -80,7 +80,7 @@
     }
     h3.date {
       color: $black-fade;
-      @include small-caps();
+      @extend %small-caps;
     }
   }
 
@@ -122,7 +122,7 @@
     h3 {
       float: left;
       color: $black;
-      @include small-caps();
+      @extend %small-caps;
     }
     ul {
       float: left;
@@ -130,7 +130,7 @@
         margin-left: -3px; // fixing white-space from li
         color: $black-fade;
         display: inline-block;
-        @include small-caps();
+        @extend %small-caps;
         &:first-of-type {
           margin-left: .25em;
           .comma {
