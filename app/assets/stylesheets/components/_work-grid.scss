@@ -101,7 +101,9 @@
 .touch {
   .project,
   .product {
-    h3,
+    h3 {
+      opacity: 1;
+    }
     .view-project,
     .view-product {
       opacity: .25;
