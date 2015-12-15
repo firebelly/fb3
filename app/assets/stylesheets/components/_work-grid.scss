@@ -47,8 +47,19 @@
       @extend %small-caps;
     }
     h3 {
+      margin-top: 1em;
+      padding-top: 1em;
       transition: opacity .4s $cubic-ease1;
       opacity: 0;
+      &:before {
+        left: 0;
+        top: 0;
+        content: '';
+        height: 1px;
+        width: .75em;
+        background: $white;
+        position: absolute;
+      }
     }
 
     .view-project,

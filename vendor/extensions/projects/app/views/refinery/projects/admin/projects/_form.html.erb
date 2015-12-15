@@ -17,6 +17,11 @@
     <%= f.text_field :subtitle, :class => 'widest' -%>
   </div>
 
+  <div class='field'>
+    <%= f.label :rollover_subtitle -%>
+    <%= f.text_field :rollover_subtitle, :style => 'width:50%' -%>
+  </div>
+
   <div class='field spaced'>
     <%= f.check_box :published, :checked => @project[:published] -%>
     <%= f.label :published, 'Published?', :style => 'display: inline' %>
