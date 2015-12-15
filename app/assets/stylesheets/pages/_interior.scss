@@ -10,6 +10,7 @@ body.focus-contact {
   transition: opacity .5s;
 }
 
+#store-page.single,
 body.page.single {
   .interior {
     padding: ($padding * 6) 25px;
