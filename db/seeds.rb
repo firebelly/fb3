@@ -17,3 +17,6 @@ Refinery::Projects::Engine.load_seed
 
 # Added by Refinery CMS Products extension
 Refinery::Products::Engine.load_seed
+
+# Added by Refinery CMS Firebelly extension
+Refinery::Firebelly::Engine.load_seed

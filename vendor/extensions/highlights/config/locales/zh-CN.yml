@@ -1,0 +1,31 @@
+zh-CN:
+  refinery:
+    plugins:
+      highlights:
+        title: Highlights
+    firebelly:
+      admin:
+        highlights:
+          actions:
+            create_new: 建立新的 Highlight
+            reorder: 对 Highlights 重新排序
+            reorder_done: 对 Highlights 的重新排序结束
+          records:
+            title: Highlights
+            sorry_no_results: 对不起，未找到结果。 #Sorry! There are no results found.
+
+            # There are no Highlights yet. Click "Add New Highlight" to add your first highlight.
+            no_items_yet: 目前没有 Highlights . 点击 "Add New Highlight" 创建一个highlight.
+          highlight:
+            view_live_html: 查看 highlight 的最新内容.<br/><em>(新窗口中打开)</em>
+            edit: 编辑 highlight
+            delete: 永久删除 highlight
+      highlights:
+        show:
+          other: 其他 Highlights
+  activerecord:
+    attributes:
+      'refinery/firebelly/highlight':
+        date: Date
+        highlight: Highlight
+        link: Link

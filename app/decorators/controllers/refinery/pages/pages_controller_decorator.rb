@@ -8,6 +8,7 @@ private
     @body_class = "single page"
     @body_class << " #{@current_section}"
     @child_pages = @page.children.where(:show_in_menu => true)
+    @highlights = ::Refinery::Firebelly::Highlight.order('date DESC')
 
     @page_title = @page.title
     @page_description = @page.content_for(:body)

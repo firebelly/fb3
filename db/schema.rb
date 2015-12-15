@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151215191100) do
+ActiveRecord::Schema.define(version: 20151215202601) do
 
   create_table "refinery_authentication_devise_roles", force: :cascade do |t|
     t.string "title", limit: 255
@@ -54,6 +54,16 @@ ActiveRecord::Schema.define(version: 20151215191100) do
 
   add_index "refinery_authentication_devise_users", ["id"], name: "index_refinery_authentication_devise_users_on_id", using: :btree
   add_index "refinery_authentication_devise_users", ["slug"], name: "index_refinery_authentication_devise_users_on_slug", using: :btree
+
+  create_table "refinery_firebelly_highlights", force: :cascade do |t|
+    t.text     "highlight",  limit: 65535
+    t.date     "date"
+    t.integer  "position",   limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "refinery_firebelly_highlights", ["date"], name: "index_refinery_firebelly_highlights_on_date", using: :btree
 
   create_table "refinery_image_page_translations", force: :cascade do |t|
     t.integer  "refinery_image_page_id", limit: 4,     null: false

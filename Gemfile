@@ -42,6 +42,7 @@ gem 'refinerycms-authentication-devise', '~> 1.0'
 gem 'refinerycms-news_posts', path: 'vendor/extensions'
 gem 'refinerycms-projects', path: 'vendor/extensions'
 gem 'refinerycms-products', path: 'vendor/extensions'
+gem 'refinerycms-highlights', path: 'vendor/extensions'
 
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'dotenv-rails'
@@ -51,3 +52,4 @@ gem 'nokogiri'
 gem 'rack-cache'
 gem 'dropzonejs-rails'
 gem 'meta-tags'
+

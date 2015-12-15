@@ -1,0 +1,20 @@
+<ul>
+  <% if ::Refinery::Firebelly::Admin::HighlightsController.searchable? %>
+    <li>
+      <%= render '/refinery/admin/search', :url => refinery.firebelly_admin_highlights_path %>
+    </li>
+  <% end %>
+  <li>
+    <%= action_label :add, refinery.new_firebelly_admin_highlight_path, t('.create_new') %>
+  </li>
+<% if !searching? && ::Refinery::Firebelly::Admin::HighlightsController.sortable? && ::Refinery::Firebelly::Highlight.many? %>
+  <li>
+    <%= action_label :reorder,
+                     refinery.firebelly_admin_highlights_path,
+                     t('.reorder', what:  "Highlights"), id: 'reorder_action'%>
+    <%= action_label :reorder_done,
+                     refinery.firebelly_admin_highlights_path,
+                      t('.reorder_done', what: "Highlights"), id: 'reorder_action_done', class: 'hidden'%>
+  </li>
+<% end %>
+</ul>

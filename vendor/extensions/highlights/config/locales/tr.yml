@@ -1,0 +1,29 @@
+tr:
+  refinery:
+    plugins:
+      highlights:
+        title: Highlights
+    firebelly:
+      admin:
+        highlights:
+          actions:
+            create_new: Yeni Ekle Highlight
+            reorder: Tekrar sirala Highlights
+            reorder_done: Tekrar siralama tamamlandiHighlights
+          records:
+            title: Highlights
+            sorry_no_results: Uzgunum! Herhangi bir sonuc bulunamadi.
+            no_items_yet: Herhangi bir Highlights yok henuz.  Tikla "Yeni Ekle Highlight" eklemek senin ilk highlight.
+          highlight:
+            view_live_html: Bunu canlu highlight goruntule <br/><em>(yeni bir pencerede acar)</em>
+            edit: Bunu Duzenle highlight
+            delete: Bunu Sil highlight sonsuza dek
+      highlights:
+        show:
+          other: Diger Highlights
+  activerecord:
+    attributes:
+      'refinery/firebelly/highlight':
+        date: Date
+        highlight: Highlight
+        link: Link

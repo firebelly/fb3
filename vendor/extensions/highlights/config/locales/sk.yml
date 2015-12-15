@@ -1,0 +1,29 @@
+sk:
+  refinery:
+    plugins:
+      highlights:
+        title: Highlights
+    firebelly:
+      admin:
+        highlights:
+          actions:
+            create_new: Pridať Highlight
+            reorder: Preusporiadať Highlights
+            reorder_done: Koniec radenia Highlights
+          records:
+            title: Highlights
+            sorry_no_results: Ľutujeme, ale neboli nájdené žiadne výsledky.
+            no_items_yet: Nie sú vytvorené žiadne Highlights. Kliknite na "Pridať Highlight" pre pridanie prvého highlight.
+          highlight:
+            view_live_html: Zobraziť náhľad highlight<br/><em>(otvorí sa v novom okne)</em>
+            edit: Upraviť highlight
+            delete: Zmazať highlight
+      highlights:
+        show:
+          other: Daľšie Highlights
+  activerecord:
+    attributes:
+      'refinery/firebelly/highlight':
+        date: Date
+        highlight: Highlight
+        link: Link

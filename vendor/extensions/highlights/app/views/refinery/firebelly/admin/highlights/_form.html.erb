@@ -1,0 +1,22 @@
+<%= form_for [refinery, :firebelly_admin, @highlight] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => @highlight,
+              :include_object_name => true %>
+
+  <div class='field'>
+    <%= f.label :date -%>
+    <%= f.date_select :date -%>
+  </div>
+
+  <div class='field'>
+  <%= render '/refinery/admin/wysiwyg',
+              :f => f,
+              :fields => [:highlight],
+              :object => "highlights/highlight" -%>
+  </div>
+
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.highlights.admin.highlights.highlight'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete') -%>
+<% end -%>

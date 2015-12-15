@@ -4,7 +4,18 @@
       <h1>Highlights</h1>
     </header>
     <div class="summary highlights">
-      <%= raw @page.content_for :side_body -%>
+      <% if !@highlights.blank? %>
+        <table>
+          <tbody>
+            <% for highlight in @highlights %>
+              <tr>
+                <td class="date"><%= highlight.date.strftime("%b %y") %></td>
+                <td><%=raw highlight.highlight %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
     </div>
   </div>
 </div>

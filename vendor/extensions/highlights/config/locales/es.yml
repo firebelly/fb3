@@ -1,0 +1,30 @@
+es:
+  refinery:
+    plugins:
+      highlights:
+        title: Highlights
+#        article: masculino/femenino
+    firebelly:
+      admin:
+        highlights:
+          actions:
+            create_new: Crear nuevo highlight
+            reorder: Reordenar highlights
+            reorder_done: Reordenación de highlights completada
+          records:
+            title: Highlights
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay highlights todavía. Pulsa en "Crear nuevo Highlight" para crear tu primer highlight.
+          highlight:
+            view_live_html: Ver este highlight como abierto al público <br/><em>(abre en ventana nueva)</em>
+            edit: Editar este highlight
+            delete: Borrar este highlight para siempre
+      highlights:
+        show:
+          other: Otros highlights
+  activerecord:
+    attributes:
+      'refinery/firebelly/highlight':
+        date: Date
+        highlight: Highlight
+        link: Link
