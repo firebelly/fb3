@@ -5,7 +5,7 @@
 
   <div class='field'>
     <%= f.label :date -%>
-    <%= f.date_select :date -%>
+    <%= f.date_select :date, discard_day: true, use_short_month: true, start_year: 1990 -%>
   </div>
 
   <div class='field'>
