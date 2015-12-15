@@ -122,7 +122,8 @@ $.gdgr.main = (function() {
       _scrollToFilters();
       // SEO useless filter header
       var filterHeader = $('<div class="filter-header">Filter:<p><span class="filter">test</span> </p></div>').prependTo('#page .portfolio');
-      $('<a href="#">X</a>').appendTo(filterHeader.find('p')).on('click', function(e) {
+      $('<button type="button" class="tcon tcon-no-animate tcon-menu--xcross xcross-open xcross-small" aria-label="remove project filter"><span class="tcon-menu__lines" aria-hidden="true"></span><span class="tcon-visuallyhidden">remove project filter</span></button>')
+      .appendTo(filterHeader.find('p')).on('click', function(e) {
         e.preventDefault();
         $('#filters .show-all a').trigger('click');
       });

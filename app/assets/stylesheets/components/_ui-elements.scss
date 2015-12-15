@@ -136,6 +136,26 @@ $tcon-menu-arrow360left-transformation: (
       }
     }
   }
+  &.xcross-small {
+    .tcon-menu__lines {
+      vertical-align: middle;
+      &:before,
+      &:after {
+        width: 12px;
+        height: 1px;
+        transition: background .2s $cubic-ease1;
+        background: $black-fade;
+      }
+    }
+    &:hover {
+      .tcon-menu__lines {
+        &:before,
+        &:after {
+          background: $black;
+        }
+      }
+    }
+  }
 }
 // see issue #7 https://github.com/grayghostvisuals/transformicons/issues/7#issuecomment-59813596
 .tcon-visuallyhidden {

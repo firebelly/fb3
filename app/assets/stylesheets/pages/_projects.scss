@@ -6,8 +6,9 @@
     @extend %fade-links;
     padding: $padding * 2;
     display: none;
-    a {
-      cursor: pointer;
+    button {
+      display: inline-block;
+      margin-left: 4px;
     }
     &.active {
       display: block;
