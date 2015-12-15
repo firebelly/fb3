@@ -281,12 +281,12 @@ $.gdgr.main = (function() {
 
     setInterval(function() {
         if (!is_animating && didScroll) {
-            hasScrolled();
+            _hasScrolled();
             didScroll = false;
         }
     }, 250);
 
-    function hasScrolled() {
+    function _hasScrolled() {
         var st = $(this).scrollTop();
         
         // Make sure they scroll more than delta
@@ -362,6 +362,11 @@ $.gdgr.main = (function() {
         $(this).removeClass('selected').addClass('dim');
       }
     });
+
+    // if on mobile, slide out nav after clicking
+    if (handheld) {
+      _hideSidebar();
+    }
   }
 
   function _resize() {
