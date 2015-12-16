@@ -28,7 +28,7 @@ setTimeout(function() {
 
   $(window).ready(function() {
     if (typeof(char_count_init) === 'undefined') {
-      $('.char-count').each(function() {
+      $('textarea.char-count,textarea[name="page[meta_description]"]').each(function() {
         var max = $(this).attr('data-max-chars') || 155;
         var char_count_text = $('<p class="char-count-text">' + $(this).val().length + ' / ' + max + ' chars</p>').insertAfter(this);
         $(this).keyup(function () {
