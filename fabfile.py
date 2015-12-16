@@ -28,6 +28,10 @@ def migrate():
     with cd(env.path):
         run('RAILS_ENV=%s bin/rake db:migrate' % env.stage)
 
+def seed():
+    with cd(env.path):
+        run('RAILS_ENV=%s bin/rake db:seed' % env.stage)
+
 def compile_assets():
     with cd(env.path):
         run('RAILS_ENV=%s bin/rake assets:precompile' % env.stage)
