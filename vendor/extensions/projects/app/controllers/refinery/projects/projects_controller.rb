@@ -19,7 +19,7 @@ module Refinery
 
         @page_title = @project.title
         @page_description = @project.summary
-        @page_image = @project.image.thumbnail(geometry: :large).convert('-quality 70').url
+        @page_image = @project.image.thumbnail(geometry: :large).convert('-quality 70').url unless @project.image.blank?
 
         present(@project)
       end
