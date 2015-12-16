@@ -11,7 +11,6 @@ module Refinery
 
       def feed
         response.headers['Cache-Control'] = 'public, max-age=3600'
-        @page_title = "Thoughts - Firebelly Design"
         respond_to do |format|
           format.atom { render :layout => false }
           format.rss { redirect_to refinery.news_posts_feed_path(:format => :atom), :status => :moved_permanently }
@@ -31,11 +30,7 @@ module Refinery
         if !@news_post.published?
           return redirect_to '/thoughts'
         end
-
-        # meta tags
-        @page_title = @news_post.title
         @page_image = @news_post.image.thumbnail(geometry: :large).convert('-quality 70').url unless @news_post.image.blank?
-
         present(@news_post)
       end
 
