@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/feed' => redirect('/news.rss')
+  get '/feed' => redirect('/thoughts.rss')
   get '/admin' => redirect('/refinery/')
   get '/admin/' => redirect('/refinery/')
   root to: 'application#redirect_to_work'

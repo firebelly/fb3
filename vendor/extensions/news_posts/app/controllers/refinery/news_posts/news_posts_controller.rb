@@ -2,9 +2,8 @@ module Refinery
   module NewsPosts
     class NewsPostsController < ::ApplicationController
 
-      before_action :get_news_posts
+      before_action :get_news_posts, only: [:index, :feed]
       before_action :get_defaults
-      before_action :find_page
 
       def index
         present(@page)
@@ -12,7 +11,7 @@ module Refinery
 
       def feed
         response.headers['Cache-Control'] = 'public, max-age=3600'
-        @page_title = "News - Firebelly Design"
+        @page_title = "Thoughts - Firebelly Design"
         respond_to do |format|
           format.atom { render :layout => false }
           format.rss { redirect_to refinery.news_posts_feed_path(:format => :atom), :status => :moved_permanently }
@@ -22,36 +21,32 @@ module Refinery
 
       def tagged
         @tag = ActsAsTaggableOn::Tag.friendly.find(params[:tag])
-        @news_posts = NewsPost.published.tagged_with(@tag)
+        @news_posts = NewsPost.published
         @page_title = "Posts tagged #{@tag.name}"
         render 'index'
       end
 
       def show
         @news_post = NewsPost.friendly.find(params[:id])
-        @page_title = @news_post.title
         if !@news_post.published?
-          return redirect_to '/news'
+          return redirect_to '/thoughts'
         end
-        present(@page)
+
+        # meta tags
+        @page_title = @news_post.title
+        @page_image = @news_post.image.thumbnail(geometry: :large).convert('-quality 70').url unless @news_post.image.blank?
+
+        present(@news_post)
       end
 
     protected
 
       def get_news_posts
-        @page_title = 'News'
-        @news_posts = NewsPost.published.paginate({
-            :page => params[:page],
-            :per_page => 10
-          })
+        @news_posts = NewsPost.published
       end
 
       def get_defaults
         @tags = NewsPost.published.tag_counts_on(:tags)
-        @news_posts = NewsPost.published.order('position ASC')
-      end
-
-      def find_page
         @page = ::Refinery::Page.where(:link_url => "/news_posts").first
       end
 

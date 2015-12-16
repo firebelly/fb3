@@ -2,25 +2,25 @@ en:
   refinery:
     plugins:
       news_posts:
-        title: News Posts
+        title: Thoughts
     news_posts:
       admin:
         news_posts:
           actions:
-            create_new: Add New News Post
-            reorder: Reorder News Posts
-            reorder_done: Done Reordering News Posts
+            create_new: Add Thought
+            reorder: Reorder Thoughts
+            reorder_done: Done Reordering Thoughts
           records:
-            title: News Posts
+            title: Thoughts
             sorry_no_results: Sorry! There are no results found.
-            no_items_yet: There are no News Posts yet. Click "Add New News Post" to add your first news post.
+            no_items_yet: There are no Thoughts yet. Click "Add Thought" to add your first thought.
           news_post:
-            view_live_html: View this news post live <br/><em>(opens in a new window)</em>
-            edit: Edit this news post
-            delete: Remove this news post forever
+            view_live_html: View this thought live <br/><em>(opens in a new window)</em>
+            edit: Edit this thought
+            delete: Remove this thought forever
       news_posts:
         show:
-          other: Other News Posts
+          other: Other Thoughts
   activerecord:
     attributes:
       'refinery/news_posts/news_post':

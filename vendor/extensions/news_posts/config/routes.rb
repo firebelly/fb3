@@ -1,7 +1,7 @@
 Refinery::Core::Engine.routes.draw do
 
   # Frontend routes
-  namespace :news_posts, :path => 'news' do
+  namespace :news_posts, :path => 'thoughts' do
     get "tagged/:tag" =>"news_posts#tagged", :as => 'news_tagged'
     resources :news_posts, :path => '', :only => [:index, :show]
   end

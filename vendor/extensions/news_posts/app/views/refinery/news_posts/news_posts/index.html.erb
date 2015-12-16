@@ -11,6 +11,6 @@
 <% content_for :page do %>
   <div class="news-posts">
   <%= render :partial => "shared/news_post", :collection => @news_posts, :locals => { :is_single => false } %>
-  <%# will_paginate @news_posts, :renderer => SearchPagination::LinkRenderer %>
+  <%# will_paginate @news_posts %>
   </div>
 <% end %>

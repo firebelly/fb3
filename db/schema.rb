@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151215202601) do
+ActiveRecord::Schema.define(version: 20151216183859) do
 
   create_table "refinery_authentication_devise_roles", force: :cascade do |t|
     t.string "title", limit: 255
@@ -113,18 +113,19 @@ ActiveRecord::Schema.define(version: 20151215202601) do
   end
 
   create_table "refinery_news_posts", force: :cascade do |t|
-    t.string   "title",         limit: 255
+    t.string   "title",            limit: 255
     t.datetime "date"
-    t.text     "content",       limit: 65535
-    t.integer  "image_id",      limit: 4
-    t.integer  "user_id",       limit: 4
-    t.integer  "position",      limit: 4
-    t.text     "image_caption", limit: 65535
-    t.text     "sidebar",       limit: 65535
+    t.text     "content",          limit: 65535
+    t.integer  "image_id",         limit: 4
+    t.integer  "user_id",          limit: 4
+    t.integer  "position",         limit: 4
+    t.text     "image_caption",    limit: 65535
+    t.text     "sidebar",          limit: 65535
     t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "slug",          limit: 255
+    t.string   "slug",             limit: 255
+    t.text     "meta_description", limit: 65535
   end
 
   add_index "refinery_news_posts", ["slug"], name: "slug", unique: true, using: :btree

@@ -43,6 +43,11 @@
     <%= f.text_field :image_caption, :class => 'widest' -%>
   </div>
 
+  <div class='field'>
+    <%= f.label :meta_description -%>
+    <%= f.text_area :meta_description, :class => 'wider char-count' -%>
+  </div>
+
   <label>Tags:</label>
   <div class="tags-field">
     <%= f.text_area :tag_list %>
