@@ -10,4 +10,16 @@
 
 <% content_for :page do %>
   <%= render :partial => "shared/news_post", :locals => { :news_post => @news_post, :is_single => true } %>
+
+  <nav class="footer-pagination">
+    <ul>
+      <li class="prev">
+        <%= link_to(raw('<span class="arrow">&larr;</span> Previous Post'), refinery.news_posts_news_post_path(@news_post.prev || ::Refinery::NewsPosts::NewsPost.published.last), rel: 'prev') %>
+      </li>
+      <li class="next">
+        <%= link_to(raw('Next Post <span class="arrow">&rarr;</span>'), refinery.news_posts_news_post_path(@news_post.next || ::Refinery::NewsPosts::NewsPost.published.first), rel: 'next') %>
+      </li>
+    </ul>
+  </nav>
+
 <% end %>

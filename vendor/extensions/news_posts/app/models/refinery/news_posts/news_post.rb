@@ -21,6 +21,14 @@ module Refinery
         title_changed?
       end
 
+      def next
+        self.class.published.where(["position > ?", self.position]).first
+      end
+
+      def prev
+        self.class.published.where(["position < ?", self.position]).last
+      end
+
       scope :published, -> { where(:published => true) }
 
     private
