@@ -3,7 +3,7 @@
 // options here.  This will completely override anything specified in your visual
 // editor's boot process for that key, e.g. skin: 'something_else'
 
-if (typeof(custom_visual_editor_boot_options) == "undefined") {
+if (typeof(custom_visual_editor_boot_options) === 'undefined') {
   custom_visual_editor_boot_options = {
     classesItems: [
       {name: 'image-align', rules:['left', 'right'], join: '-'}
@@ -22,3 +22,22 @@ if (typeof(custom_visual_editor_boot_options) == "undefined") {
       }
   };
 }
+
+// simple char-count fields
+setTimeout(function() {
+
+  $(window).ready(function() {
+    if (typeof(char_count_init) === 'undefined') {
+      $('.char-count').each(function() {
+        var max = $(this).attr('data-max-chars') || 155;
+        var char_count_text = $('<p class="char-count-text">' + $(this).val().length + ' / ' + max + ' chars</p>').insertAfter(this);
+        $(this).keyup(function () {
+          var len = $(this).val().length;
+          char_count_text.text(len + ' / ' + max + ' chars');
+        });
+      });
+      char_count_init = 1;
+    }
+  });
+
+}, 500);
