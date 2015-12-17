@@ -14,7 +14,7 @@
     <% else %>
       <h1><%= news_post.title %></h1>
     <% end -%>
-    <h3 class="date"><%= news_post.date.strftime('%B %-d, %Y') %></h3>
+    <h3 class="date"><%= news_post.date.strftime('%B %-d, %Y') %><%= raw(" &ndash; by #{news_post.author}") unless news_post.author.blank? %></h3>
 
     <%# raw news_post.sidebar unless news_post.sidebar.blank? %>
     

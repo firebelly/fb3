@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151216183859) do
+ActiveRecord::Schema.define(version: 20151217204807) do
 
   create_table "refinery_authentication_devise_roles", force: :cascade do |t|
     t.string "title", limit: 255
@@ -126,6 +126,7 @@ ActiveRecord::Schema.define(version: 20151216183859) do
     t.datetime "updated_at"
     t.string   "slug",             limit: 255
     t.text     "meta_description", limit: 65535
+    t.string   "author",           limit: 255
   end
 
   add_index "refinery_news_posts", ["slug"], name: "slug", unique: true, using: :btree

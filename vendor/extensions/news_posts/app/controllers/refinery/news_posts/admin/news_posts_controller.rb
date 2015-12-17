@@ -9,7 +9,7 @@ module Refinery
 
         # Only allow a trusted parameter "white list" through.
         def news_post_params
-          params.require(:news_post).permit(:title, :date, :content, :image_id, :user_id, :position, :image_caption, :sidebar, :published, :tag_list, :meta_description)
+          params.require(:news_post).permit(:title, :date, :content, :image_id, :user_id, :position, :image_caption, :sidebar, :published, :tag_list, :meta_description, :author)
         end
       end
     end
