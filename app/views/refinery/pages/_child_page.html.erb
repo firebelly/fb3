@@ -9,7 +9,7 @@
       </header>
       <%= raw child_page.content_for :body -%>
     </div>
-    <div class="portrait -right" style="background-image: url('<%= image.thumbnail(geometry: '1000x1400>').convert('-quality 75').url unless image.nil? -%>');"></div>
+    <div class="portrait -right" style="background-image: url('<%= image.thumbnail(geometry: '1800x1350>').convert('-quality 75').url unless image.nil? -%>');"></div>
   <% elsif @body_id =~ /^endeavors/ %>
     <div class="intro one-half -left clearfix">
       <div class="-inner">
