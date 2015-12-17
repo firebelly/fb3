@@ -37,7 +37,7 @@ module Refinery
     protected
 
       def get_news_posts
-        @news_posts = NewsPost.published
+        @news_posts = NewsPost.published.order('position ASC')
       end
 
       def get_defaults
