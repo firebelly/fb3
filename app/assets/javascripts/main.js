@@ -85,23 +85,6 @@ $.gdgr.main = (function() {
     // lazyload images
     _initLazyload();
 
-    // ajax newsletter form
-    $('#email-form').validate({
-      submitHandler: function(f) {
-        $.getJSON(
-        f.action + "?callback=?",
-        $(f).serialize(),
-        function (data) {
-          if (data.Status === 400) {
-            $('#email-form label.status').addClass('error').text("Error: " + data.Message);
-          } else { // 200
-            $('#email-form label.status').removeClass('error').addClass('success').text("Success: " + data.Message);
-            // $(f).find('input.email').val('');
-          }
-        });
-      }
-    });
-
     // Keyboard nerds rejoice
     $(document).keyup(function(e) {
       if (e.keyCode == 27) {
@@ -130,6 +113,7 @@ $.gdgr.main = (function() {
     }
 
     _resize();
+    _newsletterInit();
     _transformicions();
     _sidebarToggle();
     _sidebarColors();
@@ -138,6 +122,35 @@ $.gdgr.main = (function() {
     _initFilterNav();
     _initSmoothScroll();
   };
+
+  function _newsletterInit() {
+    // ajaxify all newsletter signup forms
+    $('form.newsletter').each(function() {
+      var $form = $(this);
+      $form.on('submit', function(e) {
+        e.preventDefault();
+        if ($form.find('input[name=EMAIL]').val()=='') {
+          $form.find('label.status').addClass('error').text('Error: Please enter an email.');
+        } else {
+          $.getJSON($form.attr('action'), $form.serialize())
+            .done(function(data) {
+              if (data.result != 'success') {
+                if (data.msg.match(/already subscribed/)) {
+                  $form.find('label.status').addClass('error').text('Error: You are already subscribed to our newsletter.');
+                } else {
+                  $form.find('label.status').addClass('error').text('Error: ' + data.msg);
+                }
+              } else {
+                $form.find('label.status').removeClass('error').addClass('success').text("Success: " + data.msg);
+              }
+            })
+            .fail(function() {
+              $form.find('label.status').addClass('error').text('Error: There was an error subscribing. Please try again.');
+            });
+        }
+      });
+    });
+  }
 
   function _initImageAltEditor() {
     var project_id = $('.single-project').data('id');
