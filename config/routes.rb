@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  # moving these to nginx
   get '/feed' => redirect('/thoughts.rss')
   get '/admin' => redirect('/refinery/')
-  get '/admin/' => redirect('/refinery/')
+  get '/admin/*all' => redirect('/refinery/')
+  get '/news' => redirect('/thoughts/')
+  get '/news/*all' => redirect('/thoughts/')
+
   root to: 'application#redirect_to_work'
 
   # This line mounts Refinery's routes at the root of your application.
