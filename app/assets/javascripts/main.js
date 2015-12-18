@@ -350,7 +350,7 @@ $.gdgr.main = (function() {
   }
 
   function _initLazyload() {
-    $('.lazy').lazyload({
+    $('.lazy').attr('title','').lazyload({
       effect : 'fadeIn',
       threshold: 1500
     });
