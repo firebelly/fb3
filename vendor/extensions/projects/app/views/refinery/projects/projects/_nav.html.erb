@@ -3,9 +3,11 @@
   <ul class="filter-set">
     <li class="show-all"><a href="#filter" data-filter="" class="selected">all</a></li>
     <% @industries.each do |industry| %>
-      <li>
-        <%= link_to industry.name, "#filter", { 'data-filter' => "#{industry.slug}" } -%>
-      </li>
+      <% if industry.count > 0 %>
+        <li>
+          <%= link_to industry.name, "#filter", { 'data-filter' => "#{industry.slug}" } -%>
+        </li>
+      <% end %>
     <% end -%>
     <li class="spacer">—</li>
     <% @services.each do |service| %>

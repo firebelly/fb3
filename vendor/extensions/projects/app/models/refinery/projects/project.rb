@@ -2,6 +2,7 @@ module Refinery
   module Projects
     class Project < Refinery::Core::BaseModel
       before_create :bump_positions
+      after_save :update_category_counts
 
       extend FriendlyId
       self.table_name = 'refinery_projects'
@@ -53,6 +54,13 @@ module Refinery
         self.position = 0
         Project.update_all('position = position + 1')
       end
+
+      def update_category_counts
+        Refinery::Projects::ProjectIndustry.all.each do |category|
+          category.update(count: category.projects.published.count)
+        end
+      end
+
     end
   end
 end

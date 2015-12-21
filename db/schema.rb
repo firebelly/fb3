@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151217204807) do
+ActiveRecord::Schema.define(version: 20151221160919) do
 
   create_table "refinery_authentication_devise_roles", force: :cascade do |t|
     t.string "title", limit: 255
@@ -262,6 +262,7 @@ ActiveRecord::Schema.define(version: 20151217204807) do
     t.integer  "position",   limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "count",      limit: 4
   end
 
   add_index "refinery_projects_project_industries", ["slug"], name: "index_refinery_projects_project_industries_on_slug", unique: true, using: :btree

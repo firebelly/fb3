@@ -7,7 +7,8 @@ module Refinery
 
     	validates :name, :presence => true, :uniqueness => true
 
-    	has_many :projects
+    	has_many :projects, :foreign_key => 'industry_id'
+
     end
   end
 end
