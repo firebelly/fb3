@@ -1,5 +1,8 @@
 module ApplicationHelper
   def browser_title_custom(yield_title = nil)
+    if @meta.browser_title.present?
+      return @meta.browser_title 
+    end
     [
       yield_title,
       @meta.path,
