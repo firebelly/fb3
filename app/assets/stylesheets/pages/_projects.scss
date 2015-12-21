@@ -66,13 +66,12 @@
     > div {
       @extend %clearfix;
     }
+    @extend %fade-links;
     h3 {
-      color: $black;
       @extend %small-caps;
     }
     ul {
       li {
-        color: $black-fade;
         display: inline;
         @extend %small-caps;
       }
