@@ -53,3 +53,5 @@ gem 'rack-cache'
 gem 'dropzonejs-rails'
 gem 'meta-tags'
 
+# temp fix, see https://github.com/refinery/refinerycms/pull/3080
+gem 'sprockets-rails', '~> 2.3.3'
