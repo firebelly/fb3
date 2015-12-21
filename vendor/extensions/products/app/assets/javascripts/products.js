@@ -23,7 +23,7 @@ $.gdgr.products = (function() {
 
     // paypal is freaking slow, give the user some instant feedback
     $('#paypal-form .submit').on('click', function() {
-      $(this).text('Please Wait...');
+      $(this).text('Contacting PayPal...');
     });
 
     // no submit button, trigger saves on return
