@@ -28,8 +28,9 @@ setTimeout(function() {
 
   $(window).ready(function() {
     if (typeof(char_count_init) === 'undefined') {
-      $('textarea.char-count,textarea[name="page[meta_description]"]').each(function() {
+      $('textarea.char-count,textarea[name="page[meta_description]"],input[name="page[browser_title]"]').each(function() {
         var max = $(this).attr('data-max-chars') || 155;
+        if ($(this).attr('name')=='page[browser_title]') max = 69;
         var char_count_text = $('<p class="char-count-text">' + $(this).val().length + ' / ' + max + ' chars</p>').insertAfter(this);
         $(this).keyup(function () {
           var len = $(this).val().length;
