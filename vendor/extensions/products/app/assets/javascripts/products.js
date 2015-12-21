@@ -23,7 +23,6 @@ $.gdgr.products = (function() {
 
     // paypal is freaking slow, give the user some instant feedback
     $('#paypal-form .submit').on('click', function() {
-      $('#cart').addClass('loading');
       $(this).text('Please Wait...');
     });
 
