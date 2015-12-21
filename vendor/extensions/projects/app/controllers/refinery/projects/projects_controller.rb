@@ -9,7 +9,6 @@ module Refinery
 
       def index
         @body_class = 'index'
-        @page_title = @page.title
         present(@page)
       end
 
@@ -17,14 +16,13 @@ module Refinery
         @project = Project.friendly.find(params[:id])
         @body_class = 'single'
 
-        @page_title = @project.title
         @page_description = @project.summary
         @page_image = @project.image.thumbnail(geometry: :large).convert('-quality 70').url unless @project.image.blank?
 
         present(@project)
       end
 
-      # quickly upload batch of images and append to project.content field
+      # "quickly" upload batch of images and append to project.content field
       def upload_images
         @project = Project.find(params[:project_id])
         image_html = ''

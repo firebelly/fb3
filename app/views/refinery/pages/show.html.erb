@@ -9,6 +9,7 @@
       <div class="summary">
         <%= raw @page.content_for :body -%>
       </div>
+      <%= render :partial => '/shared/edit_bug', :locals => { :obj => @page, :edit_path => refinery.admin_edit_page_path(@page) }%>
     </div>
   </div>
   <% end %>
