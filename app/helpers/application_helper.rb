@@ -1,4 +1,12 @@
 module ApplicationHelper
+  def browser_title_custom(yield_title = nil)
+    [
+      yield_title,
+      @meta.path,
+      Refinery::Core.site_name
+    ].reject(&:blank?).join(" | ")
+  end
+
   def lazy_load_images(html, alt_title=nil)
     parsed = Nokogiri::HTML(html)
     parsed.xpath("//img").each_with_index do |img, i| 
