@@ -54,14 +54,19 @@
   </div>
 
   <div class='field'>
-    <%= f.label :custom_slug, raw("Custom Slug") -%>
+    <%= f.label :custom_slug -%>
     <%= f.text_field :custom_slug, :class => 'wider' -%>
     <p class="note">(Current slug is: <%= @project.slug %>)</p>
   </div>
 
   <div class='field'>
+    <%= f.label :browser_title -%>
+    <%= f.text_field :browser_title, :class => 'wider', :style => 'margin-bottom: 8px;' -%>
+  </div>
+
+  <div class='field'>
     <%= f.label :meta_description -%>
-    <%= f.text_area :meta_description, :class => 'wider char-count' -%>
+    <%= f.text_area :meta_description, :class => 'wider' -%>
   </div>
 
   <div class="field">
@@ -81,19 +86,10 @@
   </div>
   <div style="clear: both;"></div>
 
-
   <%= render '/refinery/admin/form_actions', :f => f,
              :continue_editing => false,
              :delete_title => t('delete', :scope => 'refinery.projects.admin.projects.project'),
              :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @project.title) -%>
-<% end -%>
-
-<% content_for :javascripts do -%>
-  <script>
-    $(document).ready(function(){
-      page_options.init(false, '', '');
-    });
-  </script>
 <% end -%>
 
 <% content_for :javascripts do -%>
