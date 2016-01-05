@@ -22,14 +22,14 @@ $.gdgr.products = (function() {
       });
 
     // paypal is freaking slow, give the user some instant feedback
-    $('#paypal-form .submit').on('click', function() {
+    $('#side').on('click', '#paypal-form .submit', function() {
       $(this).text('Contacting PayPal...');
     });
 
     // no submit button, trigger saves on return
-    $('#cart-form .quantity input').on('keydown', function(e) {
+    $('#side').on('keydown', '#cart-form .quantity input', function(e) {
       if (e.keyCode==13) $('#cart-form').submit();
-    }).on('focus', function() {
+    }).on('focus', '#cart-form .quantity input', function() {
       $('#cart .cart').addClass('editing');
       $('#cart .edit-cart').text('Update');
     });
