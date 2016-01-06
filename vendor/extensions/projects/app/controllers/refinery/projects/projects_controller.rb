@@ -19,6 +19,10 @@ module Refinery
         @page_description = @project.summary
         @page_image = @project.image.thumbnail(geometry: :large).convert('-quality 70').url unless @project.image.blank?
 
+        if !@project.published? and !current_refinery_user.has_role?(:refinery)
+          return redirect_to '/work'
+        end
+
         present(@project)
       end
 
