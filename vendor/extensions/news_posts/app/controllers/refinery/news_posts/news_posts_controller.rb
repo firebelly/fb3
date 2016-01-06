@@ -27,7 +27,7 @@ module Refinery
 
       def show
         @news_post = NewsPost.friendly.find(params[:id])
-        if !@news_post.published?
+        if !@news_post.published? and !current_refinery_user.has_role?(:refinery)
           return redirect_to '/thoughts'
         end
         @page_image = @news_post.image.thumbnail(geometry: :large).convert('-quality 70').url unless @news_post.image.blank?
