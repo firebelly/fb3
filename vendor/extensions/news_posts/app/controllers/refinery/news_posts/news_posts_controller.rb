@@ -20,7 +20,7 @@ module Refinery
 
       def tagged
         @tag = ActsAsTaggableOn::Tag.friendly.find(params[:tag])
-        @news_posts = NewsPost.published
+        @news_posts = NewsPost.published.tagged_with(@tag)
         @page_title = "Posts tagged #{@tag.name}"
         render 'index'
       end
