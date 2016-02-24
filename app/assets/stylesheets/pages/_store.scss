@@ -22,6 +22,9 @@
   .section-title {
     position: relative;
     padding-right: ($padding * 6);
+    h1 {
+      padding-right: 40px;
+    }
     .price {
       right: 0;
       top: 25px;

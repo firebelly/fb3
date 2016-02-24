@@ -10,7 +10,7 @@
           <% else %>
             <h1><%= product.title %></h1>
           <% end -%>
-          <h2 class="price"><%= number_to_currency(product.price) %></h2>
+          <h2 class="price"><%= number_to_currency(product.price).gsub(/\.00/,'') %></h2>
         </header>
         <div class="summary">
           <% unless product.description.blank? %>
