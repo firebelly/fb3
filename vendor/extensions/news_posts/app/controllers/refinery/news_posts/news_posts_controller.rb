@@ -20,7 +20,7 @@ module Refinery
 
       def tagged
         @tag = ActsAsTaggableOn::Tag.friendly.find(params[:tag])
-        @news_posts = NewsPost.published.tagged_with(@tag)
+        @news_posts = NewsPost.published.tagged_with(@tag).order('position ASC')
         @page_title = "Posts tagged #{@tag.name}"
         render 'index'
       end
