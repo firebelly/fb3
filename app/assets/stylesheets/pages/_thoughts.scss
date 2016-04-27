@@ -106,8 +106,13 @@
       max-width: 600px;
       margin: ($padding * 2) auto 0;
       li {
+        line-height: 1.375em;
         list-style: disc;
+        margin-bottom: .5em;
       }
+    }
+    ol li {
+      list-style: decimal;
     }
   }
 
