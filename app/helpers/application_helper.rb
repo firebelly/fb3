@@ -1,7 +1,7 @@
 module ApplicationHelper
   def browser_title_custom(yield_title = nil)
     if @meta.browser_title.present?
-      return @meta.browser_title 
+      return @meta.browser_title
     end
     [
       yield_title,
@@ -12,8 +12,8 @@ module ApplicationHelper
 
   def lazy_load_images(html, alt_title=nil)
     parsed = Nokogiri::HTML(html)
-    parsed.xpath("//img").each_with_index do |img, i| 
-      img.set_attribute('data-original', img['src'])
+    parsed.xpath("//img").each_with_index do |img, i|
+      img.set_attribute('data-original', "#{::Refinery::Images.config.dragonfly_url_host}#{img['src'].gsub(/http:\/\/[^\/]+/,'')}")
       img.set_attribute('class', 'lazy')
       # img.set_attribute('alt', "#{alt_title}, Image #{i}") unless alt_title.nil?
       img.set_attribute('src', '/assets/gray.gif')

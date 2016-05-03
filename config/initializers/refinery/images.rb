@@ -38,7 +38,7 @@ Refinery::Images.configure do |config|
   # config.dragonfly_insert_before = "ActionDispatch::Callbacks"
   config.dragonfly_secret = "2ca824ed6ffc56b49f3b0186eff96636904cb6d8bd3e635e"
   # config.dragonfly_url_format = "/system/images/:job/:basename.:ext"
-  # config.dragonfly_url_host = ""
+  config.dragonfly_url_host = "http://static.firebellydesign.com"
   # config.datastore_root_path = "/Users/nate/Sites/fb3/public/system/refinery/images"
 
   # Configure Dragonfly custom storage backend
