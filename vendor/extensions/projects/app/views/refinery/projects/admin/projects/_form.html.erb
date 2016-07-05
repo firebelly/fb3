@@ -54,6 +54,12 @@
   </div>
 
   <div class='field'>
+    <%= f.label :video_url -%>
+    <p class="help">Used on single project pages in header. Upload to S3 and paste in URL, e.g. http://firebelly.s3.amazonaws.com/videos/test.mp4</p>
+    <%= f.text_field :video_url, class: 'wider' -%>
+  </div>
+
+  <div class='field'>
     <%= f.label :custom_slug -%>
     <%= f.text_field :custom_slug, :class => 'wider' -%>
     <p class="note">(Current slug is: <%= @project.slug %>)</p>

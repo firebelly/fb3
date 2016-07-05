@@ -36,7 +36,20 @@
       height: 70vh;
       max-height: 800px;
     }
+    position: relative;
+    overflow: hidden;
+    video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translateX(-50%) translateY(-50%);
+    }
   }
+
 
   .section-title {
     text-align: center;
@@ -223,7 +236,7 @@
     border: none;
   }
   #images_desc {
-    height: 100px; 
+    height: 100px;
   }
 }
 

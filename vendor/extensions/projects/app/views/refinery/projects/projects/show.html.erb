@@ -1,7 +1,15 @@
 <% content_for :page do %>
   <article class="content-block single-project" data-id="<%= @project.id %>">
     <section class="content interior">
-      <div class="project-banner" style="background-image:url(<%= @project.image.thumbnail(geometry: :portfolio).convert('-quality 70').url unless @project.image.blank? %>);"></div>
+      <% if !@project.video_url.blank? %>
+        <div class="project-banner video">
+          <video autoplay loop poster="<%= @project.image.thumbnail(geometry: :portfolio).convert('-quality 70').url unless @project.image.blank? %>">
+            <source src="<%= @project.video_url %>" type="video/mp4">
+          </video>
+        </div>
+      <% else %>
+        <div class="project-banner" style="background-image:url(<%= @project.image.thumbnail(geometry: :portfolio).convert('-quality 70').url unless @project.image.blank? %>);"></div>
+      <% end %>
       <div class="intro clearfix">
         <header class="section-title">
           <h1 class="project-client"><%= @project.title -%></h1>
