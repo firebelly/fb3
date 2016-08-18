@@ -80,7 +80,7 @@ $.gdgr.main = (function() {
     }
 
     // responsive videos
-    $('.content').fitVids();
+    $('.summary.user-content').fitVids();
 
     // lazyload images
     _initLazyload();
