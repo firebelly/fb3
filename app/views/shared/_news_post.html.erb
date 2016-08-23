@@ -10,7 +10,11 @@
 
   <header class="section-title">
     <% unless is_single %>
-      <h1><%= link_to news_post.title, refinery.news_posts_news_post_path(news_post) %></h1>
+      <h1>
+        <%= link_to(refinery.news_posts_news_post_path(news_post)) do %>
+          <span><%= news_post.title %></span>
+        <% end %>
+        </h1>
     <% else %>
       <h1><%= news_post.title %></h1>
     <% end -%>

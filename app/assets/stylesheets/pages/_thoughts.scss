@@ -54,22 +54,15 @@
         position: relative;
         text-shadow: .04em 0 $gray, .03em 0 $gray, .02em 0 $gray, -.02em 0 $gray, -.03em 0 $gray, -.04em 0 $gray;
         &:hover {
-          &:after {
-            opacity: 1;
+          span {
+            border-bottom: .1em solid rgba($black,1);
           }
           text-decoration: none;
         }
-        &:after {
-          left: 0;
-          opacity: 0;
-          z-index: -1;
-          content: '';
-          height: 1px;
-          width: 100%;
-          bottom: .1em;
-          position: absolute;
-          background: $black;
-          transition: opacity .2s ease-out;
+        span {
+          vertical-align: text-top;
+          transition: border .2s ease-out;
+          border-bottom: .1em solid rgba($black,0);
         }
       }
     }
