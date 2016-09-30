@@ -8,7 +8,7 @@
           </video>
         </div>
       <% else %>
-        <div class="project-banner" style="background-image:url(<%= @project.image.thumbnail(geometry: :portfolio).convert('-quality 70').url unless @project.image.blank? %>);"></div>
+        <div class="project-banner" style="background-image:url(<%= @project.image.thumbnail(geometry: :portfolio).convert('-quality 100').url unless @project.image.blank? %>);"></div>
       <% end %>
       <div class="intro clearfix">
         <header class="section-title">
