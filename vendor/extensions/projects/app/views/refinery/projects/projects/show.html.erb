@@ -3,12 +3,12 @@
     <section class="content interior">
       <% if !@project.video_url.blank? %>
         <div class="project-banner video">
-          <video autoplay loop poster="<%= @project.image.thumbnail(geometry: :portfolio).convert('-quality 85').url unless @project.image.blank? %>">
+          <video autoplay loop poster="<%= @project.image.thumbnail(geometry: :portfolio).convert('-quality 100').url unless @project.image.blank? %>">
             <source src="<%= @project.video_url %>" type="video/mp4">
           </video>
         </div>
       <% else %>
-        <div class="project-banner" style="background-image:url(<%= @project.image.thumbnail(geometry: :portfolio).convert('-quality 85').url unless @project.image.blank? %>);"></div>
+        <div class="project-banner" style="background-image:url(<%= @project.image.thumbnail(geometry: :portfolio).convert('-quality 100').url unless @project.image.blank? %>);"></div>
       <% end %>
       <div class="intro clearfix">
         <header class="section-title">
