@@ -1,7 +1,7 @@
 <section class="portfolio">
   <ul class="projects filter-items clearfix">
     <% @projects.each do |project| %>
-      <% quality = (project.slug == 'divvy') ? 100 : 80 %>
+      <% quality = (project.slug == 'scb') ? 100 : 80 %>
       <li class="project interior" data-services="<%= project.service_classes %>" data-industry="<%= project.industry.slug -%>">
         <article>
           <div class="project-image lazy" style="background-image:url('/assets/gray.gif');" data-original="<%= project.thumbnail_image.thumbnail(geometry: '800x600#c').convert('-quality #{quality}').url if project.thumbnail_image %>"></div>
