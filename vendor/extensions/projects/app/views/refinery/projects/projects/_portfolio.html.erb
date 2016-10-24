@@ -3,7 +3,7 @@
     <% @projects.each do |project| %>
       <li class="project interior" data-services="<%= project.service_classes %>" data-industry="<%= project.industry.slug -%>">
         <article>
-          <div class="project-image lazy" style="background-image:url('/assets/gray.gif');" data-original="<%= project.thumbnail_image.thumbnail(geometry: '800x600#c').convert('-quality 80').url if project.thumbnail_image %>"></div>
+          <div class="project-image lazy" style="background-image:url('/assets/gray.gif');" data-original="<%= project.thumbnail_image.thumbnail(geometry: '800x600#c').convert('-quality 100').url if project.thumbnail_image %>"></div>
           <header>
             <h1><%= link_to project.title, refinery.projects_project_path(project) %></h1>
             <%=raw "<h3>#{project.rollover_subtitle}</h3>" unless project.rollover_subtitle.blank? %>
