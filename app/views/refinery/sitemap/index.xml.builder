@@ -27,6 +27,9 @@ xml.urlset "xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9", "xmlns:imag
   ::Refinery::Projects::Project.published.each do |project|
     # pull all project images for sitemap
     project_images = []
+    unless project.image.blank?
+      project_images.push({ :src => project.image.thumbnail(geometry: :portfolio).convert('-quality 70').url, :alt => project.title })
+    end
     parsed = Nokogiri::HTML(project.content)
     parsed.xpath("//img").each_with_index do |img, i|
       project_images.push({ :src => "#{::Refinery::Images.config.dragonfly_url_host}#{img['src'].gsub(/http:\/\/[^\/]+/,'')}", :alt => img['alt'] })
