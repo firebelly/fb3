@@ -9,7 +9,7 @@ module Refinery
 
       def index
         @body_class = 'index'
-        if stale?(@projects, last_modified: @projects.maximum(:updated_at), public: !current_refinery_user.has_role?(:refinery))
+        if stale?(@projects, last_modified: @projects.maximum(:updated_at).utc, public: !current_refinery_user.has_role?(:refinery))
           present(@page)
         end
       end
