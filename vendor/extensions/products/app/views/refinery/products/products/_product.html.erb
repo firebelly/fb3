@@ -1,59 +1,61 @@
-<article class="product single clearfix">
+<%= cache product do %>
+  <article class="product single clearfix">
 
-  <div class="interior">
+    <div class="interior">
 
-    <div class="intro one-half -left clearfix">
-      <div class="-inner">
-        <header class="section-title">
-          <% unless is_single %>
-            <h1><%= link_to product.title, refinery.products_product_path(product) %></h1>
-          <% else %>
-            <h1><%= product.title %></h1>
-          <% end -%>
-          <h2 class="price"><%= number_to_currency(product.price).gsub(/\.00/,'') %></h2>
-        </header>
-        <div class="summary">
-          <% unless product.description.blank? %>
-            <div class="description"><%=raw product.description %></div>
-          <% end -%>
-        </div>
-
-        <%= render :partial => '/shared/edit_bug', :locals => { :obj => product, :edit_path => refinery.edit_products_admin_product_path(product) }%>
-      </div>
-    </div>
-
-    <aside class="secondary one-half -right">
-      <% unless product.details.blank? %>
-        <div class="details">
-          <%=raw product.details %>
-
-          <div class="one-half -right">
-            <%= form_tag refinery.products_carts_path, remote: true, data: { type: 'html' }, id: 'product-form' do %>
-              <%= hidden_field_tag 'product_id', product.id  %>
-              <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
-              <div class="actions">
-                <button type="submit" class="submit button">Add To Cart</button>
-              </div>
-            <%- end %>
+      <div class="intro one-half -left clearfix">
+        <div class="-inner">
+          <header class="section-title">
+            <% unless is_single %>
+              <h1><%= link_to product.title, refinery.products_product_path(product) %></h1>
+            <% else %>
+              <h1><%= product.title %></h1>
+            <% end -%>
+            <h2 class="price"><%= number_to_currency(product.price).gsub(/\.00/,'') %></h2>
+          </header>
+          <div class="summary">
+            <% unless product.description.blank? %>
+              <div class="description"><%=raw product.description %></div>
+            <% end -%>
           </div>
 
+          <%= render :partial => '/shared/edit_bug', :locals => { :obj => product, :edit_path => refinery.edit_products_admin_product_path(product) }%>
         </div>
-      <% end -%>
-    </aside>
+      </div>
 
-  </div>
+      <aside class="secondary one-half -right">
+        <% unless product.details.blank? %>
+          <div class="details">
+            <%=raw product.details %>
 
-  <section>
-    <% unless product.images.blank? %>
-      <div class="slider"><div class="wrap">
-        <ul class="product-images">
-        <% product.images.each_with_index do |image, index| %>
-          <li>
-          <%= image_tag image.thumbnail(geometry: :portfolio).convert('-quality 75').url, alt: [product.title, index].join(" "), data: { uid: image.image_uid } -%>
-          </li>
-        <% end %>
-        </ul>
-      </div></div>
-    <% end %>
-  </section>
-</article>
+            <div class="one-half -right">
+              <%= form_tag refinery.products_carts_path, remote: true, data: { type: 'html' }, id: 'product-form' do %>
+                <%= hidden_field_tag 'product_id', product.id  %>
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+                <div class="actions">
+                  <button type="submit" class="submit button">Add To Cart</button>
+                </div>
+              <%- end %>
+            </div>
+
+          </div>
+        <% end -%>
+      </aside>
+
+    </div>
+
+    <section>
+      <% unless product.images.blank? %>
+        <div class="slider"><div class="wrap">
+          <ul class="product-images">
+          <% product.images.each_with_index do |image, index| %>
+            <li>
+            <%= image_tag image.thumbnail(geometry: :portfolio).convert('-quality 75').url, alt: [product.title, index].join(" "), data: { uid: image.image_uid } -%>
+            </li>
+          <% end %>
+          </ul>
+        </div></div>
+      <% end %>
+    </section>
+  </article>
+<% end %>

@@ -4,6 +4,7 @@ Refinery::PagesController.class_eval do
 private
 
   def get_defaults
+    fresh_when(@page, last_modified: @page.updated_at.utc, public: !current_refinery_user.has_role?(:refinery))
     @current_section = (@page.parent) ? @page.root.title.parameterize : @page.title.parameterize
     @body_class = "single page"
     @body_class << " #{@current_section}"

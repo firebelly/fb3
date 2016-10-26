@@ -9,7 +9,9 @@ module Refinery
 
       def index
         @body_class = 'index'
-        present(@page)
+        if stale?(@projects, last_modified: @projects.maximum(:updated_at), public: !current_refinery_user.has_role?(:refinery))
+          present(@page)
+        end
       end
 
       def show
@@ -23,7 +25,9 @@ module Refinery
           return redirect_to '/work'
         end
 
-        present(@project)
+        if stale?(@project, last_modified: @project.updated_at.utc, public: !current_refinery_user.has_role?(:refinery))
+          present(@project)
+        end
       end
 
       # "quickly" upload batch of images and append to project.content field
@@ -37,7 +41,7 @@ module Refinery
           image_html += "#{simple_format params[:images_desc]}" unless params[:images_desc].blank?
           image_html += '</div>'
         end
-        unless params[:images].blank? 
+        unless params[:images].blank?
           params[:images].each do |image|
             if saved_image = ::Refinery::Image.create(image: image[1])
               image_html += "\n<p><img src=\"#{saved_image.thumbnail(geometry: :portfolio).convert('-quality 75').url}\" data-id=\"#{saved_image.id}\"</p>";
@@ -57,7 +61,7 @@ module Refinery
         if !(params[:project_id].blank? || params[:image_url].blank?)
           @project = Project.find(params[:project_id])
           parsed = Nokogiri::HTML(@project.content)
-          parsed.xpath("//img").each_with_index do |img, i| 
+          parsed.xpath("//img").each_with_index do |img, i|
             if img['src'] == params[:image_url]
               img.set_attribute('alt', params[:new_alt])
               img.set_attribute('title', params[:new_alt])

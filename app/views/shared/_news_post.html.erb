@@ -1,31 +1,33 @@
-<article class="news-article <%= 'listing' unless is_single -%> clearfix">
-  <%- if news_post.image.nil? %>
-    <hr class="article-divider">
-  <% else %>
-    <div class="featured-image" style="background-image:url(<%= news_post.image.thumbnail(geometry: :portfolio).convert('-quality 75').url %>);"></div>
-    <%- unless news_post.image_caption.nil? %>
-      <div class="featured-image-caption"><p><%= news_post.image_caption %></p></div>
-    <% end -%>
-  <%- end %>
-
-  <header class="section-title">
-    <% unless is_single %>
-      <h1>
-        <%= link_to(refinery.news_posts_news_post_path(news_post)) do %>
-          <span><%= news_post.title %></span>
-        <% end %>
-        </h1>
+<%= cache news_post do %>
+  <article class="news-article <%= 'listing' unless is_single -%> clearfix">
+    <%- if news_post.image.nil? %>
+      <hr class="article-divider">
     <% else %>
-      <h1><%= news_post.title %></h1>
-    <% end -%>
-    <h3 class="date"><%= news_post.date.strftime('%B %-d, %Y') %><%= raw(" &ndash; by #{news_post.author}") unless news_post.author.blank? %></h3>
+      <div class="featured-image" style="background-image:url(<%= news_post.image.thumbnail(geometry: :portfolio).convert('-quality 75').url %>);"></div>
+      <%- unless news_post.image_caption.nil? %>
+        <div class="featured-image-caption"><p><%= news_post.image_caption %></p></div>
+      <% end -%>
+    <%- end %>
 
-    <%# raw news_post.sidebar unless news_post.sidebar.blank? %>
-    
-    <%= render partial: '/shared/edit_bug', :locals => { :obj => news_post, :edit_path => refinery.edit_news_posts_admin_news_post_path(news_post) }%>
-  </header>
-  <section class="summary user-content">
-    <%=raw news_post.content %>
-  </section>
+    <header class="section-title">
+      <% unless is_single %>
+        <h1>
+          <%= link_to(refinery.news_posts_news_post_path(news_post)) do %>
+            <span><%= news_post.title %></span>
+          <% end %>
+          </h1>
+      <% else %>
+        <h1><%= news_post.title %></h1>
+      <% end -%>
+      <h3 class="date"><%= news_post.date.strftime('%B %-d, %Y') %><%= raw(" &ndash; by #{news_post.author}") unless news_post.author.blank? %></h3>
 
-</article>
+      <%# raw news_post.sidebar unless news_post.sidebar.blank? %>
+
+      <%= render partial: '/shared/edit_bug', :locals => { :obj => news_post, :edit_path => refinery.edit_news_posts_admin_news_post_path(news_post) }%>
+    </header>
+    <section class="summary user-content">
+      <%=raw news_post.content %>
+    </section>
+
+  </article>
+<% end %>

@@ -1,71 +1,72 @@
 <% content_for :page do %>
-  <article class="content-block single-project" data-id="<%= @project.id %>">
-    <section class="content interior">
-      <% if !@project.video_url.blank? %>
-        <div class="project-banner video">
-          <video autoplay loop poster="<%= @project.image.thumbnail(geometry: :portfolio).convert('-quality 100').url unless @project.image.blank? %>">
-            <source src="<%= @project.video_url %>" type="video/mp4">
-          </video>
-        </div>
-      <% else %>
-        <div class="project-banner" style="background-image:url(<%= @project.image.thumbnail(geometry: :portfolio).convert('-quality 100').url unless @project.image.blank? %>);"></div>
-      <% end %>
-      <div class="intro clearfix">
-        <header class="section-title">
-          <h1 class="project-client"><%= @project.title -%></h1>
-          <h4 class="project-name"><%= @project.subtitle %></h4>
-          <%= render :partial => '/shared/edit_bug', :locals => { :obj => @project, :edit_path => refinery.edit_projects_admin_project_path(@project) }%>
-        </header>
-        <div class="summary user-content"><%= raw @project.summary %></div>
-        <div class="project-meta grid">
-          <div class="industry one-half">
-            <div class="-inner">
-              <h3>Industry:</h3>
-              <ul><li><%= link_to @project.industry.name, "/work##{@project.industry.slug}" -%></li></ul>
-            </div>
+  <%= cache @project do -%>
+    <article class="content-block single-project" data-id="<%= @project.id %>">
+      <section class="content interior">
+        <% if !@project.video_url.blank? %>
+          <div class="project-banner video">
+            <video autoplay loop poster="<%= @project.image.thumbnail(geometry: :portfolio).convert('-quality 100').url unless @project.image.blank? %>">
+              <source src="<%= @project.video_url %>" type="video/mp4">
+            </video>
           </div>
-          <div class="services one-half">
-            <div class="inner">
-              <h3>Services:</h3>
-              <ul><li><%= raw @project.service_counts.map { |t| link_to t.name, "/work##{t.slug}" }.join(', ') -%></li></ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="project-images clearfix">
-        <%=raw lazy_load_images( video_embeds(@project.content), @project.title ) -%>
-
-        <% if current_refinery_user.can_edit? @project %>
-          <div style="margin: 20px; text-align:center"><%= render :partial => '/shared/edit_bug', :locals => { :obj => @project, :edit_path => refinery.edit_projects_admin_project_path(@project) }%></div>
-          <div class="batch-upload">
-            <%= form_tag('/work/upload_images', multipart: true, method: :post, class: 'dropzone') do %>
-              <h2>Add Project Images</h2>
-              <fieldset class="clearfix">
-                <%= text_field_tag 'images_number', '', placeholder: 'Number header e.g. "1."' %>
-                <%= text_field_tag 'images_title', '', placeholder: 'Title header e.g. "Stationary System"' %>
-                <%= text_area_tag 'images_desc', '', placeholder: 'Paragraph(s) describing batch of images' %>
-                <%= hidden_field_tag 'project_id', @project.id %>
-                <%= hidden_field_tag 'file-order', '' %>
-                <div class="dz-message">Drop image files here.</div>
-              </fieldset>
-            <% end %>
-            <button class="submit">Upload Images / Add Text</button>
-          </div>
+        <% else %>
+          <div class="project-banner" style="background-image:url(<%= @project.image.thumbnail(geometry: :portfolio).convert('-quality 100').url unless @project.image.blank? %>);"></div>
         <% end %>
+        <div class="intro clearfix">
+          <header class="section-title">
+            <h1 class="project-client"><%= @project.title -%></h1>
+            <h4 class="project-name"><%= @project.subtitle %></h4>
+            <%= render :partial => '/shared/edit_bug', :locals => { :obj => @project, :edit_path => refinery.edit_projects_admin_project_path(@project) }%>
+          </header>
+          <div class="summary user-content"><%= raw @project.summary %></div>
+          <div class="project-meta grid">
+            <div class="industry one-half">
+              <div class="-inner">
+                <h3>Industry:</h3>
+                <ul><li><%= link_to @project.industry.name, "/work##{@project.industry.slug}" -%></li></ul>
+              </div>
+            </div>
+            <div class="services one-half">
+              <div class="inner">
+                <h3>Services:</h3>
+                <ul><li><%= raw @project.service_counts.map { |t| link_to t.name, "/work##{t.slug}" }.join(', ') -%></li></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-images clearfix">
+          <%=raw lazy_load_images( video_embeds(@project.content), @project.title ) -%>
 
-      </div>
-    </section>
-  </article>
+          <% if current_refinery_user.can_edit? @project %>
+            <div style="margin: 20px; text-align:center"><%= render :partial => '/shared/edit_bug', :locals => { :obj => @project, :edit_path => refinery.edit_projects_admin_project_path(@project) }%></div>
+            <div class="batch-upload">
+              <%= form_tag('/work/upload_images', multipart: true, method: :post, class: 'dropzone') do %>
+                <h2>Add Project Images</h2>
+                <fieldset class="clearfix">
+                  <%= text_field_tag 'images_number', '', placeholder: 'Number header e.g. "1."' %>
+                  <%= text_field_tag 'images_title', '', placeholder: 'Title header e.g. "Stationary System"' %>
+                  <%= text_area_tag 'images_desc', '', placeholder: 'Paragraph(s) describing batch of images' %>
+                  <%= hidden_field_tag 'project_id', @project.id %>
+                  <%= hidden_field_tag 'file-order', '' %>
+                  <div class="dz-message">Drop image files here.</div>
+                </fieldset>
+              <% end %>
+              <button class="submit">Upload Images / Add Text</button>
+            </div>
+          <% end %>
 
-  <nav class="footer-pagination">
-    <ul>
-      <li class="prev">
-        <%= link_to(raw('<span class="arrow">&larr;</span> Previous Project'), refinery.projects_project_path(@project.prev || ::Refinery::Projects::Project.published.last), rel: 'prev') %>
-      </li>
-      <li class="next">
-        <%= link_to(raw('Next Project <span class="arrow">&rarr;</span>'), refinery.projects_project_path(@project.next || ::Refinery::Projects::Project.published.first), rel: 'next') %>
-      </li>
-    </ul>
-  </nav>
+        </div>
+      </section>
+    </article>
 
+    <nav class="footer-pagination">
+      <ul>
+        <li class="prev">
+          <%= link_to(raw('<span class="arrow">&larr;</span> Previous Project'), refinery.projects_project_path(@project.prev || ::Refinery::Projects::Project.published.last), rel: 'prev') %>
+        </li>
+        <li class="next">
+          <%= link_to(raw('Next Project <span class="arrow">&rarr;</span>'), refinery.projects_project_path(@project.next || ::Refinery::Projects::Project.published.first), rel: 'next') %>
+        </li>
+      </ul>
+    </nav>
+  <% end %>
 <% end %>
