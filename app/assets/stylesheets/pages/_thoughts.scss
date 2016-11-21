@@ -95,6 +95,9 @@
     blockquote {
       margin: ($padding * 6) auto;
     }
+    ul, ol {
+      max-width: 600px;
+    }
   }
 
   .post-meta {
