@@ -40,6 +40,10 @@ def restart():
     with cd(env.path):
         run('touch tmp/restart.txt')
 
+def clear_cache():
+    with cd(env.path):
+        run('RAILS_ENV=%s bin/rake tmp:cache:clear' % env.stage)
+
 def bundle():
     with cd(env.path):
         run('bundle install')
