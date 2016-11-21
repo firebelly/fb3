@@ -16,25 +16,24 @@
         <header class="section-title">
           <h1><%= child_page.title %>.</h1>
         </header>
-        <div class="summary user-content">
-        <%= raw child_page.content_for :body -%>
+        <div class="summary">
+          <%= raw child_page.content_for :body -%>
         </div>
       </div>
     </div>
-    <aside class="secondary one-half -right user-content">
+    <aside class="secondary one-half -right">
       <%= raw child_page.content_for :side_body -%>
     </aside>
   <% else %>
-
-  <div><a name="<%= child_page.slug -%>"></a>
-    <header class="section-title divider user-content">
-      <h1><%= child_page.title %></h1>
-      <%= raw child_page.content_for :side_body -%>
-    </header>
-    <div class="summary user-content">
-      <%= image_tag image.thumbnail("455x").url, :alt => child_page.title, 'data-uid' => image.image_uid, 'data-desktop_width' => 455, 'data-giant_desktop_width' => 700, :class => 'responsive' unless image.nil? -%>
-      <%= raw child_page.content_for :body -%>
+    <div><a name="<%= child_page.slug -%>"></a>
+      <header class="section-title divider">
+        <h1><%= child_page.title %></h1>
+        <%= raw child_page.content_for :side_body -%>
+      </header>
+      <div class="summary">
+        <%= image_tag image.thumbnail("455x").url, :alt => child_page.title, 'data-uid' => image.image_uid, 'data-desktop_width' => 455, 'data-giant_desktop_width' => 700, :class => 'responsive' unless image.nil? -%>
+        <%= raw child_page.content_for :body -%>
+      </div>
     </div>
-  </div>
   <% end -%>
 </li>
