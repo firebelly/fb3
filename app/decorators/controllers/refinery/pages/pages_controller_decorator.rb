@@ -8,7 +8,7 @@ private
     @current_section = (@page.parent) ? @page.root.title.parameterize : @page.title.parameterize
     @body_class = "single page"
     @body_class << " #{@current_section}"
-    @child_pages = @page.children.where(:show_in_menu => true)
+    @child_pages = @page.children.where(:show_in_menu => true).where(:draft => false)
     @highlights = ::Refinery::Firebelly::Highlight.order('date DESC')
     @page_description = @page.content_for(:body)
     if @page.images.any?
