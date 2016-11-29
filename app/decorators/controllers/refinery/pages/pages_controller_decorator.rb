@@ -4,11 +4,15 @@ Refinery::PagesController.class_eval do
 private
 
   def get_defaults
-    fresh_when(@page, last_modified: @page.updated_at.utc, public: !current_refinery_user.has_role?(:refinery))
+    @child_pages = @page.children.where(:show_in_menu => true)
+    if @child_pages
+      fresh_when(@child_pages, last_modified: @child_pages.first.updated_at.utc, public: !current_refinery_user.has_role?(:refinery))
+    else
+      fresh_when(@page, last_modified: @page.updated_at.utc, public: !current_refinery_user.has_role?(:refinery))
+    end
     @current_section = (@page.parent) ? @page.root.title.parameterize : @page.title.parameterize
     @body_class = "single page"
     @body_class << " #{@current_section}"
-    @child_pages = @page.children.where(:show_in_menu => true).where(:draft => false)
     @highlights = ::Refinery::Firebelly::Highlight.order('date DESC')
     @page_description = @page.content_for(:body)
     if @page.images.any?

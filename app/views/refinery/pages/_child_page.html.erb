@@ -1,39 +1,41 @@
-<li class="page user-content clearfix <%= 'person' if @body_id =~ /^people/ %> <%= child_page.slug %> item" data-page="<%= child_page.slug %>" id="<%= child_page.slug %>">
-  <% image = (child_page.images.any?) ? child_page.images.first : nil %>
-  <% if @body_id =~ /^people/ %>
-    <div class="bio -left">
-      <header>
-        <h1><%= child_page.title %></h1>
-        <h2><%= child_page.subtitle unless child_page.subtitle.blank? %></h2>
-        <div class="links"><%= raw child_page.content_for :side_body -%></div>
-      </header>
-      <%= raw child_page.content_for :body -%>
-    </div>
-    <div class="portrait -right" style="background-image: url('<%= image.thumbnail(geometry: '1800x1350>').convert('-quality 75').url unless image.nil? -%>');"></div>
-  <% elsif @body_id =~ /^endeavors/ %>
-    <div class="intro one-half -left clearfix">
-      <div class="-inner">
-        <header class="section-title">
-          <h1><%= child_page.title %>.</h1>
+<% if !child_page.draft || current_refinery_user.has_role?(:refinery) %>
+  <li class="page user-content clearfix <%= 'person' if @body_id =~ /^people/ %> <%= child_page.slug %> item" data-page="<%= child_page.slug %>" id="<%= child_page.slug %>">
+    <% image = (child_page.images.any?) ? child_page.images.first : nil %>
+    <% if @body_id =~ /^people/ %>
+      <div class="bio -left">
+        <header>
+          <h1><%= child_page.title %></h1>
+          <h2><%= child_page.subtitle unless child_page.subtitle.blank? %></h2>
+          <div class="links"><%= raw child_page.content_for :side_body -%></div>
+        </header>
+        <%= raw child_page.content_for :body -%>
+      </div>
+      <div class="portrait -right" style="background-image: url('<%= image.thumbnail(geometry: '1800x1350>').convert('-quality 75').url unless image.nil? -%>');"></div>
+    <% elsif @body_id =~ /^endeavors/ %>
+      <div class="intro one-half -left clearfix">
+        <div class="-inner">
+          <header class="section-title">
+            <h1><%= child_page.title %>.</h1>
+          </header>
+          <div class="summary">
+            <%= raw child_page.content_for :body -%>
+          </div>
+        </div>
+      </div>
+      <aside class="secondary one-half -right">
+        <%= raw child_page.content_for :side_body -%>
+      </aside>
+    <% else %>
+      <div><a name="<%= child_page.slug -%>"></a>
+        <header class="section-title divider">
+          <h1><%= child_page.title %></h1>
+          <%= raw child_page.content_for :side_body -%>
         </header>
         <div class="summary">
+          <%= image_tag image.thumbnail("455x").url, :alt => child_page.title, 'data-uid' => image.image_uid, 'data-desktop_width' => 455, 'data-giant_desktop_width' => 700, :class => 'responsive' unless image.nil? -%>
           <%= raw child_page.content_for :body -%>
         </div>
       </div>
-    </div>
-    <aside class="secondary one-half -right">
-      <%= raw child_page.content_for :side_body -%>
-    </aside>
-  <% else %>
-    <div><a name="<%= child_page.slug -%>"></a>
-      <header class="section-title divider">
-        <h1><%= child_page.title %></h1>
-        <%= raw child_page.content_for :side_body -%>
-      </header>
-      <div class="summary">
-        <%= image_tag image.thumbnail("455x").url, :alt => child_page.title, 'data-uid' => image.image_uid, 'data-desktop_width' => 455, 'data-giant_desktop_width' => 700, :class => 'responsive' unless image.nil? -%>
-        <%= raw child_page.content_for :body -%>
-      </div>
-    </div>
-  <% end -%>
-</li>
+    <% end -%>
+  </li>
+<% end %>
