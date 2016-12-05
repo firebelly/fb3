@@ -5,7 +5,7 @@ private
 
   def get_defaults
     @child_pages = @page.children.where(:show_in_menu => true)
-    if @child_pages
+    unless @child_pages.empty?
       fresh_when(@child_pages, last_modified: @child_pages.first.updated_at.utc, public: !current_refinery_user.has_role?(:refinery))
     else
       fresh_when(@page, last_modified: @page.updated_at.utc, public: !current_refinery_user.has_role?(:refinery))
