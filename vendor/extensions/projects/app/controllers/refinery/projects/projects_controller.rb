@@ -9,9 +9,9 @@ module Refinery
 
       def index
         @body_class = 'index'
-        if stale?(@projects, last_modified: @projects.maximum(:updated_at).utc, public: !current_refinery_user.has_role?(:refinery))
+        # if stale?(@projects, last_modified: @projects.maximum(:updated_at).utc, public: !current_refinery_user.has_role?(:refinery))
           present(@page)
-        end
+        # end
       end
 
       def show
@@ -25,9 +25,9 @@ module Refinery
           return redirect_to '/work'
         end
 
-        if stale?(@project, last_modified: @project.updated_at.utc, public: !current_refinery_user.has_role?(:refinery))
+        # if stale?(@project)
           present(@project)
-        end
+        # end
       end
 
       # "quickly" upload batch of images and append to project.content field

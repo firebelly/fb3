@@ -58,11 +58,11 @@ img {
     height: 1px !important;
     width: 1px !important;
     overflow: hidden;
-} 
+}
 body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .visually-hidden button { display: none !important; }
 // Hide visually and for screen readers
 // http://a11yproject.com/posts/how-to-hide-content/
-.hidden { 
+.hidden {
   display: none;
   visibility: hidden;
 }
@@ -74,4 +74,15 @@ sup {
 
 .edit-bug {
   margin-top: 20px;
+}
+
+.batch-upload,
+.edit-bug {
+  display: none;
+}
+body.refinery-user {
+  .batch-upload,
+  .edit-bug {
+    display: block;
+  }
 }
