@@ -76,11 +76,13 @@ sup {
   margin-top: 20px;
 }
 
+.alt-tag-edit,
 .batch-upload,
 .edit-bug {
   display: none;
 }
 body.refinery-user {
+  .alt-tag-edit,
   .batch-upload,
   .edit-bug {
     display: block;
